@@ -1,7 +1,7 @@
   /**
  * @license AGPL-3.0
  * Blooket Cheats
- * Copyright (C) 2023-present 05Konz/Xullys
+ * Copyright (C) 2023-present Tony-the-best
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
@@ -143,7 +143,7 @@
 })();
 
     }
-    /* By CryptoDude3 */
+    /* By Tony-the-best */
     if (window.fetch.call.toString() == 'function call() { [native code] }') {
         const call = window.fetch.call;
         window.fetch.call = function () {
