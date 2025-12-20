@@ -1,7 +1,7 @@
 /**
  * @license AGPL-3.0
  * Blooket Cheats
- * Copyright (C) 2023-present 05Konz
+ * Copyright (C) 2026-presant Tony-the-best
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
- * Source: https://github.com/Blooket-Council/Blooket-Cheats 05konz994@gmail.com
+ * Source: https://github.com/Tony-the-best/blooket-gui
 */
 
 /* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
@@ -27,7 +27,7 @@
         iframe.style.display = "none";
         document.body.append(iframe);
     }
-    /* By CryptoDude3 */
+    /* By Tony-the-best */
     if (window.fetch.call.toString() == 'function call() { [native code] }') {
         const call = window.fetch.call;
         window.fetch.call = function () {
@@ -37,7 +37,7 @@
     const timeProcessed = 1747005934421;
     let latestProcess = -1;
     const cheat = (async () => {
-        /* Anti-Suspend By CryptoDude3 */
+        /* Anti-Suspend by Tony-the-best */
         if (window.fetch.call.toString() == "function call() { [native code] }") {
             const call = window.fetch.call;
             window.fetch.call = function () {
@@ -229,8 +229,8 @@
                         fontWeight: "700",
                         userSelect: "text",
                     },
-                    innerHTML: "GitHub - 05Konzz",
-                    onclick: () => window.open("https://github.com/Blooket-Council/Blooket-Cheats", "_blank").focus(),
+                    innerHTML: "GitHub - Tony-the-best",
+                    onclick: () => window.open("https://github.com/Tony-the-best/blooket-gui", "_blank").focus(),
                 }),
                 (controlButtons = createElement(
                     "div",
