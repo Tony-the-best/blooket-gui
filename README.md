@@ -349,6 +349,7 @@ The Blooket GUI is released for **informational, experimental, and entertainment
 - 🎨 **GUI Design & Concept:** Tony-the-best
 - 🧠 **Idea & Development:** 05konz,X-gui client,minecraft2 and zobro
 
-Special thanks to responsible users.
+Special thanks to responsible users. Also thanks again to X-gui client, he had explain the issue of not having full credits
+without him my respotory might have been taken down.
 
 © 2025 Tony-the-best. All rights reserved.
