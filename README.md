@@ -18,8 +18,7 @@
 - [🏫 School & Classroom Notice](#-school--classroom-notice)  
 - [🌈 How to Have Fun With It](#-how-to-have-fun-with-it)  
 - [💡 Tips for Interaction](#-tips-for-interaction)  
-- [🧠 Idea & Development](#-idea--development)  
-- [🙌 Credits](#-credits)  
+- [🧠 Idea & Development](#-idea--development)    
 - [🗺️ Roadmap & Future Fun](#-roadmap--future-fun)  
 - [❓ Extended FAQ](#-extended-faq)  
 - [📚 Learning Benefits](#-learning-benefits)  
@@ -144,16 +143,6 @@ Created by **05konz**, the project includes:
 - Experimenting with timing, delays, and feedback  
 
 > Goal: a **learning-friendly, interactive GUI** that is safe and engaging.
-
----
-
-## 🙌 Credits
-
-- 💻 **Project Creator:** Tony-the-best  
-- 🎨 **GUI Design & Concept:** Tony-the-best  
-- 🧠 **Idea & Development:** 05konz  
-
-Special thanks to responsible explorers.
 
 ---
 
@@ -358,8 +347,8 @@ The Blooket GUI is released for **informational, experimental, and entertainment
 
 - 💻 **Project Creator:** Tony-the-best  
 - 🎨 **GUI Design & Concept:** Tony-the-best
-- 🧠 **Idea & Development:** 05konz,X-gui client and minecraft2
+- 🧠 **Idea & Development:** 05konz,X-gui client,minecraft2 and zobro
 
-Special thanks to responsible users.  
+Special thanks to responsible users.
 
 © 2025 Tony-the-best. All rights reserved.
