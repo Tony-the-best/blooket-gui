@@ -1,7 +1,7 @@
 
 
 // ==UserScript==
-// @name         Tony-the-best
+// @name         X-gui For Blooket
 // @version      1.2
 // @description  NOT PATCHED ANYMORE, THE BEST GUI ON THE WEB! ADVANCED ANTIBAN AND TONS OF FEATURES {CHEAT} {HACK} {CLIENT}
 // @author       Tony-the-best
@@ -16,31 +16,13 @@
 // ==/UserScript==
 
 
-
-
-// ==UserScript==
-// @name         X-GUI CLIENT FOR BLOOKET
-// @namespace    http://tampermonkey.net/
-// @version      6.63x
-// @description  NOT PATCHED ANYMORE, THE BEST GUI ON THE WEB! ADVANCED ANTIBAN AND TONS OF FEATURES {CHEAT} {HACK} {CLIENT}
-// @author       XullysFN
-// @run-at       document-end
-// @match        *://*.blooket.com/*
-// @match        *://blooket.com/*
-// @license      APGL-3.0
-// @icon         https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyNGpzdnl1czBxcm14bGt6OWR5MHVucnIzN3BseGxrNDRrZGpoMGZ1MyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/pgslAFp1vWALCgFlrC/giphy.gif
-// @grant        none
-// @downloadURL https://update.greasyfork.org/scriptss/553301/X-GUI%20CLIENT%20FOR%20BLOOKET.user.js
-// @updateURL https://update.greasyfork.org/scripts/553301/X-GUI%20CLIENT%20FOR%20BLOOKET.meta.js
-// ==/UserScript==
-
 (function() {
     'use strict';
 
     /**
  * @license AGPL-3.0
  * Blooket Cheats
- * Copyright (C) 2023-present 05Konz/Xullys
+ * Copyright (C) 2025-present Tony-the-best
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
@@ -61,9 +43,9 @@
 
 /* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
-console.log("%c X-GUI CLIENT LOADED! ENJOY! %c\n Created by Xullys on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem");
+console.log("%c X-GUI LOADED! ENJOY! %c\n Created by Tony-the-best on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem");
 console.log("%c gui.js", "color: #0bc2cf; font-size: 1rem");
-console.log("%c Star the GitHub repo! %c https://github.com/xgui-client/X-GUI-BLOOKET-CLIENT", "color: #ffd000; font-size: 1rem", "color: #8000ff; font-size: 1rem");
+console.log("%c Star the GitHub repo! %c https://github.com/Tony-the-best/blooket-gui", "color: #ffd000; font-size: 1rem", "color: #8000ff; font-size: 1rem");
 
 (() => {
     let iframe = document.querySelector("iframe");
@@ -73,7 +55,7 @@ console.log("%c Star the GitHub repo! %c https://github.com/xgui-client/X-GUI-BL
         document.body.append(iframe);
 
     }
-    /* By CryptoDude3 */
+    /* By Tony-the-best */
     if (window.fetch.call.toString() == 'function call() { [native code] }') {
         const call = window.fetch.call;
         window.fetch.call = function () {
