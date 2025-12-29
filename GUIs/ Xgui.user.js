@@ -4,7 +4,7 @@
 // @name         Tony-the-best
 // @version      1.2
 // @description  NOT PATCHED ANYMORE, THE BEST GUI ON THE WEB! ADVANCED ANTIBAN AND TONS OF FEATURES {CHEAT} {HACK} {CLIENT}
-// @author       Tonyy-the-best
+// @author       Tony-the-best
 // @run-at       document-end
 // @match        *://*.blooket.com/*
 // @match        *://blooket.com/*
@@ -16,13 +16,54 @@
 // ==/UserScript==
 
 
+
+
+// ==UserScript==
+// @name         X-GUI CLIENT FOR BLOOKET
+// @namespace    http://tampermonkey.net/
+// @version      6.63x
+// @description  NOT PATCHED ANYMORE, THE BEST GUI ON THE WEB! ADVANCED ANTIBAN AND TONS OF FEATURES {CHEAT} {HACK} {CLIENT}
+// @author       XullysFN
+// @run-at       document-end
+// @match        *://*.blooket.com/*
+// @match        *://blooket.com/*
+// @license      APGL-3.0
+// @icon         https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyNGpzdnl1czBxcm14bGt6OWR5MHVucnIzN3BseGxrNDRrZGpoMGZ1MyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/pgslAFp1vWALCgFlrC/giphy.gif
+// @grant        none
+// @downloadURL https://update.greasyfork.org/scriptss/553301/X-GUI%20CLIENT%20FOR%20BLOOKET.user.js
+// @updateURL https://update.greasyfork.org/scripts/553301/X-GUI%20CLIENT%20FOR%20BLOOKET.meta.js
+// ==/UserScript==
+
 (function() {
     'use strict';
 
+    /**
+ * @license AGPL-3.0
+ * Blooket Cheats
+ * Copyright (C) 2023-present 05Konz/Xullys
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Source: https://github.com/Blooket-Council/Blooket-Cheats * EMAIL: 05konz994@gmail.com
+ * Source: https://greasyfork.org/en/scripts/553301/versions/new * EMAIL slinkingfox@outlook.com
 
-console.log("%c X-GUI CLIENT LOADED! ENJOY! %c\n Created by Tony-the-best on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem");
+*/
+
+/* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
+
+console.log("%c X-GUI CLIENT LOADED! ENJOY! %c\n Created by Xullys on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem");
 console.log("%c gui.js", "color: #0bc2cf; font-size: 1rem");
-console.log("%c Star the GitHub repo! %c https://github.com/Tony-the-best/blooket-gui", "color: #ffd000; font-size: 1rem", "color: #8000ff; font-size: 1rem");
+console.log("%c Star the GitHub repo! %c https://github.com/xgui-client/X-GUI-BLOOKET-CLIENT", "color: #ffd000; font-size: 1rem", "color: #8000ff; font-size: 1rem");
 
 (() => {
     let iframe = document.querySelector("iframe");
@@ -1651,351 +1692,6 @@ window.addEventListener("beforeunload", () => {
                 })
             }
         }, {
-            name: "Account Generator",
-            description: "Generates An Account, Only works on Blooket SignUp Page And You Need CORS Disabled",
-            run: async function () {
-
-
-
-
-   const MONTH = String(Math.floor(Math.random() * 12) + 1);
-   const YEAR = String(Math.floor(Math.random() * (2000 - 1980 + 1)) + 1980);
-
-
-    function generateBlooketPassword() {
-        const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-        const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const numbers = '0123456789';
-
-        let password = '';
-        password += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
-        password += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
-        password += numbers.charAt(Math.floor(Math.random() * numbers.length));
-
-        const allChars = lowercase + uppercase + numbers;
-        for (let i = 0; i < 9; i++) {
-            password += allChars.charAt(Math.floor(Math.random() * allChars.length));
-        }
-
-        return password.split('').sort(() => Math.random() - 0.5).join('');
-    }
-
-    function randomString(length) {
-        const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-        let result = '';
-        for (let i = 0; i < length; i++) {
-            result += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return result;
-    }
-
-    function generatePassword() {
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
-        let password = '';
-        for (let i = 0; i < 16; i++) {
-            password += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return password;
-    }
-
-    async function createMailTmAccount(retries = 5) {
-        for (let attempt = 1; attempt <= retries; attempt++) {
-            try {
-                const domainRes = await fetch("https://api.mail.tm/domains");
-                if (!domainRes.ok) {
-                    if (domainRes.status === 429) {
-                        console.log(`Rate limited on domains, waiting ${attempt * 2}s...`);
-                        await new Promise(r => setTimeout(r, attempt * 2000));
-                        continue;
-                    }
-                    throw new Error(`Failed to fetch domains: ${domainRes.status}`);
-                }
-                const domainJson = await domainRes.json();
-                const domain = domainJson?.["hydra:member"]?.[0]?.domain;
-                if (!domain) throw new Error("No domains returned from mail.tm");
-
-                const username = randomString(8);
-                const password = generatePassword();
-                const address = `${username}@${domain}`;
-
-                const createRes = await fetch("https://api.mail.tm/accounts", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ address, password }),
-                });
-
-                if (createRes.status === 429) {
-                    console.log(`Rate limited on account creation, waiting ${attempt * 2}s...`);
-                    await new Promise(r => setTimeout(r, attempt * 2000));
-                    continue;
-                }
-
-                if (!createRes.ok && createRes.status !== 400) {
-                    const body = await createRes.text().catch(() => "");
-                    throw new Error(`Failed to create mail.tm account: ${createRes.status} ${body}`);
-                }
-
-                const tokenRes = await fetch("https://api.mail.tm/token", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ address, password }),
-                });
-
-                if (tokenRes.status === 429) {
-                    console.log(`Rate limited on token, waiting ${attempt * 2}s...`);
-                    await new Promise(r => setTimeout(r, attempt * 2000));
-                    continue;
-                }
-
-                if (!tokenRes.ok) throw new Error(`Failed to get token: ${tokenRes.status}`);
-                const tokenJson = await tokenRes.json();
-                if (!tokenJson?.token) throw new Error("mail.tm token not returned");
-
-                return { address, password, token: tokenJson.token };
-            } catch (error) {
-                if (attempt === retries) throw error;
-                console.log(`Attempt ${attempt} failed, retrying...`);
-                await new Promise(r => setTimeout(r, attempt * 2000));
-            }
-        }
-    }
-
-    async function waitForVerificationEmail(token, maxAttempts = 30, delayMs = 3000) {
-        for (let i = 0; i < maxAttempts; i++) {
-            try {
-                const res = await fetch("https://api.mail.tm/messages", {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
-
-                if (res.status === 429) {
-                    console.log("Rate limited on messages, waiting 5s...");
-                    await new Promise(r => setTimeout(r, 5000));
-                    continue;
-                }
-
-                if (!res.ok) throw new Error(`Failed to fetch messages: ${res.status}`);
-                const data = await res.json();
-                const messages = data["hydra:member"];
-
-                if (messages && messages.length > 0) {
-                    const msg = messages[0];
-                    const codeMatch = msg.intro?.match(/\d{6}/);
-                    if (codeMatch) return codeMatch[0];
-                }
-            } catch (error) {
-                console.log("Error fetching messages, retrying...");
-            }
-            await new Promise(r => setTimeout(r, delayMs));
-        }
-        throw new Error("Verification email did not arrive in time");
-    }
-
-    function waitForElement(selector, timeout = 10000) {
-        return new Promise((resolve, reject) => {
-            const startTime = Date.now();
-
-            const checkExist = setInterval(() => {
-                const element = document.querySelector(selector);
-                if (element) {
-                    clearInterval(checkExist);
-                    resolve(element);
-                } else if (Date.now() - startTime > timeout) {
-                    clearInterval(checkExist);
-                    reject(new Error(`Element ${selector} not found within ${timeout}ms`));
-                }
-            }, 100);
-        });
-    }
-
-    function wait(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    const MONTH_NAMES = { // idfk why i did this tbh its 3 am and i need help
-        '1': 'January', '2': 'February', '3': 'March', '4': 'April',
-        '5': 'May', '6': 'June', '7': 'July', '8': 'August',
-        '9': 'September', '10': 'October', '11': 'November', '12': 'December'
-    };
-
-    async function autoFillSignup() {
-        try {
-            console.log('Blooket Auto-Clicker: Starting...');
-
-            const PASSWORD = generateBlooketPassword();
-            console.log('Generated password for account');
-
-            console.log('Looking for Teacher button...');
-            const teacherButton = await waitForElement('.RoleSelection_buttonInside__i_4_j');
-            if (teacherButton) {
-                await wait(500);
-                teacherButton.click();
-                console.log('Clicked Teacher');
-            }
-
-            console.log('Setting Birthday Month...');
-            const monthInput = await waitForElement('input#month[type="hidden"]');
-            const monthPicker = await waitForElement('input.rs-picker-toggle-textbox[readonly]');
-            const monthDisplay = document.querySelector('span.rs-picker-toggle-placeholder, span.rs-picker-toggle-value');
-
-            if (monthInput && monthPicker) {
-                monthInput.value = MONTH;
-                monthPicker.value = MONTH;
-                if (monthDisplay) {
-                    monthDisplay.textContent = MONTH_NAMES[MONTH];
-                    monthDisplay.className = 'rs-picker-toggle-value';
-                }
-                const monthPickerContainer = document.querySelector('span.DropdownPicker_dropdown__8W6y0 .rs-picker');
-                if (monthPickerContainer) {
-                    monthPickerContainer.classList.add('rs-picker-has-value');
-                }
-                console.log(`Set month to: ${MONTH} (${MONTH_NAMES[MONTH]})`);
-            }
-
-            console.log('Setting Birthday Year...');
-            const yearInput = await waitForElement('input#year[type="hidden"]');
-            const yearPickers = document.querySelectorAll('input.rs-picker-toggle-textbox[readonly]');
-            const yearPicker = yearPickers[1];
-            const yearDisplay = document.querySelectorAll('span.rs-picker-toggle-placeholder, span.rs-picker-toggle-value')[1];
-
-            if (yearInput && yearPicker) {
-                yearInput.value = YEAR;
-                yearPicker.value = YEAR;
-                if (yearDisplay) {
-                    yearDisplay.textContent = YEAR;
-                    yearDisplay.className = 'rs-picker-toggle-value';
-                }
-                const yearPickerContainer = document.querySelectorAll('span.DropdownPicker_dropdown__8W6y0 .rs-picker')[1];
-                if (yearPickerContainer) {
-                    yearPickerContainer.classList.add('rs-picker-has-value');
-                }
-                console.log(`Set year to: ${YEAR}`);
-            }
-
-            console.log('Looking for Next button...');
-            const nextButton = await waitForElement('button[type="submit"].formButton');
-            if (nextButton) {
-                nextButton.click();
-                console.log('Clicked Next button');
-            }
-
-            console.log('Looking for Email & Password button...');
-            const emailButton = await waitForElement('button.AuthenticationSelection_button__fIYry');
-            if (emailButton) {
-                emailButton.click();
-                console.log('Clicked Email & Password button');
-            }
-
-            console.log('Creating temporary email account...');
-            const emailAccount = await createMailTmAccount();
-            console.log(`Created email: ${emailAccount.address}`);
-
-            console.log('Looking for email input...');
-            const emailInput = await waitForElement('input[name="email"]');
-            if (emailInput) {
-                emailInput.value = emailAccount.address;
-                emailInput.dispatchEvent(new Event('input', { bubbles: true }));
-                emailInput.dispatchEvent(new Event('change', { bubbles: true }));
-                console.log(`Filled email: ${emailAccount.address}`);
-            }
-
-            console.log('Looking for Submit button...');
-            let submitButton = await waitForElement('button[type="submit"].formButton');
-            if (submitButton) {
-                submitButton.removeAttribute('disabled');
-                submitButton.click();
-                console.log('Clicked Submit button');
-            }
-
-            console.log('Waiting for verification email...');
-            const verificationCode = await waitForVerificationEmail(emailAccount.token);
-            console.log(`Received verification code: ${verificationCode}`);
-
-            console.log('Looking for verification code input...');
-            const codeInput = await waitForElement('input[name="code"]');
-            if (codeInput) {
-                codeInput.value = verificationCode;
-                codeInput.dispatchEvent(new Event('input', { bubbles: true }));
-                codeInput.dispatchEvent(new Event('change', { bubbles: true }));
-                console.log(`Filled verification code: ${verificationCode}`);
-            }
-
-            console.log('Looking for Submit button...');
-            submitButton = await waitForElement('button[type="submit"].formButton');
-            if (submitButton) {
-                submitButton.removeAttribute('disabled');
-                submitButton.click();
-                console.log('Clicked Submit button for verification');
-            }
-
-            console.log('Looking for password input...');
-            const passwordInput = await waitForElement('input[name="password"]');
-            if (passwordInput) {
-                passwordInput.value = PASSWORD;
-                passwordInput.dispatchEvent(new Event('input', { bubbles: true }));
-                passwordInput.dispatchEvent(new Event('change', { bubbles: true }));
-                console.log('Filled password');
-            }
-
-            console.log('Looking for confirm password input...');
-            const password2Input = await waitForElement('input[name="password2"]');
-            if (password2Input) {
-                password2Input.value = PASSWORD;
-                password2Input.dispatchEvent(new Event('input', { bubbles: true }));
-                password2Input.dispatchEvent(new Event('change', { bubbles: true }));
-                console.log('Filled confirm password');
-            }
-
-            console.log('Looking for Submit button...');
-            submitButton = await waitForElement('button[type="submit"].formButton');
-            if (submitButton) {
-                submitButton.removeAttribute('disabled');
-                submitButton.click();
-                console.log('Clicked Submit button for password');
-            }
-
-            const username = emailAccount.address.split('@')[0];
-            console.log(`Using username: ${username}`);
-
-            console.log('Looking for username input...');
-            const usernameInput = await waitForElement('input[name="username"]');
-            if (usernameInput) {
-                usernameInput.value = username;
-                usernameInput.dispatchEvent(new Event('input', { bubbles: true }));
-                usernameInput.dispatchEvent(new Event('change', { bubbles: true }));
-                console.log(`Filled username: ${username}`);
-            }
-
-            console.log('Looking for agreement checkbox...');
-            const agreeCheckbox = await waitForElement('input#is-agreed[type="checkbox"]');
-            if (agreeCheckbox) {
-                agreeCheckbox.checked = true;
-                agreeCheckbox.dispatchEvent(new Event('change', { bubbles: true }));
-                console.log('Checked agreement checkbox');
-            }
-
-
-
-            console.log('Looking for final Submit button...');
-            submitButton = await waitForElement('button[type="submit"].formButton');
-            if (submitButton) {
-                submitButton.removeAttribute('disabled');
-                submitButton.click();
-                console.log('Clicked final Submit button - Account created!');
-            }
-
-            console.log('Blooket Auto-Clicker: Completed!');
-        } catch (error) {
-            console.error('Blooket Auto-Clicker Error:', error);
-        }
-    }
-
-            if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', autoFillSignup);
-        } else {
-            autoFillSignup();
-        }
-    },
-},{
 
 
 
@@ -6774,27 +6470,20 @@ altPage.onPath = renderAlts;
 
 
 const blookPage = document.createElement("div");
-blookPage.className = "blookPage";
+blookPage.className = classes.favoritesPage || "favoritesPage";
 
 Object.assign(blookPage.style, {
   display: "flex",
   flexDirection: "column",
   gap: "18px",
-  padding: "25px 20px 60px",
-  overflowY: "auto",
-  height: "100%",
-  background: "linear-gradient(135deg, #0b1020, #12162e, #1b1240)",
-  borderRadius: "14px"
+  padding: "25px 20px 50px 20px",
+  overflowY: "auto"
 });
-
 
 const Blookstyle = document.createElement("style");
 Blookstyle.textContent = `
 .blookPage::-webkit-scrollbar { width: 6px; }
-.blookPage::-webkit-scrollbar-thumb {
-  background: #5b4bdb;
-  border-radius: 4px;
-}
+.blookPage::-webkit-scrollbar-thumb { background: #5b4bdb; border-radius: 4px; }
 
 .editorContainer {
   display: flex;
@@ -6808,17 +6497,12 @@ Blookstyle.textContent = `
 
 .blookInput {
   width: 70px;
-  padding: 8px 10px;
+  padding: 8px;
   border-radius: 12px;
   border: 1px solid rgba(120,100,255,0.25);
   background: rgba(20,25,55,0.65);
   color: #fff;
   text-align: center;
-}
-.blookInput:focus {
-  border-color: #8f6bff;
-  box-shadow: 0 0 10px rgba(120,100,255,0.7);
-  outline: none;
 }
 
 .previewBox {
@@ -6828,18 +6512,23 @@ Blookstyle.textContent = `
   background: rgba(10,12,30,0.7);
   border-radius: 20px;
   border: 1px solid rgba(120,100,255,0.35);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.55);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
 }
 
-.previewLabel {
-  font-weight: 800;
-  color: #cfcfff;
-  font-size: 0.9em;
+.previewStack {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.previewStack img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .finalConfigInput {
@@ -6863,24 +6552,19 @@ Blookstyle.textContent = `
   font-weight: 900;
   color: #fff;
   background: linear-gradient(135deg, #8f6bff, #5b4bdb);
-  box-shadow: 0 8px 22px rgba(120,100,255,0.45);
 }
 `;
 document.head.appendChild(Blookstyle);
 
-
 blookPage.innerHTML += `
 <div style="text-align:center">
   <div style="font-size:2em;font-weight:900;color:#fff">🖌️ Blook Editor</div>
-  <div style="color:#cfcfff;margin-top:6px">Sets Your Blook To Custom • In-Game Only</div>
 </div>
 `;
-
 
 const editorContainer = document.createElement("div");
 editorContainer.className = "editorContainer";
 blookPage.appendChild(editorContainer);
-
 
 function createInput(label) {
   const wrap = document.createElement("div");
@@ -6892,14 +6576,12 @@ function createInput(label) {
   const l = document.createElement("label");
   l.textContent = label;
   l.style.color = "#fff";
-  l.style.fontSize = "0.9em";
   l.style.fontWeight = "600";
 
   const i = document.createElement("input");
   i.type = "number";
+  i.min = 0;
   i.value = 0;
-  i.min = 0;        // 🚫 no negatives
-  i.step = 1;
   i.className = "blookInput";
 
   wrap.append(l, i);
@@ -6923,21 +6605,14 @@ const parts = {
   eyebrowsColor: createInput("Eyebrows Color")
 };
 
-
 const previewBox = document.createElement("div");
 previewBox.className = "previewBox";
 
-const previewLabel = document.createElement("div");
-previewLabel.className = "previewLabel";
-previewLabel.textContent = "Select a part";
+const previewStack = document.createElement("div");
+previewStack.className = "previewStack";
 
-const previewImg = document.createElement("img");
-previewImg.style.maxWidth = "85%";
-previewImg.style.maxHeight = "85%";
-
-previewBox.append(previewLabel, previewImg);
+previewBox.appendChild(previewStack);
 blookPage.appendChild(previewBox);
-
 
 const GITHUB_BASE =
   "https://raw.githubusercontent.com/0alter0/blook-parts/241bda5908c9355caef55ac994b1c2ec21124eb7";
@@ -6949,72 +6624,55 @@ const PART_FOLDER_MAP = {
   glasses: "glasses",
   hair: "hair",
   hat: "hats",
-  item: "object",
-  mouth: "mouth",
+  item: "items",
+  mouth: "mouths",
   nose: "nose",
   cheeks: "cheeks",
   eyebrows: "eyebrows"
 };
 
-function getPreviewURL(part, id) {
-  if (!id || id <= 0) return "";
-  const folder = PART_FOLDER_MAP[part];
-  return folder ? `${GITHUB_BASE}/${folder}/item${id}.svg` : "";
-}
+const RENDER_ORDER = [
+  "base",
+  "clothing",
+  "cheeks",
+  "nose",
+  "eyes",
+  "eyebrows",
+  "mouth",
+  "glasses",
+  "hair",
+  "hat",
+  "item"
+];
 
+function renderStack() {
+  previewStack.innerHTML = "";
 
-let previewTimeout = null;
-let lastPreviewKey = "";
+  RENDER_ORDER.forEach(part => {
+    const input = parts[part];
+    if (!input) return;
 
-function queuePreviewUpdate(part, id) {
-  clearTimeout(previewTimeout);
+    const id = Number(input.value);
+    const folder = PART_FOLDER_MAP[part];
+    if (!folder) return;
 
-  previewTimeout = setTimeout(() => {
-    const key = `${part}:${id}`;
-    lastPreviewKey = key;
-
-    previewImg.dataset.key = key;
-    previewImg.src = getPreviewURL(part, id);
-  }, 120);
-}
-
-Object.entries(parts).forEach(([part, input]) => {
-  input.addEventListener("focus", () => {
-    previewLabel.textContent = part.toUpperCase();
-    queuePreviewUpdate(part, input.value);
-  });
-
-  input.addEventListener("input", () => {
-    if (document.activeElement === input) {
-      queuePreviewUpdate(part, input.value);
+    if (part === "base") {
+      if (id < 0) return;
+    } else {
+      if (id <= 0) return;
     }
+
+    const img = document.createElement("img");
+    img.src = `${GITHUB_BASE}/${folder}/item${id}.svg`;
+    img.onerror = () => img.remove();
+
+    previewStack.appendChild(img);
   });
-});
-
-previewImg.onerror = () => {
-  if (previewImg.dataset.key !== lastPreviewKey) return;
-  previewImg.src = "";
-  if (!previewLabel.textContent.includes("INVALID")) {
-    previewLabel.textContent += " (INVALID)";
-  }
-};
-
-previewImg.onload = () => {
-  previewLabel.textContent =
-    previewLabel.textContent.replace(" (INVALID)", "");
-};
-
+}
 
 const finalConfig = document.createElement("input");
 finalConfig.className = "finalConfigInput";
-finalConfig.placeholder = "Final Configuration String";
 blookPage.appendChild(finalConfig);
-
-const setBtn = document.createElement("button");
-setBtn.className = "blookBtn";
-setBtn.textContent = "Set Blook";
-blookPage.appendChild(setBtn);
-
 
 function updateConfig() {
   const v = Object.values(parts).map(i => i.value || 0);
@@ -7023,9 +6681,21 @@ function updateConfig() {
     `$${v[5]}#${v[6]}#${v[7]}#${v[8]}#${v[9]}` +
     `#${v[10]}#${v[11]}$${v[12]}`;
 }
-Object.values(parts).forEach(i => i.addEventListener("input", updateConfig));
-updateConfig();
 
+Object.values(parts).forEach(i => {
+  i.addEventListener("input", () => {
+    updateConfig();
+    renderStack();
+  });
+});
+
+updateConfig();
+renderStack();
+
+const setBtn = document.createElement("button");
+setBtn.className = "blookBtn";
+setBtn.textContent = "Set Blook";
+blookPage.appendChild(setBtn);
 
 setBtn.onclick = () => {
   const blook = finalConfig.value;
@@ -7041,6 +6711,7 @@ setBtn.onclick = () => {
     val: blook
   });
 };
+//Written by Lil Skittle
 
 
 
