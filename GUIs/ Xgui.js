@@ -82,129 +82,45 @@ function footer() {
     });
 };
 
-footer();(() => {
+
+
+    /**
+ * @license AGPL-3.0
+ * Blooket Cheats
+ * Copyright (C) 2023-present 05Konz/Xullys
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Source: https://github.com/Blooket-Council/Blooket-Cheats * EMAIL: 05konz994@gmail.com
+ * Source: https://greasyfork.org/en/scripts/553301/versions/new * EMAIL slinkingfox@outlook.com
+
+*/
+
+/* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
+
+console.log("%c X-GUI CLIENT LOADED! ENJOY! %c\n Created by Xullys on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem");
+console.log("%c gui.js", "color: #0bc2cf; font-size: 1rem");
+console.log("%c Star the GitHub repo! %c https://github.com/xgui-client/X-GUI-BLOOKET-CLIENT", "color: #ffd000; font-size: 1rem", "color: #8000ff; font-size: 1rem");
+
+(() => {
     let iframe = document.querySelector("iframe");
     if (!iframe) {
         iframe = document.createElement("iframe");
         iframe.style.display = "none";
         document.body.append(iframe);
 
-(function() {
-  const globalKey = "xgui_welcomeDismissed";
-  if (localStorage.getItem(globalKey) === "true") return; // stops popup everywhere if checked
-
-  const popup = document.createElement("div");
-  popup.style.cssText = `
-    position: fixed;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(6px);
-    z-index: 999999;
-    animation: fadeIn 0.3s ease;
-  `;
-
-  const box = document.createElement("div");
-  box.style.cssText = `
-    background: linear-gradient(145deg, #11111A, #1B1B2E);
-    color: #E4E4F0;
-    padding: 16px 22px;
-    width: 340px;
-    border-radius: 12px;
-    font-family: 'Nunito', sans-serif;
-    position: relative;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-    animation: slideUp 0.32s ease;
-    text-align: center;
-  `;
-
-  box.innerHTML = `
-    <div style="font-size: 1.45em; font-weight: 700; margin-bottom: 8px;">
-      Welcome to X-GUI ✨
-    </div>
-    <div style="font-size: 0.95em; color: #B0A8FF; margin-bottom: 12px; line-height:1.3;">
-      The sleekest, most advanced Blooket client — enjoy the experience!
-    </div>
-
-    <label style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;cursor:pointer;font-size:0.9em;user-select:none;">
-      <div style="
-        position: relative;
-        width: 36px;
-        height: 18px;
-        background: #333;
-        border-radius: 9px;
-        transition: background 0.3s;
-      " id="xgui_switch">
-        <div style="
-          position: absolute;
-          top: 1px;
-          left: 1px;
-          width: 16px;
-          height: 16px;
-          background: #ccc;
-          border-radius: 50%;
-          transition: left 0.3s, background 0.3s;
-        " id="xgui_knob"></div>
-      </div>
-      Don't show again on all Blooket pages 😝
-    </label>
-  `;
-
-  const switchEl = box.querySelector("#xgui_switch");
-  const knob = box.querySelector("#xgui_knob");
-  let checked = false;
-
-  switchEl.onclick = () => {
-    checked = !checked;
-    if (checked) {
-      switchEl.style.background = "#7F5AF0";
-      knob.style.left = "19px";
-      knob.style.background = "#fff";
-    } else {
-      switchEl.style.background = "#333";
-      knob.style.left = "1px";
-      knob.style.background = "#ccc";
     }
-  };
-
-  const close = document.createElement("div");
-  close.textContent = "✕";
-  close.style.cssText = `
-    position: absolute;
-    top: 6px;
-    right: 8px;
-    font-size: 1.2em;
-    cursor: pointer;
-    color: #FF6B6B;
-    transition: 0.2s;
-  `;
-  close.onmouseover = () => close.style.color = "#FF3B3B";
-  close.onmouseleave = () => close.style.color = "#FF6B6B";
-
-  close.onclick = () => {
-    if (checked) {
-      localStorage.setItem(globalKey, "true"); // disables popup globally on all pages
-    }
-    popup.style.animation = "fadeOut 0.25s ease";
-    setTimeout(() => popup.remove(), 200);
-  };
-
-  box.appendChild(close);
-  popup.appendChild(box);
-  document.body.appendChild(popup);
-
-  const style = document.createElement("style");
-  style.textContent = `
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-    @keyframes fadeOut { from {opacity:1;} to {opacity:0;} }
-    @keyframes slideUp { from {transform:translateY(30px);opacity:0;} to {transform:translateY(0);opacity:1;} }
-  `;
-  document.head.appendChild(style);
-})();
-
-    }
-    /* By Tony-the-best */
+    /* By CryptoDude3 */
     if (window.fetch.call.toString() == 'function call() { [native code] }') {
         const call = window.fetch.call;
         window.fetch.call = function () {
@@ -214,21 +130,21 @@ footer();(() => {
     const timeProcessed = 1747005941679;
     let latestProcess = -1;
     const cheat = (async () => {
-        const versionName = "6.40x";
+        const versionName = "6.63x";
         const gui = document.createElement("div");
         Object.assign(gui.style, {
             top: window.innerHeight / 2 - 250 + "px",
             left: innerWidth / 2 - 400 + "px",
         });
         const variables = {
-    "--highlight": "#8A2BE2",     // Bright purple highlight (like Blooket’s Tower glow)
-    "--highlight2": "#4B0082",    // Deep indigo secondary
-    "--background": "#0B0B1E",    // Dark bluish background
-    "--background2": "#151534",   // Slightly lighter dark layer
-    "--textColor": "#E0E0FF",     // Soft light text
-    "--textColor2": "#9A8CFF",    // Muted purple text
-    "--toggleOff": "#2C273F",   // Deep shadowy indigo — off
-    "--toggleOn": "#5FA3FF",    // Muted soft blue — on, pops subtly
+    "--highlight": "#8A2BE2",
+    "--highlight2": "#4B0082",
+    "--background": "#0B0B1E",
+    "--background2": "#151534",
+    "--textColor": "#E0E0FF",
+    "--textColor2": "#9A8CFF",
+    "--toggleOff": "#2C273F",
+    "--toggleOn": "#5FA3FF",
         };
 
         let settings,
@@ -325,7 +241,49 @@ button,
     border-radius: 12px !important;
 }
 
-.controls,.credit,.gamemodesList,.guiContent,.guiTopBar,.sidebar,.sidebarShadow,.version{position:absolute}.sidebarShadow{inset:0;background:#000;opacity:0%;pointer-events:none;transition:.2s;z-index:9}.controls>div,.guiContent,.sidebar,select[data-type] option{background:var(--background2)}.sidebarShadow:has(~ .sidebar:hover){opacity:40%}.credit{bottom:0;left:0;right:0;height:0;transition:.1s;overflow:hidden;text-align:center}.sidebar{top:0;left:0;height:100%;width:50px;transition:.2s 0.1s;z-index:10;overflow-x:hidden;overflow-y:hidden;padding-bottom:30px}
+.controls,.credit,.gamemodesList,.guiContent,.guiTopBar,.sidebar,.sidebarShadow,.version{position:absolute}.sidebarShadow{inset:0;background:#000;opacity:0%;pointer-events:none;transition:.2s;z-index:9}.controls>div,.guiContent,.sidebar,select[data-type] option{background:var(--background2)}.sidebarShadow:has(~ .sidebar:hover){opacity:40%}.credit{bottom:0;left:0;right:0;height:0;transition:.1s;overflow:hidden;text-align:center}.sidebar {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50px;
+
+  /* ORIGINAL POSITIONING */
+  position: absolute;
+  z-index: 10;
+
+  /* visuals */
+  background: var(--background2);
+  box-sizing: border-box;
+  padding-bottom: 30px;
+
+  /* animation */
+  transition: width .2s .1s;
+
+  /* COLLAPSED */
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* EXPANDED */
+.sidebar:hover {
+  width: 200px;
+  overflow-y: auto;
+}
+
+/* Chrome scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 0;
+}
+
+.sidebar:hover::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+}
+
 .sidebar:hover{width:200px;transition-delay:0s}.sidebar:hover>.credit{height:25px;transition:.4s 0.2s}.guiContent{inset:20px;left:70px;top:40px;z-index:1;padding-top:32px}.guiTopBar{z-index:1;top:0;left:50px;right:0;height:25px}.version{top:0;left:0;margin-inline:10px;color:#888;font-size:.9em;letter-spacing:.5px;height:100%;display:flex}.controls{top:0;right:0;display:grid;grid-template-columns:1fr 1fr 1fr;height:25px;width:122px;gap:1px;border:1px solid var(--background);z-index:2}.controls>div{display:grid;place-items:center;font-weight:100}.closeControl{transition:.1s}.closeControl:hover{background:red}.creditsPage,.gamemodesPage,.searchPage{position:absolute;inset:0;top:32px}.gamemodesList{display:grid;gap:0 30px;padding-inline:30px;margin-top:0;padding-top:15px;margin-bottom:0;grid-template-columns:1fr 1fr;overflow-y:scroll;inset:0}.leaderboardPage,.logsPage{inset:10px;position:absolute}.pathText{position:absolute;top:40px;left:70px;right:20px;z-index:3;padding:7px 10px;height:22px}.clearLogsButton,.refreshControl{z-index:5;place-items:center;cursor:pointer}.leaderboardPage{top:42px}.leaderboardList{list-style:none;margin:0;padding:20px 40px 10px;height:100%;overflow:scroll;font-size:1.5em}.logsPage{top:37px;background:#000d;border-radius:2.5px}.logMessages{list-style:none;margin:10px;padding:0;display:flex;flex-direction:column-reverse;overflow-y:scroll;word-wrap:break-word;position:absolute;inset:0}.clearLogsButton{position:absolute;top:5px;right:5px;width:25px;height:25px;display:grid;scale:-1 1 1;transition:.2s}.searchbarHolder{display:flex;outline:2px solid var(--highlight);margin:10px 20px;height:30px;font-size:2em}.searchbarInput{outline:0;border:none;background:0 0;color:#fff;flex:1;font-size:.5em;font-family:Nunito;padding-inline:5px}.gamemode,.settingsPage>div{border-radius:2.5px;background:var(--background)}.searchbarButton{color:#fff;font-size:.6em;aspect-ratio:1/1;height:30px;display:grid;place-items:center;cursor:pointer}.bigText,.bigTextContainer{height:50px;width:200px;font-family:Titan One}.searchResults{position:absolute;inset:0;top:45px;padding-inline:20px;overflow-y:scroll}.favoritesPage,.settingsPage{inset:0;top:32px;overflow-y:scroll;position:absolute}.noResult{margin:20px 10px;font-size:.85em}.clearLogsButton:hover,.licenseMessage{font-size:1.25em}.favoritesPage{padding-block:10px;padding-inline:20px}.licenseMessage{font-weight:900;padding-inline:20px;margin-top:10px}.copyrightTag{font-size:.7em;font-weight:200;position:absolute;bottom:0;left:0;padding:5px 8px}.codingCredits,.creditLinks,.uploadDates{list-style:none;padding-inline:20px;margin-block:16px}.settingsPage{padding:10px;display:flex;flex-direction:column;gap:10px}.sidebarPaths{display:flex;flex-direction:column;width:200px}.bigTextContainer{display:flex;font-size:2em;margin-block:10px;transition:font-size .2s .1s,margin-block .2s .1s}.bigText{display:flex;align-items:center;justify-content:center}.refreshControl{position:absolute;top:45px;right:25px;width:25px;height:25px;display:grid}.gamemode{width:100%;height:200px;margin-bottom:30px;cursor:pointer;display:flex;justify-content:center;align-items:center;padding-top:10px;position:relative;overflow:hidden;padding-bottom:35px;transition:.4s}.contentPage,.gamemode>div{position:absolute;bottom:0}.gamemode:hover{box-shadow:0 0 10px var(--highlight);transition:.2s}.gamemode>img{width:85%;max-width:100%;max-height:100%}.gamemode>div{left:0;right:0;height:25px;background:var(--highlight);display:flex;justify-content:center;align-items:center;box-shadow:0 -5px 5px #0004;font-weight:800;font-size:1.1em;transition:.25s}.contentPage{inset-inline:0;top:35px}.cheatsList{display:flex;flex-direction:column;height:100%;overflow-y:scroll;padding-inline:10px}.cheatToggle,.cheatToggle>.toggleTrigger,.runCheat{height:35px;border-radius:2.5px}.cheatsList>div{display:grid;margin-bottom:10px;position:relative;background:var(--background);border-radius:2.5px}.cheatInfo,.cheatInputs,.cheatName,.cheatTop,.logMessage>span,.runCheat,.sidebarPath,.sidebarPath>i{display:flex}.cheatInfo{flex-direction:column;flex:1}.cheatName{font-size:1.5em;font-weight:700}.cheatDescription{font-size:.8em;margin-right:25px}.runCheat{--buttonColor:var(--highlight);width:20%;background:var(--buttonColor);margin-block:auto;cursor:pointer;align-items:center;justify-content:center;font-weight:800;transition:.5s;color:#fff!important}.runCheat:hover{box-shadow:0 0 10px 0 var(--buttonColor);transition:.3s}.runCheat:active{box-shadow:0 0 0 0 var(--buttonColor);transition:50ms}.cheatInputs{margin:5px 0 5px 5px;flex-direction:column;gap:5px}.searchResult,.standing{margin-bottom:10px;transition:.2s}.creditsPage>ul>li>strong,.logMessage img,.standingBlook{margin-right:5px}.cheatInputs>div{display:flex;flex-direction:row;font-size:.8rem;color:var(--highlight);font-weight:700;align-items:center}.cheatInputs>div>span{flex:1}.cheatToggle{width:20%;background:var(--highlight2);margin-block:auto;cursor:pointer;position:relative}.cheatToggle>.toggleTrigger{width:45px;position:absolute;top:0;left:0;background:var(--highlight);pointer-events:none;transition:left .2s,box-shadow .5s;z-index:1}.cheatToggle:hover>.toggleTrigger{box-shadow:0 0 10px 0 var(--highlight);transition:left .2s,box-shadow .2s}.toggleTrigger.active{left:calc(100% - 45px)}.toggleColor{position:absolute;inset:10px 20px;background:rgb(from var(--toggleOff) r g b / 25%);border-radius:2.5px;transition:.2s}.toggleTrigger.active+.toggleColor{background:rgb(from var(--toggleOn) r g b / 25%)}input[data-type],select[data-type]{width:20%;height:25px;outline:0;border:2px solid var(--highlight);box-sizing:border-box;background:0 0;color:#fff;font-size:.9em;padding-left:5px;font-family:Nunito;border-radius:2px;font-weight:800}.logo,.sidebarPath>i{width:50px;height:50px}select[data-type]{-webkit-appearance:none;-moz-appearance:none;text-indent:1px;text-overflow:''}input::placeholder{color:rgb(from var(--textColor) r g b / 50%)}input[data-type]::-webkit-inner-spin-button,input[data-type]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}input[data-type][type=number]{-moz-appearance:textfield}select[data-type] option{border-radius:0}select[data-type]::-ms-expand{display:none}.sidebarPath{align-items:center;cursor:pointer;transition:.2s 0.1s}.searchResult:hover,.sidebarPath:hover{color:var(--highlight);text-shadow:0 0 5px var(--highlight)}.sidebarPath>i{justify-content:center;align-items:center;font-size:1.5em}.sidebarPath>span{padding-left:5px}.sidebar:hover .sidebarPath{padding-left:20px;transition-delay:0s}.logo{left:0;transition:left .2s .1s;display:grid;place-items:center;min-width:50px;position:absolute}.sidebar:hover .logo{left:28px;transition:left .2s}.bigText{margin-top:-150px;transition:margin-top .1s}.sidebar:hover .bigText{margin-top:0;transition:margin-top .4s 0.1s}.sidebar:hover .bigTextContainer{font-size:2.5em;margin-block:20px;transition:font-size .2s,margin-block .2s}/* === Glowing title effect === */
 .bigText {
   text-shadow: 0 0 10px var(--highlight), 0 0 20px var(--highlight2);
@@ -381,188 +339,180 @@ setTimeout(roundGamemodeBoxes, 50);
         version.innerText = "SHx xullys - X-GUI " + versionName;
         guiTopBar.append(version);
 
-        const controls = document.createElement("div");
+        const style = document.createElement("style");
+style.textContent = `
+.xgui-i {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+/* MOVE <--> */
+.xgui-move {
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'>\
+<path d='M4 12l4-4v3h8V8l4 4-4 4v-3H8v3z'/>\
+</svg>");
+}
+
+/* MINUS */
+.xgui-min {
+  background-image: url(\"data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'>\
+<rect x='4' y='11' width='16' height='2'/>\
+</svg>\");
+}
+
+/* FULLSCREEN */
+.xgui-full {
+  background-image: url(\"data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'>\
+<path d='M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zm6 10v6h-6v-2h4v-4h2zm-16 6h6v-2H6v-4H4v6z'/>\
+</svg>\");
+}
+
+/* CLOSE X */
+.xgui-close {
+  background-image: url(\"data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='white' stroke-width='2' fill='none'>\
+<line x1='4' y1='4' x2='20' y2='20'/>\
+<line x1='20' y1='4' x2='4' y2='20'/>\
+</svg>\");
+}
+`;
+document.head.appendChild(style);
+
+
+
+
+
+      const controls = document.createElement("div");
 controls.className = classes.controls;
 
-// Move Control (<-->)
+// MOVE
 const moveControl = document.createElement("div");
 moveControl.style.cursor = "grab";
-moveControl.innerHTML = `
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-  <path d="M4 12l4-4v3h8V8l4 4-4 4v-3H8v3z"/>
-</svg>`;
+moveControl.innerHTML = `<i class="xgui-i xgui-move"></i>`;
+dragElement(moveControl, gui);
 
-// Minimize Control (-)
+// MINIMIZE
 const minimizeControl = document.createElement("div");
-let hideAnimation = false;
 minimizeControl.minimized = false;
-const minimizeSVG = `
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-  <rect x="4" y="11" width="16" height="2"/>
-</svg>`;
+let hideAnimation = false;
 
-// Fullscreen Control (4 edges)
-const fullscreenSVG = `
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-  <path d="M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zm6 10v6h-6v-2h4v-4h2zm-16 6h6v-2H6v-4H4v6z"/>
-</svg>`;
-
-minimizeControl.innerHTML = minimizeSVG;
+function setMinIcon(min) {
+  minimizeControl.innerHTML =
+    `<i class="xgui-i ${min ? "xgui-min" : "xgui-full"}"></i>`;
+}
+setMinIcon(true);
 
 minimizeControl.onclick = () => {
-    if (hideAnimation == (hideAnimation = true)) return;
-    const hidden = minimizeControl.minimized;
+  if (hideAnimation) return;
+  hideAnimation = true;
 
-    if (hidden) {
-        minimizeControl.innerHTML = minimizeSVG;
-        gui.animate(
-            [
-                { width: "122px", height: "27px", left: gui.style.left },
-                { width: "800px", height: "500px", left: `${parseInt(gui.style.left) - 678}px` },
-            ],
-            { duration: 200, easing: "ease" }
-        );
-        gui.style.width = "800px";
-        gui.style.height = "500px";
-    } else {
-        minimizeControl.innerHTML = fullscreenSVG;
-        gui.animate(
-            [
-                { width: "800px", height: "500px", left: gui.style.left },
-                { width: "122px", height: "27px", left: `${parseInt(gui.style.left) + 678}px` },
-            ],
-            { duration: 200, easing: "ease" }
-        );
-        gui.style.width = "122px";
-        gui.style.height = "27px";
+  const hidden = minimizeControl.minimized;
+  setMinIcon(hidden);
+
+  gui.animate(
+    [
+      { width: hidden ? "122px" : "800px", height: hidden ? "27px" : "500px", left: gui.style.left },
+      { width: hidden ? "800px" : "122px", height: hidden ? "500px" : "27px",
+        left: `${parseInt(gui.style.left) + (hidden ? -678 : 678)}px` }
+    ],
+    { duration: 200, easing: "ease" }
+  );
+
+  gui.style.width = hidden ? "800px" : "122px";
+  gui.style.height = hidden ? "500px" : "27px";
+
+  setTimeout(() => {
+    for (const child of gui.children) {
+      if (child === controls) continue;
+      if (hidden) child.style.display = child._display;
+      else {
+        child._display = child.style.display;
+        child.style.display = "none";
+      }
     }
+    hideAnimation = false;
+  }, hidden ? 200 : 0);
 
-    setTimeout(() => {
-        for (let child of [...gui.children]) {
-            if (child === controls) continue;
-            if (hidden) child.style.display = child.style._display;
-            else {
-                child.style._display = child.style.display;
-                child.style.display = "none";
-            }
-        }
-        hideAnimation = false;
-    }, hidden ? 200 : 0);
-
-    gui.style.left = `${parseInt(gui.style.left) + (hidden ? -678 : 678)}px`;
-    minimizeControl.minimized = !hidden;
+  gui.style.left = `${parseInt(gui.style.left) + (hidden ? -678 : 678)}px`;
+  minimizeControl.minimized = !hidden;
 };
 
-// Close Control (X)
+// CLOSE
 const closeControl = document.createElement("div");
-closeControl.className = classes.closeControl;
-closeControl.innerHTML = `
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-  <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="2"/>
-  <line x1="20" y1="4" x2="4" y2="20" stroke="currentColor" stroke-width="2"/>
-</svg>`;
+closeControl.innerHTML = `<i class="xgui-i xgui-close"></i>`;
 closeControl.onclick = () => gui.remove();
 
+// APPEND
 controls.append(moveControl, minimizeControl, closeControl);
-       /* === XGUI UNIVERSAL PERSIST v4 (working across all subdomains, never breaks init) === */
+gui.appendChild(controls);
 
-(function () {
 
-    const KEY = "xgui_state_v4";
-    const COOKIE_OPTS = "; path=/; domain=.blooket.com; expires=Tue, 19 Jan 2038 03:14:07 GMT";
-    const SHIFT = 678; // your minimize left-shift
 
-    // ---------------------------
-    // COOKIE HELPERS
-    // ---------------------------
-    function saveState(state) {
-        try {
-            document.cookie =
-                KEY + "=" + encodeURIComponent(JSON.stringify(state)) + COOKIE_OPTS;
-        } catch (e) {}
+
+
+// ======= PERSISTENCE =======
+const PERSIST_KEY = "xgui_state_v4";
+const SHIFT = 678; // minimize offset
+
+function saveGUIState() {
+    try {
+        if (gui.dataset.mobileMode === "true") return; // skip in mobile mode
+        const rect = gui.getBoundingClientRect();
+        const isMin = minimizeControl.minimized;
+        let left = parseInt(gui.style.left) || rect.left;
+        let top = parseInt(gui.style.top) || rect.top;
+        if (isMin) left -= SHIFT;
+        const state = { left, top, minimized: isMin };
+        document.cookie = PERSIST_KEY + "=" + encodeURIComponent(JSON.stringify(state)) + "; path=/; domain=.blooket.com; expires=Tue, 19 Jan 2038 03:14:07 GMT";
+    } catch {}
+}
+
+function loadGUIState() {
+    try {
+        if (gui.dataset.mobileMode === "true") return {}; // skip in mobile mode
+        const m = document.cookie.match(new RegExp(PERSIST_KEY + "=([^;]+)"));
+        return m ? JSON.parse(decodeURIComponent(m[1])) : {};
+    } catch { return {}; }
+}
+
+// Restore position and minimized state
+(async function restoreGUI() {
+    while (!gui || !minimizeControl || !moveControl || gui.children.length < 2) {
+        await new Promise(r => setTimeout(r, 25));
     }
 
-    function loadState() {
-        try {
-            const m = document.cookie.match(new RegExp(KEY + "=([^;]+)"));
-            return m ? JSON.parse(decodeURIComponent(m[1])) : {};
-        } catch (e) { return {}; }
-    }
+    if (gui.dataset.mobileMode === "true") return; // skip in mobile mode
 
-    // ---------------------------
-    // SAFE SAVE (always store NON-minimized coords)
-    // ---------------------------
-    function saveNow() {
-        try {
-            const rect = gui.getBoundingClientRect();
-
-            const isMin = minimizeControl?.minimized || false;
-
-            let left = parseInt(gui.style.left) || rect.left;
-            let top = parseInt(gui.style.top) || rect.top;
-
-            // Canonicalize
-            if (isMin) left -= SHIFT;
-
-            saveState({
-                left,
-                top,
-                minimized: isMin
-            });
-        } catch (e) {}
-    }
-
-    // ---------------------------
-    // RESTORE AFTER GUI IS BUILT
-    // ---------------------------
-    (async function restore() {
-
-        // Wait until fully initialized (prevents GUI failing to load)
-        while (!gui || !minimizeControl || !moveControl || gui.children.length < 2) {
-            await new Promise(r => setTimeout(r, 25));
-        }
-
-        const s = loadState();
-        if (!s.left && !s.top) return; // no saved state yet
-
-        // Restore as FULL SIZE FIRST
+    const s = loadGUIState();
+    if (s.left || s.top) {
         gui.style.width = "800px";
         gui.style.height = "500px";
         gui.style.left = s.left + "px";
         gui.style.top = s.top + "px";
-
-        // Let layout settle
         await new Promise(r => setTimeout(r, 20));
-
-        // THEN minimize if needed
-        if (s.minimized) {
-            minimizeControl.onclick(); // run real animation
-        }
-
-    })();
-
-
-    // ---------------------------
-    // HOOK SAVE EVENTS
-    // ---------------------------
-
-    // Wrap minimize button
-    const origMin = minimizeControl.onclick;
-    minimizeControl.onclick = function () {
-        origMin();
-        setTimeout(saveNow, 30);
-    };
-
-    // Save after drag
-    document.addEventListener("pointerup", () => setTimeout(saveNow, 30));
-
-    // Save on exit
-    window.addEventListener("beforeunload", saveNow);
-
+        if (s.minimized) minimizeControl.onclick(); // trigger minimize animation
+    }
 })();
 
+// Save after drag
+document.addEventListener("pointerup", () => {
+    if (gui.dataset.mobileMode === "true") return;
+    setTimeout(saveGUIState, 30);
+});
+// Save before unload
+window.addEventListener("beforeunload", () => {
+    if (gui.dataset.mobileMode === "true") return;
+    saveGUIState();
+});
 
-dragElement(moveControl, gui);
 
 
         const gamemodesPage = document.createElement("div");
@@ -1626,6 +1576,9 @@ dragElement(moveControl, gui);
                         },
                     },
                     {
+
+
+
                         name: "Free Player Slots",
             description: "Allows more players to join if the game is full",
             run: async () => {
@@ -1756,6 +1709,383 @@ dragElement(moveControl, gui);
                 window.open(url, "_blank", "width=500,height=500,resizable=yes,scrollbars=yes,status=yes");
             }
         }, {
+            name: "Blooket Stream Finder",
+            description: "Opens Stream Finder",
+            run: function() {
+                function getGameCode() {
+                    const appDiv = document.querySelector('#app>div>div');
+                    if (appDiv) {
+                        const reactComponent = Object.values(appDiv)[1]?.children[0]?._owner;
+                        return reactComponent?.stateNode?.props?.client?.hostId || null;
+                    }
+                    return null;
+                }
+
+                const gameCode = getGameCode();
+                const url = gameCode ? "https://0alter0.github.io/blooketstreamfinderV2/" + gameCode : "https://0alter0.github.io/blooketstreamfinderV2/";
+                window.open(url, "_blank", "width=500,height=500,resizable=yes,scrollbars=yes,status=yes");
+            }
+        }, {
+               name: "Crash Game",
+            description: "Crashes the host's game",
+            run: function() {
+                var e = Object.values(function e(t = document.querySelector("#app")) {
+                        return Object.values(t)[1]?.children?.[0]?._owner.stateNode ? t : e(t.querySelector(":scope>div"))
+                    }
+                    ())[1].children[0]._owner.stateNode;
+                e.props.liveGameController.setVal({
+                    path: `c/${e.props.client.name}/b/toString`,
+                    val: "Crashed"
+                })
+            }
+        }, {
+            name: "Account Generator",
+            description: "Generates An Account, Only works on Blooket SignUp Page And You Need CORS Disabled",
+            run: async function () {
+
+
+
+
+   const MONTH = String(Math.floor(Math.random() * 12) + 1);
+   const YEAR = String(Math.floor(Math.random() * (2000 - 1980 + 1)) + 1980);
+
+
+    function generateBlooketPassword() {
+        const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const numbers = '0123456789';
+
+        let password = '';
+        password += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
+        password += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
+        password += numbers.charAt(Math.floor(Math.random() * numbers.length));
+
+        const allChars = lowercase + uppercase + numbers;
+        for (let i = 0; i < 9; i++) {
+            password += allChars.charAt(Math.floor(Math.random() * allChars.length));
+        }
+
+        return password.split('').sort(() => Math.random() - 0.5).join('');
+    }
+
+    function randomString(length) {
+        const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+    }
+
+    function generatePassword() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+        let password = '';
+        for (let i = 0; i < 16; i++) {
+            password += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return password;
+    }
+
+    async function createMailTmAccount(retries = 5) {
+        for (let attempt = 1; attempt <= retries; attempt++) {
+            try {
+                const domainRes = await fetch("https://api.mail.tm/domains");
+                if (!domainRes.ok) {
+                    if (domainRes.status === 429) {
+                        console.log(`Rate limited on domains, waiting ${attempt * 2}s...`);
+                        await new Promise(r => setTimeout(r, attempt * 2000));
+                        continue;
+                    }
+                    throw new Error(`Failed to fetch domains: ${domainRes.status}`);
+                }
+                const domainJson = await domainRes.json();
+                const domain = domainJson?.["hydra:member"]?.[0]?.domain;
+                if (!domain) throw new Error("No domains returned from mail.tm");
+
+                const username = randomString(8);
+                const password = generatePassword();
+                const address = `${username}@${domain}`;
+
+                const createRes = await fetch("https://api.mail.tm/accounts", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ address, password }),
+                });
+
+                if (createRes.status === 429) {
+                    console.log(`Rate limited on account creation, waiting ${attempt * 2}s...`);
+                    await new Promise(r => setTimeout(r, attempt * 2000));
+                    continue;
+                }
+
+                if (!createRes.ok && createRes.status !== 400) {
+                    const body = await createRes.text().catch(() => "");
+                    throw new Error(`Failed to create mail.tm account: ${createRes.status} ${body}`);
+                }
+
+                const tokenRes = await fetch("https://api.mail.tm/token", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ address, password }),
+                });
+
+                if (tokenRes.status === 429) {
+                    console.log(`Rate limited on token, waiting ${attempt * 2}s...`);
+                    await new Promise(r => setTimeout(r, attempt * 2000));
+                    continue;
+                }
+
+                if (!tokenRes.ok) throw new Error(`Failed to get token: ${tokenRes.status}`);
+                const tokenJson = await tokenRes.json();
+                if (!tokenJson?.token) throw new Error("mail.tm token not returned");
+
+                return { address, password, token: tokenJson.token };
+            } catch (error) {
+                if (attempt === retries) throw error;
+                console.log(`Attempt ${attempt} failed, retrying...`);
+                await new Promise(r => setTimeout(r, attempt * 2000));
+            }
+        }
+    }
+
+    async function waitForVerificationEmail(token, maxAttempts = 30, delayMs = 3000) {
+        for (let i = 0; i < maxAttempts; i++) {
+            try {
+                const res = await fetch("https://api.mail.tm/messages", {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+
+                if (res.status === 429) {
+                    console.log("Rate limited on messages, waiting 5s...");
+                    await new Promise(r => setTimeout(r, 5000));
+                    continue;
+                }
+
+                if (!res.ok) throw new Error(`Failed to fetch messages: ${res.status}`);
+                const data = await res.json();
+                const messages = data["hydra:member"];
+
+                if (messages && messages.length > 0) {
+                    const msg = messages[0];
+                    const codeMatch = msg.intro?.match(/\d{6}/);
+                    if (codeMatch) return codeMatch[0];
+                }
+            } catch (error) {
+                console.log("Error fetching messages, retrying...");
+            }
+            await new Promise(r => setTimeout(r, delayMs));
+        }
+        throw new Error("Verification email did not arrive in time");
+    }
+
+    function waitForElement(selector, timeout = 10000) {
+        return new Promise((resolve, reject) => {
+            const startTime = Date.now();
+
+            const checkExist = setInterval(() => {
+                const element = document.querySelector(selector);
+                if (element) {
+                    clearInterval(checkExist);
+                    resolve(element);
+                } else if (Date.now() - startTime > timeout) {
+                    clearInterval(checkExist);
+                    reject(new Error(`Element ${selector} not found within ${timeout}ms`));
+                }
+            }, 100);
+        });
+    }
+
+    function wait(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const MONTH_NAMES = { // idfk why i did this tbh its 3 am and i need help
+        '1': 'January', '2': 'February', '3': 'March', '4': 'April',
+        '5': 'May', '6': 'June', '7': 'July', '8': 'August',
+        '9': 'September', '10': 'October', '11': 'November', '12': 'December'
+    };
+
+    async function autoFillSignup() {
+        try {
+            console.log('Blooket Auto-Clicker: Starting...');
+
+            const PASSWORD = generateBlooketPassword();
+            console.log('Generated password for account');
+
+            console.log('Looking for Teacher button...');
+            const teacherButton = await waitForElement('.RoleSelection_buttonInside__i_4_j');
+            if (teacherButton) {
+                await wait(500);
+                teacherButton.click();
+                console.log('Clicked Teacher');
+            }
+
+            console.log('Setting Birthday Month...');
+            const monthInput = await waitForElement('input#month[type="hidden"]');
+            const monthPicker = await waitForElement('input.rs-picker-toggle-textbox[readonly]');
+            const monthDisplay = document.querySelector('span.rs-picker-toggle-placeholder, span.rs-picker-toggle-value');
+
+            if (monthInput && monthPicker) {
+                monthInput.value = MONTH;
+                monthPicker.value = MONTH;
+                if (monthDisplay) {
+                    monthDisplay.textContent = MONTH_NAMES[MONTH];
+                    monthDisplay.className = 'rs-picker-toggle-value';
+                }
+                const monthPickerContainer = document.querySelector('span.DropdownPicker_dropdown__8W6y0 .rs-picker');
+                if (monthPickerContainer) {
+                    monthPickerContainer.classList.add('rs-picker-has-value');
+                }
+                console.log(`Set month to: ${MONTH} (${MONTH_NAMES[MONTH]})`);
+            }
+
+            console.log('Setting Birthday Year...');
+            const yearInput = await waitForElement('input#year[type="hidden"]');
+            const yearPickers = document.querySelectorAll('input.rs-picker-toggle-textbox[readonly]');
+            const yearPicker = yearPickers[1];
+            const yearDisplay = document.querySelectorAll('span.rs-picker-toggle-placeholder, span.rs-picker-toggle-value')[1];
+
+            if (yearInput && yearPicker) {
+                yearInput.value = YEAR;
+                yearPicker.value = YEAR;
+                if (yearDisplay) {
+                    yearDisplay.textContent = YEAR;
+                    yearDisplay.className = 'rs-picker-toggle-value';
+                }
+                const yearPickerContainer = document.querySelectorAll('span.DropdownPicker_dropdown__8W6y0 .rs-picker')[1];
+                if (yearPickerContainer) {
+                    yearPickerContainer.classList.add('rs-picker-has-value');
+                }
+                console.log(`Set year to: ${YEAR}`);
+            }
+
+            console.log('Looking for Next button...');
+            const nextButton = await waitForElement('button[type="submit"].formButton');
+            if (nextButton) {
+                nextButton.click();
+                console.log('Clicked Next button');
+            }
+
+            console.log('Looking for Email & Password button...');
+            const emailButton = await waitForElement('button.AuthenticationSelection_button__fIYry');
+            if (emailButton) {
+                emailButton.click();
+                console.log('Clicked Email & Password button');
+            }
+
+            console.log('Creating temporary email account...');
+            const emailAccount = await createMailTmAccount();
+            console.log(`Created email: ${emailAccount.address}`);
+
+            console.log('Looking for email input...');
+            const emailInput = await waitForElement('input[name="email"]');
+            if (emailInput) {
+                emailInput.value = emailAccount.address;
+                emailInput.dispatchEvent(new Event('input', { bubbles: true }));
+                emailInput.dispatchEvent(new Event('change', { bubbles: true }));
+                console.log(`Filled email: ${emailAccount.address}`);
+            }
+
+            console.log('Looking for Submit button...');
+            let submitButton = await waitForElement('button[type="submit"].formButton');
+            if (submitButton) {
+                submitButton.removeAttribute('disabled');
+                submitButton.click();
+                console.log('Clicked Submit button');
+            }
+
+            console.log('Waiting for verification email...');
+            const verificationCode = await waitForVerificationEmail(emailAccount.token);
+            console.log(`Received verification code: ${verificationCode}`);
+
+            console.log('Looking for verification code input...');
+            const codeInput = await waitForElement('input[name="code"]');
+            if (codeInput) {
+                codeInput.value = verificationCode;
+                codeInput.dispatchEvent(new Event('input', { bubbles: true }));
+                codeInput.dispatchEvent(new Event('change', { bubbles: true }));
+                console.log(`Filled verification code: ${verificationCode}`);
+            }
+
+            console.log('Looking for Submit button...');
+            submitButton = await waitForElement('button[type="submit"].formButton');
+            if (submitButton) {
+                submitButton.removeAttribute('disabled');
+                submitButton.click();
+                console.log('Clicked Submit button for verification');
+            }
+
+            console.log('Looking for password input...');
+            const passwordInput = await waitForElement('input[name="password"]');
+            if (passwordInput) {
+                passwordInput.value = PASSWORD;
+                passwordInput.dispatchEvent(new Event('input', { bubbles: true }));
+                passwordInput.dispatchEvent(new Event('change', { bubbles: true }));
+                console.log('Filled password');
+            }
+
+            console.log('Looking for confirm password input...');
+            const password2Input = await waitForElement('input[name="password2"]');
+            if (password2Input) {
+                password2Input.value = PASSWORD;
+                password2Input.dispatchEvent(new Event('input', { bubbles: true }));
+                password2Input.dispatchEvent(new Event('change', { bubbles: true }));
+                console.log('Filled confirm password');
+            }
+
+            console.log('Looking for Submit button...');
+            submitButton = await waitForElement('button[type="submit"].formButton');
+            if (submitButton) {
+                submitButton.removeAttribute('disabled');
+                submitButton.click();
+                console.log('Clicked Submit button for password');
+            }
+
+            const username = emailAccount.address.split('@')[0];
+            console.log(`Using username: ${username}`);
+
+            console.log('Looking for username input...');
+            const usernameInput = await waitForElement('input[name="username"]');
+            if (usernameInput) {
+                usernameInput.value = username;
+                usernameInput.dispatchEvent(new Event('input', { bubbles: true }));
+                usernameInput.dispatchEvent(new Event('change', { bubbles: true }));
+                console.log(`Filled username: ${username}`);
+            }
+
+            console.log('Looking for agreement checkbox...');
+            const agreeCheckbox = await waitForElement('input#is-agreed[type="checkbox"]');
+            if (agreeCheckbox) {
+                agreeCheckbox.checked = true;
+                agreeCheckbox.dispatchEvent(new Event('change', { bubbles: true }));
+                console.log('Checked agreement checkbox');
+            }
+
+
+
+            console.log('Looking for final Submit button...');
+            submitButton = await waitForElement('button[type="submit"].formButton');
+            if (submitButton) {
+                submitButton.removeAttribute('disabled');
+                submitButton.click();
+                console.log('Clicked final Submit button - Account created!');
+            }
+
+            console.log('Blooket Auto-Clicker: Completed!');
+        } catch (error) {
+            console.error('Blooket Auto-Clicker Error:', error);
+        }
+    }
+
+            if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', autoFillSignup);
+        } else {
+            autoFillSignup();
+        }
+    },
+},{
+
+
 
                         name: "Use Any Blook",
                         description: "Allows you to play as any blook",
@@ -1843,6 +2173,89 @@ dragElement(moveControl, gui);
                 }
             }
         }, {
+
+
+    name: "Kick All Players HOST ONLY",
+    description: "Kicks all players from your game.",
+    run: function() {
+        (async function() {
+            const app = document.querySelector('#app>div>div');
+            if (!app) return;
+
+            const sn = Object.values(app)[1]?.children?.[0]?._owner?.stateNode;
+            if (!sn || !sn.props?.liveGameController) return;
+
+            const controller = sn.props.liveGameController;
+
+            const db = await controller.getDatabaseVal("");
+            if (!db || !db.c) return;
+
+            // Mark all players as kicked
+            controller.setVal({
+                path: "bu",
+                val: Object.keys(db.c).reduce(
+                    (acc, id) => (acc[id] = 1, acc),
+                    db.bu ? db.bu : {}
+                )
+            });
+
+            // Clear player list
+            controller.setVal({
+                path: "c",
+                val: {}
+            });
+        })();
+    }
+},{
+
+
+            name: "Enable Mobile Hosting",
+            description: "Makes it so that you can host on mobile",
+            run: function() {
+                (function() {
+                    var metaViewport = document.querySelector('meta[name="viewport"]');
+                    if (metaViewport) {
+                        metaViewport.parentNode.removeChild(metaViewport);
+                    }
+                    var newMetaViewport = document.createElement('meta');
+                    newMetaViewport.name = 'viewport';
+                    newMetaViewport.content = 'width=1280, initial-scale=1';
+                    document.head.appendChild(newMetaViewport);
+                })();
+            }
+        }, {
+
+            name: "Remove Host Time Limit",
+            description: "Removes the host time limit",
+            run: function() {
+                (() => {
+                    const sn = Object.values(document.querySelector('#app>div>div'))[1].children[0]._owner.stateNode;
+                    sn.onAmountUpdate = function(t) {
+                        let settings = sn.state.settings;
+                        settings.amount = parseInt(t.target.value);
+                        sn.setState({
+                            settings
+                        });
+                    }
+                })();
+            }
+        }, {
+
+            name: "Freeze Timer",
+            description: "Makes the host timer stop ingame",
+            run: function() {
+                (() => {
+                    const {
+                        stateNode
+                    } = Object.values(document.querySelector("#app>div>div"))[1].children[0]._owner;
+                    clearInterval(stateNode.timerInterval);
+                    stateNode.timerInterval = setInterval(function() {
+                        stateNode?.getClients?.(!1);
+                    }, 4000);
+                })();
+            }
+        }, {
+
                         name: "Subtle Highlight Answers",
                         description: "Removes the shadow from correct answers",
                         run: function () {
@@ -1926,7 +2339,9 @@ extras: {
   name: "Extras",
   cheats: [
     {
-      name: "Toggle Invert Colors",
+
+
+        name: "Toggle Invert Colors",
       description: "Toggle between inverting and restoring colors on the page",
       run: function () {
         const html = document.documentElement;
@@ -2163,6 +2578,650 @@ extras: {
                  }
         }, {
 
+
+
+/* ========== COLOR & FILTER MODES ========== */
+
+
+  name: "Grayscale Mode",
+  description: "Turns the page grayscale",
+  run: function () {
+    const html = document.documentElement;
+    html.style.filter =
+      html.style.filter === "grayscale(1)" ? "" : "grayscale(1)";
+  }
+},
+
+{
+  name: "Sepia Mode",
+  description: "Applies a sepia filter",
+  run: function () {
+    const html = document.documentElement;
+    html.style.filter =
+      html.style.filter === "sepia(1)" ? "" : "sepia(1)";
+  }
+},
+
+{
+  name: "High Contrast",
+  description: "Boosts contrast for readability",
+  run: function () {
+    const html = document.documentElement;
+    html.style.filter =
+      html.style.filter === "contrast(1.5)" ? "" : "contrast(1.5)";
+  }
+},
+
+{
+  name: "Soft Blur",
+  description: "Applies subtle blur",
+  run: function () {
+    const html = document.documentElement;
+    html.style.filter =
+      html.style.filter.includes("blur") ? "" : "blur(3px)";
+  }
+},
+
+{
+  name: "Pastel Theme",
+  description: "Soft pastel color palette",
+  run: function () {
+    if (document.getElementById("pastel-ui")) {
+      document.getElementById("pastel-ui").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "pastel-ui";
+    style.innerHTML = `* { filter: saturate(0.8) brightness(1.05); }`;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Rainbow Hue Cycle",
+  description: "Smooth color cycling",
+  run: function () {
+    if (window._rainbow) {
+      clearInterval(window._rainbow);
+      window._rainbow = null;
+      document.documentElement.style.filter = "";
+      return;
+    }
+    let i = 0;
+    window._rainbow = setInterval(() => {
+      document.documentElement.style.filter = `hue-rotate(${i++}deg)`;
+      if (i > 360) i = 0;
+    }, 40);
+  }
+},
+
+/* ========== UI MODS ========== */
+
+{
+  name: "Rounded UI",
+  description: "Extra rounded corners",
+  run: function () {
+    if (document.getElementById("rounded-ui")) {
+      document.getElementById("rounded-ui").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "rounded-ui";
+    style.innerHTML = `* { border-radius: 16px !important; }`;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Outline UI",
+  description: "Outlines UI elements",
+  run: function () {
+    if (document.getElementById("outline-ui")) {
+      document.getElementById("outline-ui").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "outline-ui";
+    style.innerHTML = `* { outline: 1px solid rgba(255,255,255,0.12); }`;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Flat UI",
+  description: "Removes shadows for a flat look",
+  run: function () {
+    if (document.getElementById("flat-ui")) {
+      document.getElementById("flat-ui").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "flat-ui";
+    style.innerHTML = `* { box-shadow: none !important; text-shadow: none !important; }`;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Wobbly UI",
+  description: "UI gently wobbles",
+  run: function () {
+    if (document.getElementById("wobbly-ui")) {
+      document.getElementById("wobbly-ui").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "wobbly-ui";
+    style.innerHTML = `
+      * { animation: wobble 2s infinite alternate; }
+      @keyframes wobble { 0% { transform: rotate(-1deg); } 100% { transform: rotate(1deg); } }
+    `;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Floating UI",
+  description: "UI gently floats up and down",
+  run: function () {
+    if (document.getElementById("float-ui")) {
+      document.getElementById("float-ui").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "float-ui";
+    style.innerHTML = `
+      * { animation: floaty 3s ease-in-out infinite; }
+      @keyframes floaty { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
+    `;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Tiny UI",
+  description: "Slightly shrinks UI",
+  run: function () {
+    const html = document.documentElement;
+    html.style.zoom = html.style.zoom === "0.9" ? "" : "0.9";
+  }
+},
+
+/* ========== FUN VISUALS ========== */
+
+{
+  name: "Mirror Page",
+  description: "Flips page horizontally",
+  run: function () {
+    const html = document.documentElement;
+    html.style.transform = html.style.transform === "scaleX(-1)" ? "" : "scaleX(-1)";
+  }
+},
+
+{
+
+
+
+  name: "Outline Elements (Black)",
+  description: "Toggles black outlines on all page elements",
+  run: function () {
+    if (document.getElementById("outline-elements-black")) {
+      document.getElementById("outline-elements-black").remove();
+      return;
+    }
+
+    const style = document.createElement("style");
+    style.id = "outline-elements-black";
+    style.innerHTML = `
+      * {
+        outline: 1px solid black !important;
+        outline-offset: -1px !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+},{
+
+
+  name: "Outline Elements (Red)",
+  description: "Toggles red outlines on all page elements",
+  run: function () {
+    if (document.getElementById("outline-elements-red")) {
+      document.getElementById("outline-elements-red").remove();
+      return;
+    }
+
+    const style = document.createElement("style");
+    style.id = "outline-elements-red";
+    style.innerHTML = `
+      * {
+        outline: 1px solid red !important;
+        outline-offset: -1px !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+},{
+
+
+
+  name: "Light Screen Shake",
+  description: "Subtle screen shake",
+  run: function () {
+    document.body.animate(
+      [ { transform: "translate(0,0)" }, { transform: "translate(-2px,1px)" }, { transform: "translate(2px,-1px)" }, { transform: "translate(0,0)" } ],
+      { duration: 200 }
+    );
+  }
+},
+
+{
+  name: "Jello UI",
+  description: "UI elements wobble like jello",
+  run: function () {
+    if (document.getElementById("jello-ui")) {
+      document.getElementById("jello-ui").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "jello-ui";
+    style.innerHTML = `
+      * { animation: jello 1s infinite; }
+      @keyframes jello {
+        0%,100%{transform:scale3d(1,1,1);}
+        25%{transform:scale3d(1.05,0.95,1);}
+        50%{transform:scale3d(0.95,1.05,1);}
+        75%{transform:scale3d(1.02,0.98,1);}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+},
+
+
+{
+  name: "Rotate Page",
+  description: "Rotates the entire page slowly",
+  run: function () {
+    const html = document.documentElement;
+    html.style.transition = "transform 0.5s";
+    html.style.transform = html.style.transform === "rotate(180deg)" ? "" : "rotate(180deg)";
+  }
+},
+
+{
+  name: "Scale Up Page",
+  description: "Slightly zooms in page",
+  run: function () {
+    const html = document.documentElement;
+    html.style.transform = html.style.transform === "scale(1.1)" ? "" : "scale(1.1)";
+  }
+},
+
+{
+  name: "Spin Slowly",
+  description: "Page spins continuously",
+  run: function () {
+    if (window._spin) {
+      clearInterval(window._spin);
+      window._spin = null;
+      document.documentElement.style.transform = "";
+      return;
+    }
+    let deg = 0;
+    window._spin = setInterval(() => {
+      deg += 1;
+      document.documentElement.style.transform = `rotate(${deg}deg)`;
+    }, 50);
+  }
+},
+
+{
+  name: "Flip Vertically",
+  description: "Flips page upside down",
+  run: function () {
+    const html = document.documentElement;
+    html.style.transform = html.style.transform === "scaleY(-1)" ? "" : "scaleY(-1)";
+  }
+},
+
+
+{
+  name: "Shake UI",
+  description: "UI elements shake slightly",
+  run: function () {
+    if (document.getElementById("shake-ui")) {
+      document.getElementById("shake-ui").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "shake-ui";
+    style.innerHTML = `
+      * { animation: shake 0.2s infinite alternate; }
+      @keyframes shake { 0%{transform:translate(0,0);} 50%{transform:translate(2px,-2px);} 100%{transform:translate(0,0);} }
+    `;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Flip Horizontally Random",
+  description: "UI flips left and right repeatedly",
+  run: function () {
+    if (window._flipH) {
+      clearInterval(window._flipH);
+      window._flipH = null;
+      document.documentElement.style.transform = "";
+      return;
+    }
+    let flip = 1;
+    window._flipH = setInterval(() => {
+      document.documentElement.style.transform = `scaleX(${flip})`;
+      flip *= -1;
+    }, 500);
+  }
+},
+
+{
+  name: "Glow UI Pulse",
+  description: "UI elements glow and pulse gently",
+  run: function () {
+    if (document.getElementById("pulse-ui")) {
+      document.getElementById("pulse-ui").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "pulse-ui";
+    style.innerHTML = `
+      * { animation: pulse 2s infinite; }
+      @keyframes pulse { 0%,100%{box-shadow:none;} 50%{box-shadow:0 0 10px rgba(0,255,255,0.5);} }
+    `;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "UI Zoom Pulse",
+  description: "UI elements pulse bigger and smaller",
+  run: function () {
+    if (document.getElementById("zoom-pulse-ui")) {
+      document.getElementById("zoom-pulse-ui").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "zoom-pulse-ui";
+    style.innerHTML = `
+      * { animation: zoomPulse 2s infinite; }
+      @keyframes zoomPulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
+    `;
+    document.head.appendChild(style);
+  }
+},
+
+{
+
+  name: "Flip Random UI",
+  description: "UI elements flip randomly THIS WILL BREAK GUI, YOU WILL NEED TO RELOAD!",
+  run: function () {
+    if (window._flipUI) {
+      clearInterval(window._flipUI);
+      window._flipUI = null;
+      document.querySelectorAll("*").forEach(el=>el.style.transform="");
+      return;
+    }
+    window._flipUI = setInterval(() => {
+      document.querySelectorAll("*").forEach(el=>{
+        if(Math.random()<0.05) el.style.transform = `rotate(${Math.random()*360}deg)`;
+      });
+    }, 200);
+  }
+},
+
+
+
+{
+  name: "Tilted Page",
+  description: "Page tilts left and right slowly",
+  run: function () {
+    if (window._tiltPage) {
+      clearInterval(window._tiltPage);
+      window._tiltPage = null;
+      document.documentElement.style.transform="";
+      return;
+    }
+    let deg = -3;
+    let dir = 1;
+    window._tiltPage = setInterval(()=>{
+      document.documentElement.style.transform = `rotate(${deg}deg)`;
+      deg += dir;
+      if(deg>3||deg<-3) dir*=-1;
+    },50);
+  }
+},
+
+
+
+
+
+
+
+{
+  name: "Page Flip Slowly",
+  description: "Page rotates slowly 360 degrees",
+  run: function () {
+    if (window._pageFlip) {
+      clearInterval(window._pageFlip);
+      window._pageFlip = null;
+      document.documentElement.style.transform="";
+      return;
+    }
+    let deg = 0;
+    window._pageFlip = setInterval(()=>{
+      deg+=1;
+      document.documentElement.style.transform=`rotate(${deg}deg)`;
+      if(deg>=360) deg=0;
+    },50);
+  }
+},{
+
+/* ========== CUSTOM CURSORS ========== */
+
+
+  /* ========== FUN CUSTOM CURSORS ========== */
+
+
+  name: "Cursor: Crosshair",
+  description: "Changes mouse cursor to crosshair",
+  run: function () {
+    document.body.style.cursor = document.body.style.cursor ? "" : "crosshair";
+  }
+},
+{
+  name: "Cursor: Pointer",
+  description: "Changes mouse cursor to pointer",
+  run: function () {
+    document.body.style.cursor = document.body.style.cursor ? "" : "pointer";
+  }
+},
+{
+  name: "Cursor: Grab",
+  description: "Changes mouse cursor to grab",
+  run: function () {
+    document.body.style.cursor = document.body.style.cursor ? "" : "grab";
+  }
+},
+{
+  name: "Cursor: Move",
+  description: "Changes mouse cursor to move",
+  run: function () {
+    document.body.style.cursor = document.body.style.cursor ? "" : "move";
+  }
+},
+{
+  name: "Cursor: Wait",
+  description: "Changes mouse cursor to wait",
+  run: function () {
+    document.body.style.cursor = document.body.style.cursor ? "" : "wait";
+  }
+},
+{
+  name: "Cursor: Help",
+  description: "Changes mouse cursor to help",
+  run: function () {
+    document.body.style.cursor = document.body.style.cursor ? "" : "help";
+  }
+},
+{
+  name: "Cursor: Text",
+  description: "Changes mouse cursor to text (I-beam)",
+  run: function () {
+    document.body.style.cursor = document.body.style.cursor ? "" : "text";
+  }
+},
+{
+  name: "Cursor: Progress",
+  description: "Changes mouse cursor to progress",
+  run: function () {
+    document.body.style.cursor = document.body.style.cursor ? "" : "progress";
+  }
+},
+{
+  name: "Cursor: Not-allowed",
+  description: "Changes mouse cursor to not-allowed",
+  run: function () {
+    document.body.style.cursor = document.body.style.cursor ? "" : "not-allowed";
+  }
+},
+{
+  name: "Cursor: Alias",
+  description: "Changes mouse cursor to alias",
+  run: function () {
+    document.body.style.cursor = document.body.style.cursor ? "" : "alias";
+  }
+},{
+
+
+/* ========== BOLDER TEXT MODS ========== */
+
+
+  name: "Extra Bold Text",
+  description: "Extremely bold text",
+  run: function () {
+    if (document.getElementById("extra-bold-text")) {
+      document.getElementById("extra-bold-text").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "extra-bold-text";
+    style.innerHTML = `* { font-weight: 900 !important; }`;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Slightly Bigger Text For GUI",
+  description: "Slightly increases text size for readability",
+  run: function () {
+    if (document.getElementById("slightly-bigger-text")) {
+      document.getElementById("slightly-bigger-text").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "slightly-bigger-text";
+    style.innerHTML = `* { font-size: 1.05em !important; }`;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Outline Text",
+  description: "Adds strong outline to text for visibility",
+  run: function () {
+    if (document.getElementById("outline-text")) {
+      document.getElementById("outline-text").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "outline-text";
+    style.innerHTML = `
+      * {
+        text-shadow:
+          -1px -1px 0 #000,
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          1px 1px 0 #000;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Shadowed Text",
+  description: "Adds prominent shadow behind text for depth",
+  run: function () {
+    if (document.getElementById("shadow-text")) {
+      document.getElementById("shadow-text").remove();
+      return;
+    }
+    const style = document.createElement("style");
+    style.id = "shadow-text";
+    style.innerHTML = `
+      * {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      }
+    `;
+    document.head.appendChild(style);
+  }
+},
+
+{
+  name: "Rainbow Text",
+  description: "Text cycles through rainbow colors",
+  run: function () {
+    if (window._rainbowText) {
+      clearInterval(window._rainbowText);
+      window._rainbowText = null;
+      document.querySelectorAll("*").forEach(el => el.style.color = "");
+      return;
+    }
+    let hue = 0;
+    window._rainbowText = setInterval(() => {
+      document.querySelectorAll("*").forEach(el => el.style.color = `hsl(${hue},90%,55%)`);
+      hue += 3; if (hue > 360) hue = 0;
+    }, 100);
+  }
+},{
+
+
+/* ========== RESET ========== */
+
+
+  name: "Reset Visuals",
+  description: "Resets all visual changes",
+  run: function () {
+    document.documentElement.style.filter="";
+    document.documentElement.style.transform="";
+    document.documentElement.style.zoom="";
+    document.body.style.cursor="";
+    clearInterval(window._rainbow);
+    window._rainbow=null;
+    document.querySelectorAll("style[id]").forEach(s=>s.remove());
+    document.removeEventListener("mousemove",window._cursorCircle);
+    document.removeEventListener("mousemove",window._cursorTrailFn);
+    document.removeEventListener("mousemove",window._cursorSparkleFn);
+    document.removeEventListener("mousemove",window._cursorRainbowFn);
+    document.removeEventListener("mousemove",window._cursorGlowFn);
+  }
+},{
+
+
+
+
+
+
+
+
       name: "Toggle Small Font",
       description: "Switch GUI font-size between normal and slightly smaller.",
       run: function () {
@@ -2177,7 +3236,8 @@ extras: {
     },
   ],
 },
-// === END: extras category ===
+
+
 
             gold: {
                 img: new Date().getMonth() == 9 ? "https://media.blooket.com/image/upload/v1663212881/Media/logos/Candy_Quest_Logo.png" : "https://media.blooket.com/image/upload/v1663212881/Media/logos/Gold_Quest_Logo_Resized.png",
@@ -2455,6 +3515,17 @@ extras: {
                             }), o++, await new Promise(e => setTimeout(e, 4e3));
                     alert(`Reset ${o} players' gold!`)
                 })
+            }
+        }, {
+
+            name: "Toggle Spooky Theme",
+            description: "Toggles the spooky theme for Gold Quest",
+            run: function() {
+                (() => {
+                    const sn = Object.values(document.querySelector('#app>div>div'))[1].children[0]._owner.stateNode;
+                    sn.season = sn.season ? 0 : 1;
+                    sn.render();
+                })();
             }
         }, {
             name: "Send Ad Text",
@@ -3498,7 +4569,7 @@ name: "Set Next Fish",
                     (e)
             }
         }, {
-                     
+
                         name: "Set Lure",
                         description: "Sets fishing lure (range 1 - 5)",
                         inputs: [
@@ -4313,6 +5384,103 @@ name: "Set Next Fish",
                         },
                     },
                     {
+
+                        name: "Tax Player",
+            description: "Makes a player pay tax",
+            inputs: [{
+                name: "Player's Name",
+                type: "text"
+            }],
+            run: function(playerName) {
+                function reactHandler() {
+                    return Object.values(document.querySelector('#app>div>div'))[1].children[0]._owner;
+                }
+
+                function setv(args) {
+                    reactHandler().stateNode.props.liveGameController.setVal({
+                        path: "c/" + reactHandler().stateNode.props.client.name + "/" + args[0],
+                        val: args.slice(1, args.length).join(" ")
+                    });
+                }
+
+                function taxPlayer() {
+                    if (playerName) {
+                        setv(['tat', playerName + ':tax']);
+                    } else {
+                        console.log("No player name entered. Operation cancelled.");
+                    }
+                }
+
+                taxPlayer();
+            }
+        }, {
+
+            name: "Attack Player",
+            description: "Sends the player a health inspection",
+            inputs: [{
+                name: "Player's Name",
+                type: "text"
+            }],
+            run: (function(targetPlayer) {
+                function reactHandler() {
+                    return Object.values(document.querySelector('body div[class*="_body"]'))[1].children[0]._owner;
+                }
+
+                reactHandler().stateNode.props.liveGameController.setVal({
+                    id: reactHandler().stateNode.props.client.hostId,
+                    path: "c/" + reactHandler().stateNode.props.client.name + "/tat",
+                    val: targetPlayer + ":inspect"
+                });
+            })
+        }, {
+
+            name: "Spam Attack Player",
+            description: "Attacks the player to make the game unplayable",
+            inputs: [{
+                name: "Player",
+                type: "options",
+                options() {
+                    let {
+                        stateNode: e
+                    } = Object.values(function e(t = document.querySelector("body>div")) {
+                            return Object.values(t)[1]?.children?.[0]?._owner.stateNode ? t : e(t.querySelector(":scope>div"))
+                        }
+                        ())[1].children[0]._owner;
+                    return new Promise(t => e.props.liveGameController._liveApp ? e.props.liveGameController.getDatabaseVal("c", e => e && t(Object.keys(e))) : t([]))
+                }
+            }],
+            type: "toggle",
+            enabled: false,
+            data: null,
+            run: function(name) {
+                if (this.enabled) {
+                    this.enabled = false;
+                    clearInterval(this.data);
+                    this.data = null;
+                } else {
+                    this.enabled = true;
+
+                    function reactHandler() {
+                        return Object.values(document.querySelector('body div[class*="_body"]'))[1].children[0]._owner;
+                    }
+
+                    var action = name + ":inspect";
+
+                    function spamAction() {
+                        var handler = reactHandler();
+                        if (handler && handler.stateNode && handler.stateNode.props && handler.stateNode.props.liveGameController) {
+                            handler.stateNode.props.liveGameController.setVal({
+                                id: handler.stateNode.props.client.hostId,
+                                path: "c/" + handler.stateNode.props.client.name + "/tat",
+                                val: action
+                            });
+                        }
+                    }
+
+                    this.data = setInterval(spamAction, 50);
+                }
+            }
+        }, {
                         name: "Stock Food",
                         description: "Stocks all food to 99 (Not usable in the shop)",
                         run: function () {
@@ -4890,6 +6058,64 @@ name: "Set Next Fish",
                         },
                     },
                     {
+
+    name: "Change Settings",
+    description: "Changes various game mechanics and lets you play with the spacebar",
+    inputs: [
+        {
+            name: "Bird Gravity",
+            type: "number",
+            value: 800
+        },
+        {
+            name: "Bird Speed",
+            type: "number",
+            value: 125
+        },
+        {
+            name: "Bird Flap Power",
+            type: "number",
+            value: 300
+        }
+    ],
+    run: function(birdGravity, birdSpeed, birdFlapPower) {
+        (function() {
+            const canvas = document.querySelector("#phaser-bouncy");
+            if (!canvas) return;
+
+            const scene = Object.values(canvas)[0].return.updateQueue.lastEffect.deps[0].current.config.sceneConfig;
+            if (!scene) return;
+
+            // Apply custom settings
+            scene.birdGravity = birdGravity;
+            scene.birdSpeed = birdSpeed;
+            scene.birdFlapPower = birdFlapPower;
+
+            // Override flap function
+            scene.flap = function() {
+                if (!this.isStarted) {
+                    this.bird.body.gravity.y = this.birdGravity;
+                    this.pipeGroup.setVelocityX(-this.birdSpeed);
+                    this.groundGroup.setVelocityX(-this.birdSpeed);
+                    this.isStarted = true;
+                }
+                this.bird.body.velocity.y = -this.birdFlapPower;
+            };
+
+            // Clear previous pointer events
+            scene.input._events.pointerdown = [];
+
+            // Recreate the scene
+            scene.create();
+
+            // Add spacebar flap
+            scene.input.keyboard.addKey('SPACE').on("down", () => {
+                scene.flap.call(scene);
+            });
+        })();
+    }
+},
+                    {
                         name: "Change Game Code",
             description: "Replace the old game with new HTML content",
             inputs: [{
@@ -5266,182 +6492,9 @@ name: "Set Next Fish",
 
         const creditsPage = document.createElement("div");
         creditsPage.className = classes.creditsPage;
-        const mobilePage = document.createElement("div")
-        mobilePage.className = classes.mobilePage;
 
-        // ====================== CLEAN MOBILE MODE SYSTEM (SLEEK + MINIMAL) ===========================
-(function () {
 
-    if (!gui) return;
 
-    const MOBILE_KEY = "XGUI_MOBILE_MODE_ENABLED";
-
-    let enterBtn = null;
-    let exitBtn = null;
-
-    // ====================== CLEAN MOBILE CSS ======================
-    const mobileCSS = document.createElement("style");
-    mobileCSS.innerHTML = `
-        body.xgui-mobile-mode .X-Gui-sidebar {
-            width: 70px !important;
-            overflow: hidden !important;
-            padding: 18px 0 !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: flex-start !important;
-            gap: 20px !important;
-            transition: 0.25s ease;
-        }
-
-        body.xgui-mobile-mode .X-Gui-sidebar span {
-            display: none !important;
-        }
-
-        body.xgui-mobile-mode .X-Gui-sidebar::-webkit-scrollbar {
-            display: none !important;
-        }
-
-        body.xgui-mobile-mode .X-Gui-content {
-            overflow-y: auto !important;
-            max-height: calc(100% - 45px) !important;
-            padding-right: 10px !important;
-            min-width: 0 !important;
-            word-break: break-word !important;
-            transition: 0.25s ease;
-        }
-
-        body.xgui-mobile-mode .setting,
-        body.xgui-mobile-mode .setting-row,
-        body.xgui-mobile-mode .setting > *,
-        body.xgui-mobile-mode .setting-row > * {
-            min-width: 0 !important;
-            max-width: 100% !important;
-            white-space: normal !important;
-            word-break: break-word !important;
-            line-height: 1.3 !important;
-        }
-
-        body.xgui-mobile-mode .setting-row {
-            display: block !important;
-        }
-
-        /* BUTTON STYLE */
-        .xgui-mobile-toggle-btn {
-            margin: 12px;
-            padding: 10px 14px;
-            background: #0d99ff;
-            color: white;
-            font-weight: 700;
-            border-radius: 10px;
-            cursor: pointer;
-            width: fit-content;
-            transition: 0.2s ease;
-            user-select: none;
-        }
-
-        .xgui-mobile-toggle-btn:hover {
-            background: #0c7adc;
-            transform: scale(1.03);
-        }
-
-        .xgui-exit-btn {
-            background: #d33 !important;
-        }
-
-        .xgui-exit-btn:hover {
-            background: #b22 !important;
-        }
-    `;
-    document.head.appendChild(mobileCSS);
-
-    // ====================== ENTER MOBILE MODE ======================
-    function enableMobile() {
-
-        localStorage.setItem(MOBILE_KEY, "true");
-        gui.dataset.mobileMode = "true";
-        document.body.classList.add("xgui-mobile-mode");
-
-        if (!gui._mobileOrig) {
-            gui._mobileOrig = {
-                width: gui.style.width,
-                contentLeft: guiContent.style.left
-            };
-        }
-
-        gui.style.width = "430px";
-        guiContent.style.left = "75px";
-
-        if (bigTextContainer) bigTextContainer.style.display = "none";
-
-        // Remove ENTER button
-        if (enterBtn) enterBtn.style.display = "none";
-
-        // Create EXIT button
-        if (!exitBtn) {
-            exitBtn = document.createElement("div");
-            exitBtn.innerText = "Exit Mobile Mode";
-            exitBtn.className = "xgui-mobile-toggle-btn xgui-exit-btn";
-            exitBtn.onclick = disableMobile;
-            mobilePage.appendChild(exitBtn);
-        } else {
-            exitBtn.style.display = "block";
-        }
-    }
-
-    // ====================== EXIT MOBILE MODE ======================
-    function disableMobile() {
-
-        localStorage.removeItem(MOBILE_KEY);
-        gui.dataset.mobileMode = "false";
-        document.body.classList.remove("xgui-mobile-mode");
-
-        if (gui._mobileOrig) {
-            gui.style.width = gui._mobileOrig.width;
-            guiContent.style.left = gui._mobileOrig.contentLeft;
-        }
-
-        if (bigTextContainer) bigTextContainer.style.display = "";
-
-        if (exitBtn) exitBtn.style.display = "none";
-
-        // Show ENTER button
-        if (enterBtn) {
-            enterBtn.style.display = "block";
-        }
-    }
-
-    // ====================== ADD ENTER BUTTON TO PAGE ======================
-    if (!enterBtn) {
-        enterBtn = document.createElement("div");
-        enterBtn.innerText = "Enter Mobile Mode";
-        enterBtn.className = "xgui-mobile-toggle-btn";
-        enterBtn.onclick = enableMobile;
-        mobilePage.appendChild(enterBtn);
-    }
-
-    // ====================== AUTO LOAD ======================
-    if (localStorage.getItem(MOBILE_KEY) === "true") {
-        setTimeout(() => enableMobile(), 50);
-    }
-
-    // When user clicks the sidebar tab to open mobile page:
-    mobilePage.onPath = function () {
-        if (gui.dataset.mobileMode === "true") {
-            if (exitBtn) exitBtn.style.display = "block";
-            if (enterBtn) enterBtn.style.display = "none";
-        } else {
-            if (enterBtn) enterBtn.style.display = "block";
-            if (exitBtn) exitBtn.style.display = "none";
-        }
-    };
-
-    gui.toggleMobileMode = function () {
-        if (gui.dataset.mobileMode === "true") disableMobile();
-        else enableMobile();
-    };
-
-})();
 
 
 
@@ -5487,6 +6540,11 @@ changelogPage.appendChild(title);
 
 // Versions array (30 versions, highest to lowest)
 const versions = [
+  ["Version 6.63x", "ADDED BLOOK EDITOR AND UPDATED MOBILE MODE", "null"],
+  ["Version 6.62x", "ADDED ACCOUNT GENERATOR", "null"],
+  ["Version 6.61x", "ADDED BLOOKET STREAM FINDER AND ALT MANAGER", "null"],
+  ["Version 6.60x", "fixed ping display! ADDED CONSOLE MESSAGE AND ADDED PIN GUESSER!!", "null"],
+  ["Version 6.50x", "FIXED KEYBINDS!! ADDED CHEATS AND ADDED 8 NEW THEMES, HAPPY HOLIDAYS GUYSS <3", "null"],
   ["Version 6.40x", "UPDATED REFRESH SVG AND ADDED CHEAT", "null"],
   ["Version 6.30x", "ADDED CHEATS AND UPDATED GUI", "null"],
   ["Version 6.20x", "ADDED MORE CHEATS+++", "https://greasyfork.org/en/scripts/553301-x-gui-client-for-blooket/versions"],
@@ -5577,6 +6635,509 @@ versions.forEach(([ver, desc, link]) => {
 // Append to GUI content
 guiContent.appendChild(changelogPage);
 
+        // ================= ALT MANAGER PAGE =================
+const altPage = document.createElement("div");
+altPage.className = classes.favoritesPage || "favoritesPage";
+
+Object.assign(altPage.style, {
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    padding: "25px 20px 50px 20px",
+    overflowY: "auto"
+});
+
+// ===== Styles =====
+const altStyle = document.createElement("style");
+altStyle.textContent = `
+.${classes.favoritesPage || "favoritesPage"}::-webkit-scrollbar {
+  width: 8px;
+}
+.${classes.favoritesPage || "favoritesPage"}::-webkit-scrollbar-thumb {
+  background: var(--highlight2);
+  border-radius: 4px;
+}
+.${classes.favoritesPage || "favoritesPage"}::-webkit-scrollbar-track {
+  background: transparent;
+}
+.altInput {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: var(--textColor);
+  font-size: .95em;
+  outline: none;
+  transition: border .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.altInput::placeholder { color: rgba(255,255,255,.45); }
+.altInput:focus {
+  border-color: var(--highlight);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 2px rgb(from var(--highlight) r g b / 35%);
+}
+.altBtn {
+  padding: 10px;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  color: #000;
+  background: linear-gradient(135deg, var(--highlight), var(--highlight2));
+  box-shadow: 0 6px 20px rgb(from var(--highlight) r g b / 45%);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.altBtn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 10px 30px rgb(from var(--highlight) r g b / 55%);
+}
+.altBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgb(from var(--highlight) r g b / 35%);
+}
+.altSmallBtn { padding: 6px 10px; border-radius: 10px; font-weight: 700; font-size: .8em; }
+`;
+document.head.appendChild(altStyle);
+
+// ===== Title =====
+const altTitle = document.createElement("div");
+altTitle.className = "bigTextContainer";
+altTitle.innerHTML = `<div class="bigText">👥 Alt Manager</div>`;
+Object.assign(altTitle.style, {
+    fontSize: "2.2em",
+    fontWeight: "900",
+    textAlign: "center",
+    marginBottom: "10px",
+    textShadow: `0 0 12px var(--highlight), 0 0 24px var(--highlight2)`
+});
+altPage.appendChild(altTitle);
+
+// ===== Add Alt Card =====
+const addAltCard = document.createElement("div");
+Object.assign(addAltCard.style, {
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    padding: "16px 20px",
+    borderRadius: "14px",
+    background: "var(--background2)",
+    boxShadow: "0 5px 20px rgba(0,0,0,0.28)"
+});
+addAltCard.innerHTML = `
+  <span style="font-weight:800;color:var(--highlight)">Add Alt</span>
+  <input id="altUser" class="altInput" placeholder="Username">
+  <div style="display:flex;gap:8px;align-items:center">
+    <input id="altPass" class="altInput" type="password" placeholder="Password" style="flex:1">
+    <button id="toggleAddPass" class="altBtn altSmallBtn">👁</button>
+  </div>
+  <button id="saveAltBtn" class="altBtn">➕ Save Alt</button>
+`;
+altPage.appendChild(addAltCard);
+
+// ===== Alt List =====
+const altList = document.createElement("div");
+Object.assign(altList.style, {
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px"
+});
+altPage.appendChild(altList);
+
+// ===== Cookie Storage Helpers =====
+function setCookie(name, value, days = 365) {
+    const expires = new Date(Date.now() + days*864e5).toUTCString();
+    const domain = location.hostname.split('.').slice(-2).join('.'); // save on root domain
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; domain=.${domain}; SameSite=Lax`;
+}
+
+function getCookie(name) {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? decodeURIComponent(match[2]) : null;
+}
+
+// ===== Storage =====
+const ALT_KEY = "xgui_alts";
+const getAlts = () => {
+    const cookie = getCookie(ALT_KEY);
+    return cookie ? JSON.parse(cookie) : [];
+};
+const setAlts = (alts) => setCookie(ALT_KEY, JSON.stringify(alts));
+
+// ===== Render =====
+function renderAlts() {
+    altList.innerHTML = "";
+    const alts = getAlts();
+    if (!alts.length) {
+        const empty = document.createElement("div");
+        empty.style.opacity = ".6";
+        empty.innerText = "No alts saved";
+        altList.appendChild(empty);
+        return;
+    }
+    alts.forEach((alt, index) => {
+        let visible = false;
+        const card = document.createElement("div");
+        Object.assign(card.style, {
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+            padding: "16px 20px",
+            borderRadius: "14px",
+            background: "var(--background2)",
+            boxShadow: "0 5px 20px rgba(0,0,0,0.28)",
+            transition: "transform .2s ease, box-shadow .2s ease"
+        });
+        card.onmouseover = () => {
+            card.style.transform = "translateY(-4px)";
+            card.style.boxShadow = "0 10px 30px rgba(0,0,0,0.35)";
+        };
+        card.onmouseleave = () => {
+            card.style.transform = "translateY(0)";
+            card.style.boxShadow = "0 5px 20px rgba(0,0,0,0.28)";
+        };
+
+        const passSpan = document.createElement("span");
+        passSpan.style.opacity = ".6";
+        passSpan.innerText = "••••••••";
+
+        const viewBtn = document.createElement("button");
+        viewBtn.className = "altBtn altSmallBtn";
+        viewBtn.innerText = "👁 View";
+        viewBtn.onclick = () => {
+            visible = !visible;
+            passSpan.innerText = visible ? alt.pass : "••••••••";
+            viewBtn.innerText = visible ? "🙈 Hide" : "👁 View";
+        };
+
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "altBtn altSmallBtn";
+        removeBtn.innerText = "Remove";
+        removeBtn.onclick = () => {
+            const all = getAlts();
+            all.splice(index, 1);
+            setAlts(all);
+            renderAlts();
+        };
+
+        card.append(
+            Object.assign(document.createElement("span"), {
+                innerText: alt.user,
+                style: "font-weight:800;color:var(--highlight)"
+            }),
+            passSpan,
+            viewBtn,
+            removeBtn
+        );
+
+        altList.appendChild(card);
+    });
+}
+
+// ===== Add Alt Logic =====
+const addPassInput = addAltCard.querySelector("#altPass");
+addAltCard.querySelector("#toggleAddPass").onclick = () => {
+    addPassInput.type = addPassInput.type === "password" ? "text" : "password";
+};
+addAltCard.querySelector("#saveAltBtn").onclick = () => {
+    const user = addAltCard.querySelector("#altUser").value.trim();
+    const pass = addPassInput.value.trim();
+    if (!user || !pass) return;
+
+    const alts = getAlts();
+    alts.push({ user, pass });
+    setAlts(alts);
+
+    addAltCard.querySelector("#altUser").value = "";
+    addPassInput.value = "";
+    addPassInput.type = "password";
+
+    renderAlts();
+};
+
+// Refresh on open
+altPage.onPath = renderAlts;
+
+
+
+
+const blookPage = document.createElement("div");
+blookPage.className = "blookPage";
+
+Object.assign(blookPage.style, {
+  display: "flex",
+  flexDirection: "column",
+  gap: "18px",
+  padding: "25px 20px 60px",
+  overflowY: "auto",
+  height: "100%",
+  background: "linear-gradient(135deg, #0b1020, #12162e, #1b1240)",
+  borderRadius: "14px"
+});
+
+
+const Blookstyle = document.createElement("style");
+Blookstyle.textContent = `
+.blookPage::-webkit-scrollbar { width: 6px; }
+.blookPage::-webkit-scrollbar-thumb {
+  background: #5b4bdb;
+  border-radius: 4px;
+}
+
+.editorContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(18,22,46,0.85);
+}
+
+.blookInput {
+  width: 70px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(120,100,255,0.25);
+  background: rgba(20,25,55,0.65);
+  color: #fff;
+  text-align: center;
+}
+.blookInput:focus {
+  border-color: #8f6bff;
+  box-shadow: 0 0 10px rgba(120,100,255,0.7);
+  outline: none;
+}
+
+.previewBox {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+  background: rgba(10,12,30,0.7);
+  border-radius: 20px;
+  border: 1px solid rgba(120,100,255,0.35);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.previewLabel {
+  font-weight: 800;
+  color: #cfcfff;
+  font-size: 0.9em;
+}
+
+.finalConfigInput {
+  width: 92%;
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(20,25,55,0.75);
+  border: 1px solid rgba(120,100,255,0.25);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+
+.blookBtn {
+  margin: 14px auto 0;
+  padding: 12px 26px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(135deg, #8f6bff, #5b4bdb);
+  box-shadow: 0 8px 22px rgba(120,100,255,0.45);
+}
+`;
+document.head.appendChild(Blookstyle);
+
+
+blookPage.innerHTML += `
+<div style="text-align:center">
+  <div style="font-size:2em;font-weight:900;color:#fff">🖌️ Blook Editor</div>
+  <div style="color:#cfcfff;margin-top:6px">Sets Your Blook To Custom • In-Game Only</div>
+</div>
+`;
+
+
+const editorContainer = document.createElement("div");
+editorContainer.className = "editorContainer";
+blookPage.appendChild(editorContainer);
+
+
+function createInput(label) {
+  const wrap = document.createElement("div");
+  wrap.style.display = "flex";
+  wrap.style.flexDirection = "column";
+  wrap.style.alignItems = "center";
+  wrap.style.gap = "6px";
+
+  const l = document.createElement("label");
+  l.textContent = label;
+  l.style.color = "#fff";
+  l.style.fontSize = "0.9em";
+  l.style.fontWeight = "600";
+
+  const i = document.createElement("input");
+  i.type = "number";
+  i.value = 0;
+  i.min = 0;        // 🚫 no negatives
+  i.step = 1;
+  i.className = "blookInput";
+
+  wrap.append(l, i);
+  editorContainer.appendChild(wrap);
+  return i;
+}
+
+const parts = {
+  base: createInput("Base"),
+  clothing: createInput("Clothing"),
+  eyes: createInput("Eyes"),
+  glasses: createInput("Glasses"),
+  hair: createInput("Hair"),
+  hairColor: createInput("Hair Color"),
+  hat: createInput("Hat"),
+  item: createInput("Item"),
+  mouth: createInput("Mouth"),
+  nose: createInput("Nose"),
+  cheeks: createInput("Cheeks"),
+  eyebrows: createInput("Eyebrows"),
+  eyebrowsColor: createInput("Eyebrows Color")
+};
+
+
+const previewBox = document.createElement("div");
+previewBox.className = "previewBox";
+
+const previewLabel = document.createElement("div");
+previewLabel.className = "previewLabel";
+previewLabel.textContent = "Select a part";
+
+const previewImg = document.createElement("img");
+previewImg.style.maxWidth = "85%";
+previewImg.style.maxHeight = "85%";
+
+previewBox.append(previewLabel, previewImg);
+blookPage.appendChild(previewBox);
+
+
+const GITHUB_BASE =
+  "https://raw.githubusercontent.com/0alter0/blook-parts/241bda5908c9355caef55ac994b1c2ec21124eb7";
+
+const PART_FOLDER_MAP = {
+  base: "base",
+  clothing: "clothing",
+  eyes: "eyes",
+  glasses: "glasses",
+  hair: "hair",
+  hat: "hats",
+  item: "object",
+  mouth: "mouth",
+  nose: "nose",
+  cheeks: "cheeks",
+  eyebrows: "eyebrows"
+};
+
+function getPreviewURL(part, id) {
+  if (!id || id <= 0) return "";
+  const folder = PART_FOLDER_MAP[part];
+  return folder ? `${GITHUB_BASE}/${folder}/item${id}.svg` : "";
+}
+
+
+let previewTimeout = null;
+let lastPreviewKey = "";
+
+function queuePreviewUpdate(part, id) {
+  clearTimeout(previewTimeout);
+
+  previewTimeout = setTimeout(() => {
+    const key = `${part}:${id}`;
+    lastPreviewKey = key;
+
+    previewImg.dataset.key = key;
+    previewImg.src = getPreviewURL(part, id);
+  }, 120);
+}
+
+Object.entries(parts).forEach(([part, input]) => {
+  input.addEventListener("focus", () => {
+    previewLabel.textContent = part.toUpperCase();
+    queuePreviewUpdate(part, input.value);
+  });
+
+  input.addEventListener("input", () => {
+    if (document.activeElement === input) {
+      queuePreviewUpdate(part, input.value);
+    }
+  });
+});
+
+previewImg.onerror = () => {
+  if (previewImg.dataset.key !== lastPreviewKey) return;
+  previewImg.src = "";
+  if (!previewLabel.textContent.includes("INVALID")) {
+    previewLabel.textContent += " (INVALID)";
+  }
+};
+
+previewImg.onload = () => {
+  previewLabel.textContent =
+    previewLabel.textContent.replace(" (INVALID)", "");
+};
+
+
+const finalConfig = document.createElement("input");
+finalConfig.className = "finalConfigInput";
+finalConfig.placeholder = "Final Configuration String";
+blookPage.appendChild(finalConfig);
+
+const setBtn = document.createElement("button");
+setBtn.className = "blookBtn";
+setBtn.textContent = "Set Blook";
+blookPage.appendChild(setBtn);
+
+
+function updateConfig() {
+  const v = Object.values(parts).map(i => i.value || 0);
+  finalConfig.value =
+    `${v[0]}#${v[1]}#${v[2]}#${v[3]}#${v[4]}` +
+    `$${v[5]}#${v[6]}#${v[7]}#${v[8]}#${v[9]}` +
+    `#${v[10]}#${v[11]}$${v[12]}`;
+}
+Object.values(parts).forEach(i => i.addEventListener("input", updateConfig));
+updateConfig();
+
+
+setBtn.onclick = () => {
+  const blook = finalConfig.value;
+  let t = Object.values(function e(t = document.querySelector("body>div")) {
+    return Object.values(t)[1]?.children?.[0]?._owner?.stateNode
+      ? t
+      : e(t.querySelector(":scope>div"));
+  }())[1].children[0]._owner.stateNode;
+
+  if (!t.state.unlocks) t.props.client.blook = blook;
+  t.props.liveGameController.setVal({
+    path: `c/${t.props.client.name}/b`,
+    val: blook
+  });
+};
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5604,8 +7165,8 @@ guiContent.appendChild(changelogPage);
         creditLinks.className = classes.creditLinks;
 
         creditLinks.append(createCredit("Our Github", '<a target="_blank" href="https://github.com/XULL-XXX/X-GUI-BLOOKET-CLIENT">X-GUI CHEATS/GITHUB</a>'));
-        creditLinks.append(createCredit("Our Website *RELEASED*", '<a target="_blank" href="https://xgui-client.github.io">More Info/Website</a>'));
-        creditLinks.append(createCredit("Greasyfork", '<a target="_blank" href="https://greasyfork.org/en/scripts/553301-x-gui-client-for-blooket">Greasyfork page (Give Me Feedback!)</a>'));
+        creditLinks.append(createCredit("Our Website", '<a target="_blank" href="https://xgui-client.github.io">More Info/Website</a>'));
+        creditLinks.append(createCredit("Discord", '<a target="_blank" href="https://discord.gg/Zk5a4QXN">JOIN THE SERVER</a>'));
 
         function parseTime(d) {
             const hour = d.getHours() % 12 == 0 ? 12 : d.getHours() % 12;
@@ -5672,12 +7233,12 @@ pingDisplay.style.cssText = `
 // Initial text
 pingDisplay.innerText = "Server Ping: Calculating...";
 
-// Append to the bottom of the credits page
+// Assuming `creditsPage` is already defined, append to it
 creditsPage.appendChild(pingDisplay);
 
 // Function to ping a server
 function updatePing() {
-    const serverURL = "https://blooket.com"; // replace with desired server
+    const serverURL = "https://www.blooket.com"; // Correct URL to avoid the 301 redirect
     const start = performance.now();
 
     fetch(serverURL, { method: "HEAD", cache: "no-cache" })
@@ -5695,6 +7256,7 @@ updatePing();
 
 // Update every 5 seconds
 setInterval(updatePing, 5000);
+
 
 
         const settingsPage = document.createElement("div");
@@ -5768,7 +7330,7 @@ setInterval(updatePing, 5000);
             settingInfo.append(settingName, settingDescription);
             settingElement.append(settingTop);
 
-           
+
 
             const settingInputs = document.createElement("div");
             settingInputs.className = classes.cheatInputs;
@@ -5874,7 +7436,361 @@ setInterval(updatePing, 5000);
                 name: "Preset",
                 options: [
                     {
-                        name: "X-GUI ORIGINAL",
+
+                name: "Cyber Blue",
+                value: {
+                    highlight: "#00bfff",
+                    highlight2: "#0077aa",
+                    background: "radial-gradient(circle at top, #0f2027, #000000)",
+                    background2: "#020b14",
+                    toggleOn: "#00ffcc",
+                    toggleOff: "#ff4d4d",
+                    textColor: "#e6f7ff",
+                    textColor2: "#00bfff",
+                },
+            },
+            {
+                name: "Inferno",
+                value: {
+                    highlight: "#ff6a00",
+                    highlight2: "#c0392b",
+                    background: "linear-gradient(135deg, #2b0000, #7a1c00)",
+                    background2: "#3a0f0f",
+                    toggleOn: "#ff9f1a",
+                    toggleOff: "#5c1a1a",
+                    textColor: "#fff2e6",
+                    textColor2: "#ff6a00",
+                },
+            },
+            {
+                name: "Emerald Night",
+                value: {
+                    highlight: "#2ecc71",
+                    highlight2: "#1e824c",
+                    background: "linear-gradient(180deg, #051f14, #020b08)",
+                    background2: "#03140c",
+                    toggleOn: "#2ecc71",
+                    toggleOff: "#8b1e1e",
+                    textColor: "#eafff3",
+                    textColor2: "#2ecc71",
+                },
+            },
+            {
+                name: "Midnight Purple",
+                value: {
+                    highlight: "#8e44ad",
+                    highlight2: "#5e3370",
+                    background: "linear-gradient(160deg, #120018, #000000)",
+                    background2: "#1a0022",
+                    toggleOn: "#bb6bd9",
+                    toggleOff: "#7a1a1a",
+                    textColor: "#f5e6ff",
+                    textColor2: "#bb6bd9",
+                },
+            },
+            {
+                name: "Frozen Ice",
+                value: {
+                    highlight: "#7ed6df",
+                    highlight2: "#22a6b3",
+                    background: "linear-gradient(180deg, #e8f9ff, #b8ecff)",
+                    background2: "#dff6ff",
+                    toggleOn: "#22a6b3",
+                    toggleOff: "#be2edd",
+                    textColor: "#003344",
+                    textColor2: "#22a6b3",
+                },
+            },
+            {
+                name: "Crimson Void",
+                value: {
+                    highlight: "#e74c3c",
+                    highlight2: "#96281b",
+                    background: "radial-gradient(circle, #2b0000, #000000)",
+                    background2: "#1a0000",
+                    toggleOn: "#ff7675",
+                    toggleOff: "#3d0000",
+                    textColor: "#ffecec",
+                    textColor2: "#e74c3c",
+                },
+            },
+            {
+                name: "Matrix",
+                value: {
+                    highlight: "#00ff41",
+                    highlight2: "#00aa2a",
+                    background: "radial-gradient(circle, #003300, #000000)",
+                    background2: "#001a00",
+                    toggleOn: "#00ff41",
+                    toggleOff: "#660000",
+                    textColor: "#ccffcc",
+                    textColor2: "#00ff41",
+                },
+            },
+            {
+                name: "Sunset Vapor",
+                value: {
+                    highlight: "#ff77aa",
+                    highlight2: "#ffb347",
+                    background: "linear-gradient(135deg, #ff5f6d, #845ec2)",
+                    background2: "#2a1a40",
+                    toggleOn: "#ffb347",
+                    toggleOff: "#5a1a1a",
+                    textColor: "#fff0f7",
+                    textColor2: "#ff77aa",
+                },
+            },
+                    {
+
+    name: "Neon Purple",
+    value: {
+        highlight: "#9a49aa",
+        highlight2: "#7a039d",
+        background: "rgb(11, 194, 207)",
+        background2: "rgb(64, 17, 95)",
+        toggleOn: "#47A547",
+        toggleOff: "#A02626",
+        textColor: "white",
+        textColor2: "#9a49aa",
+    },
+},
+{
+    name: "Landscapes (Random)",
+    value: {
+        highlight: "rgba(0,0,0,0.3)",
+        highlight2: "rgba(0,0,0,0.3)",
+        background: "url(https://source.unsplash.com/1600x900/?landscape)",
+        background2: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))",
+        toggleOn: "linear-gradient(rgba(0,128,0,0.3), rgba(0,128,0,0.3))",
+        toggleOff: "linear-gradient(rgba(225,0,0,0.3), rgba(225,0,0,0.3))",
+        textColor: "white",
+        textColor2: "white",
+    },
+},
+{
+    name: "Blacket",
+    value: {
+        highlight: "#2f2f2f",
+        highlight2: "#3f3f3f",
+        background: "#4f4f4f",
+        background2: "#2f2f2f",
+        toggleOn: "#00c20c",
+        toggleOff: "#eb6234",
+        textColor: "white",
+        textColor2: "white",
+    },
+},
+{
+    name: "Ploopit",
+    value: {
+        highlight: "#204DD0",
+        highlight2: "#3C75F5",
+        background: "url(https://i.ibb.co/6vvdq3f/ploopit.png)",
+        background2: "#3C75F5",
+        toggleOn: "#47A547",
+        toggleOff: "#A02626",
+        textColor: "white",
+        textColor2: "#3C75F5",
+    },
+},
+{
+
+    name: "Midnight Bloom",
+    value: {
+        highlight: "#bb2d5b",
+        highlight2: "#682c44",
+        background: "linear-gradient(135deg, #1b1b2f, #2a2a45)",
+        background2: "#3e3e5c",
+        toggleOn: "#bb2d5b",
+        toggleOff: "#682c44",
+        textColor: "#e0e0e0",
+        textColor2: "#bb2d5b",
+    },
+},
+{
+    name: "Silver Horizon",
+    value: {
+        highlight: "#d1d1d1",
+        highlight2: "#b0b0b0",
+        background: "linear-gradient(135deg, #4e4e5d, #2f2f38)",
+        background2: "#3c3c44",
+        toggleOn: "#d1d1d1",
+        toggleOff: "#5a5a60",
+        textColor: "#ffffff",
+        textColor2: "#d1d1d1",
+    },
+},
+{
+    name: "Deep Ocean",
+    value: {
+        highlight: "#006994",
+        highlight2: "#003b57",
+        background: "linear-gradient(180deg, #003b57, #011c2a)",
+        background2: "#002433",
+        toggleOn: "#006994",
+        toggleOff: "#004d6a",
+        textColor: "#cce7ff",
+        textColor2: "#006994",
+    },
+},
+{
+    name: "Rustic Copper",
+    value: {
+        highlight: "#a65c5c",
+        highlight2: "#7b4b4b",
+        background: "linear-gradient(135deg, #e57c73, #7b4b4b)",
+        background2: "#9e6e6e",
+        toggleOn: "#a65c5c",
+        toggleOff: "#5e2f2f",
+        textColor: "#ffffff",
+        textColor2: "#a65c5c",
+    },
+},
+{
+    name: "Frostbite",
+    value: {
+        highlight: "#85c7e0",
+        highlight2: "#6d9db1",
+        background: "linear-gradient(135deg, #2a4d6f, #1f3e50)",
+        background2: "#3e5a70",
+        toggleOn: "#85c7e0",
+        toggleOff: "#3e5a70",
+        textColor: "#ffffff",
+        textColor2: "#85c7e0",
+    },
+},
+{
+    name: "Citrus Mist",
+    value: {
+        highlight: "#f6a500",
+        highlight2: "#f67f1e",
+        background: "linear-gradient(135deg, #f0a500, #ff6600)",
+        background2: "#d05f20",
+        toggleOn: "#f6a500",
+        toggleOff: "#a34317",
+        textColor: "#ffffff",
+        textColor2: "#f6a500",
+    },
+},
+{
+    name: "Mossy Forest",
+    value: {
+        highlight: "#728c5f",
+        highlight2: "#3d6c3d",
+        background: "linear-gradient(180deg, #3d6c3d, #2b4d2b)",
+        background2: "#4f7037",
+        toggleOn: "#728c5f",
+        toggleOff: "#4f7037",
+        textColor: "#ffffff",
+        textColor2: "#728c5f",
+    },
+},
+{
+    name: "Astral Journey",
+    value: {
+        highlight: "#a0a2d0",
+        highlight2: "#6b6c9f",
+        background: "linear-gradient(135deg, #2c3e5c, #1b2a3b)",
+        background2: "#3e4b72",
+        toggleOn: "#a0a2d0",
+        toggleOff: "#4d5176",
+        textColor: "#ffffff",
+        textColor2: "#a0a2d0",
+    },
+},
+{
+    name: "Crimson Ember",
+    value: {
+        highlight: "#ff4c4c",
+        highlight2: "#b73838",
+        background: "linear-gradient(135deg, #ff4c4c, #b73838)",
+        background2: "#8f3030",
+        toggleOn: "#ff4c4c",
+        toggleOff: "#8f3030",
+        textColor: "#ffffff",
+        textColor2: "#ff4c4c",
+    },
+},
+{
+    name: "Obsidian Wave",
+    value: {
+        highlight: "#4e5d6b",
+        highlight2: "#2c3e4f",
+        background: "linear-gradient(135deg, #2c3e4f, #1b2a35)",
+        background2: "#3e4b5a",
+        toggleOn: "#4e5d6b",
+        toggleOff: "#2c3e4f",
+        textColor: "#ffffff",
+        textColor2: "#4e5d6b",
+    },
+},
+{
+    name: "Twilight Ember",
+    value: {
+        highlight: "#ff7f50",
+        highlight2: "#f14d27",
+        background: "linear-gradient(135deg, #ff7f50, #f14d27)",
+        background2: "#d24020",
+        toggleOn: "#ff7f50",
+        toggleOff: "#d24020",
+        textColor: "#ffffff",
+        textColor2: "#ff7f50",
+    },
+},
+{
+    name: "Garnet Eclipse",
+    value: {
+        highlight: "#9b2d20",
+        highlight2: "#6b1f14",
+        background: "linear-gradient(135deg, #9b2d20, #6b1f14)",
+        background2: "#6f2923",
+        toggleOn: "#9b2d20",
+        toggleOff: "#6f2923",
+        textColor: "#ffffff",
+        textColor2: "#9b2d20",
+    },
+},
+{
+    name: "Sapphire Twilight",
+    value: {
+        highlight: "#0f4b73",
+        highlight2: "#006282",
+        background: "linear-gradient(135deg, #0f4b73, #006282)",
+        background2: "#003e5d",
+        toggleOn: "#0f4b73",
+        toggleOff: "#003e5d",
+        textColor: "#ffffff",
+        textColor2: "#0f4b73",
+    },
+},
+                    {
+    name: "Betastar",
+    value: {
+        highlight: "#282828",
+        highlight2: "gray",
+        background: "url(https://i.ibb.co/8bkDpCn/GIFMaker-me.gif)",
+        background2: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))",
+        toggleOn: "#013220",
+        toggleOff: "#9D0000",
+        textColor: "black",
+        textColor2: "black",
+    },
+},
+{
+    name: "Skool.lol",
+    value: {
+        highlight: "#36393e",
+        highlight2: "#1e2124",
+        background: "linear-gradient(90deg, rgba(104,45,140,1) 220px, rgba(237,30,121,1) 100%)",
+        background2: "#292929",
+        toggleOn: "#9c9a9a",
+        toggleOff: "#171717",
+        textColor: "white",
+        textColor2: "white",
+    },
+},
+
+                    { name: "X-GUI ORIGINAL",
                         value: {
                             highlight: variables["--highlight"],
                             highlight2: variables["--highlight2"],
@@ -6078,6 +7994,50 @@ function createSidebarPath(name, iconKey, page) {
         <path d="M8 21h8M8 17v4M16 17v4"/>
         <path d="M7 3h10v4a5 5 0 01-10 0V3z"/>
       </svg>`,
+      alt: `
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24"
+     width="1em" height="1em"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+  <!-- main user -->
+  <circle cx="9" cy="8" r="3"/>
+  <path d="M3.5 18c0-3 3-5 5.5-5s5.5 2 5.5 5"/>
+
+  <!-- alt user -->
+  <circle cx="17" cy="9" r="2.5"/>
+  <path d="M14.5 18c.2-2.2 2.1-3.8 4.5-3.8"/>
+
+</svg>
+`,
+      editor: `
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24"
+     width="1em" height="1em"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+  <!-- Box -->
+  <rect x="3" y="3" width="18" height="18" rx="4" ry="4"/>
+
+  <!-- Eyes -->
+  <circle cx="8" cy="10" r="1.2"/>
+  <circle cx="16" cy="10" r="1.2"/>
+
+  <!-- Smile -->
+  <path d="M7 15c1.5 1.5 4.5 1.5 6 0"/>
+</svg>
+`,
+
+
+
 
     terminal: `
       <svg xmlns="http://www.w3.org/2000/svg"
@@ -6201,7 +8161,8 @@ createSidebarPath("Favorites", "star", favoritesPage);
 
 createSidebarPath("Logs", "terminal", logsPage);
 createSidebarPath("Settings", "cog", settingsPage);
-createSidebarPath("Mobile Mode", "mobile", mobilePage);
+createSidebarPath("Alt Manager", "alt", altPage);
+createSidebarPath("Blook Editor", "editor", blookPage);
 createSidebarPath("Changelog", "changelog", changelogPage);
 createSidebarPath("Info/Credits", "code", creditsPage);
 
