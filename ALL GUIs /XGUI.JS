@@ -1066,7 +1066,7 @@ window.addEventListener("beforeunload", () => {
                         },
                     },{
                         name: "Learn Auto Answer",
-                        description: "Toggles Learn Auto Answer on. This version works in the modes that auto answer doesnt work in, but can only learn answers if you've seen them before.",
+                        description: "As questions are answered, the system will remember the responses and automatically answer the correct answer if the same question is asked again.",
                         type: "toggle",
                         enabled: false,
                         data: null,
@@ -1233,7 +1233,7 @@ window.addEventListener("beforeunload", () => {
                         },
                     },{
                         name: "Learn Highlight Answer",
-                        description: "Toggles Learn Highlight Answer on. This version works in the modes that highlight answers doesnt work in, but can only learn answers if you've seen them before.",
+                        description: "As questions are answered, the system will remember the responses and automatically highlight the correct answer if the same question is asked again.",
                         type: "toggle",
                         enabled: false,
                         data: null,
@@ -1402,7 +1402,7 @@ window.addEventListener("beforeunload", () => {
                         },
                     },{
                         name: "Learn Subtle Highlight Answers",
-                        description: "Toggles auto answer on",
+                        description: "As questions are answered, the system will remember the responses and automatically subtly highlight the correct answer if the same question is asked again.",
                         type: "toggle",
                         enabled: false,
                         data: null,
