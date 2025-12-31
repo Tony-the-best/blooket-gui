@@ -36,7 +36,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Source: https://github.com/Blooket-Council/Blooket-Cheats * EMAIL: 05konz994@gmail.com
+ * Source: https://github.com/Tony-the-best/blooket-gui * EMAIL: Tyile2530@gmail.com
  * Source: https://greasyfork.org/en/scripts/553301/versions/new * EMAIL slinkingfox@outlook.com
 
 */
