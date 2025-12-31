@@ -1,230 +1,108 @@
 (() => {
-  // Prevent running twice
-  if (window.__BLOOKET_CHAT__) return;
-  window.__BLOOKET_CHAT__ = true;
+  if (window.blooketChatLoaded) return;
+  window.blooketChatLoaded = true;
 
-  // ====== CONFIG ======
-  const SIGNAL_SERVER = "wss://blooket-lan-chat-signaling.glitch.me";
-  const MESSAGE_TTL = 30 * 60 * 1000; // 30 minutes
-  const STUN_SERVERS = [
-    { urls: "stun:stun.l.google.com:19302" }
-  ];
-
-  // ====== USER ======
-  const username = prompt("Username?") || "Guest";
-  let currentRoom = "server1";
-
-  // ====== STATE ======
-  const peerConnections = {};
-  const dataChannels = {};
-  const userColors = {};
-  const myId = Math.random().toString(36).slice(2, 7);
-
-  // Sound when message arrives
-  const messageSound = new Audio(
-    "https://actions.google.com/sounds/v1/cartoon/pop.ogg"
-  );
-
-  function getUserColor(name) {
-    if (!userColors[name]) {
-      userColors[name] = `hsl(${Math.random() * 360}, 80%, 55%)`;
-    }
-    return userColors[name];
-  }
-
-  // ====== UI ======
-  const chat = document.createElement("div");
-  chat.innerHTML = `
-    <div id="header">
-      Blooket LAN Chat
-      <br><small>Made by Tony-the-best on GitHub</small>
-      <span id="close">✕</span>
-    </div>
-
-    <div id="status">🟡 Connecting...</div>
-
-    <div id="rooms">
-      <button data-room="server1" class="active">Server 1</button>
-      <button data-room="server2">Server 2</button>
-      <button data-room="server3">Server 3</button>
-    </div>
-
-    <div id="messages"></div>
-
-    <div id="inputBar">
-      <input id="input" placeholder="Type a message..." />
-      <button id="send">Send</button>
-    </div>
-  `;
-
-  document.body.appendChild(chat);
-
-  // ====== STYLES ======
-  const style = document.createElement("style");
-  style.textContent = `
-    #header {
-      background: #2d8cff;
-      color: white;
-      padding: 8px;
-      font-weight: bold;
-      cursor: move;
-    }
-    #header small { font-size: 10px; }
-    #close { float: right; cursor: pointer; }
-    #status { font-size: 12px; padding: 4px; }
-    #rooms button {
-      background: #7a3cff;
-      color: white;
-      border: none;
-      margin: 2px;
-      padding: 4px;
-    }
-    #rooms .active { background: #a56bff; }
-    #messages {
-      flex: 1;
-      overflow-y: auto;
-      background: #dbeaff;
-      padding: 6px;
-    }
-    #inputBar { display: flex; }
-    #input { flex: 1; }
-    #send { background: #7a3cff; color: white; border: none; }
-    div { font-family: sans-serif; }
-  `;
-  document.head.appendChild(style);
-
-  Object.assign(chat.style, {
-    position: "fixed",
-    top: "60px",
-    left: "60px",
-    width: "360px",
-    height: "520px",
-    display: "flex",
-    flexDirection: "column",
-    zIndex: 999999,
-    border: "3px solid black",
-    borderRadius: "12px",
-    background: "white"
-  });
-
-  // ====== DRAGGING ======
-  let dragging = false, offsetX = 0, offsetY = 0;
-
-  chat.querySelector("#header").onmousedown = e => {
-    dragging = true;
-    offsetX = e.clientX - chat.offsetLeft;
-    offsetY = e.clientY - chat.offsetTop;
+  const firebaseConfig = {
+    apiKey: "AIzaSyBBqdCXK6X_kNn3ybkJDaasRZ7amxVJqc",
+    authDomain: "blooket-chat.firebaseapp.com",
+    databaseURL: "https://blooket-chat-default-rtdb.firebaseio.com",
+    projectId: "blooket-chat",
+    storageBucket: "blooket-chat.firebasestorage.app",
+    messagingSenderId: "1012332349320",
+    appId: "1:1012332349320:web:cf9a2a7632421b1e591c3d"
   };
 
-  document.onmousemove = e => {
-    if (!dragging) return;
-    chat.style.left = e.clientX - offsetX + "px";
-    chat.style.top = e.clientY - offsetY + "px";
-  };
+  const emojis = {":smile:":"😄",":heart:":"❤️",":thumbsup:":"👍",":star:":"⭐",":fire:":"🔥"};
+  const emojify = t => { for(const k in emojis) t=t.split(k).join(emojis[k]); return t; };
 
-  document.onmouseup = () => dragging = false;
-
-  // ====== ROOMS ======
-  chat.querySelectorAll("#rooms button").forEach(btn => {
-    btn.onclick = () => {
-      chat.querySelectorAll("#rooms button").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      currentRoom = btn.dataset.room;
-      messages.innerHTML = "";
-    };
+  const loadScript = (src, cb) => { const s=document.createElement("script"); s.src=src; s.onload=cb; document.head.appendChild(s); };
+  loadScript("https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js", () => {
+    loadScript("https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js", startChat);
   });
 
-  // ====== MESSAGING ======
-  const messages = chat.querySelector("#messages");
-  const input = chat.querySelector("#input");
+  async function startChat() {
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const username = prompt("👋 Welcome! Enter your username:") || "Guest";
 
-  function showMessage(msg) {
-    if (Date.now() - msg.time > MESSAGE_TTL) return;
-    if (msg.room !== currentRoom) return;
+    const servers = ["server1","server2","server3"];
+    let currentRoom = "server1";
+    for(const srv of servers){
+      const snap = await db.ref("rooms/"+srv).once("value");
+      if(!snap.exists() || snap.numChildren()<1){ currentRoom=srv; break; }
+    }
 
-    const line = document.createElement("div");
-    line.innerHTML = `<b style="color:${getUserColor(msg.user)}">${msg.user}</b>: ${msg.text}`;
-    messages.appendChild(line);
-    messages.scrollTop = messages.scrollHeight;
-    messageSound.play();
-  }
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-  function broadcast(msg) {
-    showMessage(msg);
-    Object.values(dataChannels).forEach(dc => {
-      if (dc.readyState === "open") {
-        dc.send(JSON.stringify(msg));
-      }
+    const ui = document.createElement("div");
+    ui.innerHTML = `
+      <div id="hdr">Blooket Chat<br><small>Made by Tony-the-best on GitHub</small><span id="x">✕</span></div>
+      <div id="msgs"></div>
+      <div id="bar"><input id="inp" placeholder="Type a message..." /><button id="send">Send</button></div>
+      <div id="emojiBar"></div>
+    `;
+    document.body.appendChild(ui);
+
+    Object.assign(ui.style,{
+      position:"fixed",
+      bottom:isMobile?"10px":"60px",
+      right:isMobile?"5%":"60px",
+      width:isMobile?"90%":"380px",
+      maxWidth:isMobile?"360px":undefined,
+      height:isMobile?"50%":"550px",
+      display:"flex",
+      flexDirection:"column",
+      zIndex:999999,
+      background:"#fff",
+      border:"3px solid #000",
+      borderRadius:"12px",
+      fontFamily:"Arial,sans-serif"
     });
+
+    const style = document.createElement("style");
+    style.textContent = `
+      #hdr{background:#2d8cff;color:#fff;padding:8px;font-weight:900;cursor:move;border-top-left-radius:10px;border-top-right-radius:10px;font-size:14px}
+      #hdr small{font-size:10px}
+      #x{float:right;cursor:pointer}
+      #msgs{flex:1;overflow:auto;background:#dbeaff;padding:6px;margin:2px;border-radius:4px;font-size:14px}
+      #bar{display:flex;margin:2px}
+      #inp{flex:1;padding:4px;border-radius:4px;border:1px solid #aaa;font-size:13px}
+      #send{background:#7a3cff;color:#fff;border:0;border-radius:4px;margin-left:4px;padding:4px 8px;cursor:pointer;font-weight:600}
+      #emojiBar{padding:4px 2px;margin:2px;background:#eef;margin-bottom:2px;border-radius:6px;display:flex;flex-wrap:wrap}
+      #emojiBar span{cursor:pointer;margin:2px;font-size:${isMobile?"22px":"18px"}}
+    `;
+    document.head.appendChild(style);
+
+    const msgs = ui.querySelector("#msgs"),
+          input = ui.querySelector("#inp"),
+          emojiBar = ui.querySelector("#emojiBar");
+
+    for(const k in emojis){
+      const e=document.createElement("span");
+      e.textContent = emojis[k];
+      e.onclick = ()=>{ input.value += emojis[k]; input.focus(); };
+      emojiBar.appendChild(e);
+    }
+
+    let drag=false, dx=0, dy=0;
+    ui.querySelector("#hdr").onmousedown=e=>{drag=true;dx=e.clientX-ui.offsetLeft;dy=e.clientY-ui.offsetTop};
+    document.onmousemove=e=>{if(drag){ui.style.left=e.clientX-dx+"px";ui.style.top=e.clientY-dy+"px"}};
+    document.onmouseup=()=>drag=false;
+
+    ui.querySelector("#x").onclick=()=>ui.remove();
+
+    const listen=()=>{msgs.innerHTML="";db.ref("rooms/"+currentRoom).limitToLast(100).on("child_added",snap=>{
+      const t=snap.val();
+      if(Date.now()-t.time>1800000){snap.ref.remove();return;}
+      const n=document.createElement("div");
+      n.innerHTML=`<b>${t.user}</b>: ${emojify(t.text)}`;
+      msgs.appendChild(n);
+      msgs.scrollTop=msgs.scrollHeight;
+    })};
+    listen();
+
+    const sendMsg=()=>{if(!input.value)return;db.ref("rooms/"+currentRoom).push({user:username,text:input.value,time:Date.now()});input.value=""};
+    ui.querySelector("#send").onclick=sendMsg;
+    input.onkeydown=e=>{if(e.key==="Enter")sendMsg()};
   }
-
-  // ====== SIGNALING ======
-  const socket = new WebSocket(SIGNAL_SERVER);
-
-  socket.onopen = () => {
-    chat.querySelector("#status").textContent = "🟢 Online";
-    socket.send(JSON.stringify({ join: myId }));
-  };
-
-  socket.onmessage = async e => {
-    const data = JSON.parse(e.data);
-    if (data.from === myId) return;
-
-    if (data.offer) {
-      const pc = new RTCPeerConnection({ iceServers: STUN_SERVERS });
-      peerConnections[data.from] = pc;
-
-      pc.ondatachannel = ev => {
-        dataChannels[data.from] = ev.channel;
-        ev.channel.onmessage = m => showMessage(JSON.parse(m.data));
-      };
-
-      await pc.setRemoteDescription(data.offer);
-      const answer = await pc.createAnswer();
-      await pc.setLocalDescription(answer);
-
-      socket.send(JSON.stringify({
-        answer,
-        to: data.from,
-        from: myId
-      }));
-    }
-
-    if (data.answer) {
-      await peerConnections[data.from]?.setRemoteDescription(data.answer);
-    }
-  };
-
-  // ====== INIT PEER ======
-  const pc = new RTCPeerConnection({ iceServers: STUN_SERVERS });
-  const dc = pc.createDataChannel("chat");
-
-  dataChannels[myId] = dc;
-  dc.onmessage = e => showMessage(JSON.parse(e.data));
-
-  pc.onicecandidate = e => {
-    if (e.candidate) {
-      socket.send(JSON.stringify({ ice: e.candidate, from: myId }));
-    }
-  };
-
-  pc.createOffer().then(offer => {
-    pc.setLocalDescription(offer);
-    socket.send(JSON.stringify({ offer, from: myId }));
-  });
-
-  // ====== INPUT ======
-  chat.querySelector("#send").onclick = () => {
-    if (!input.value) return;
-    broadcast({
-      user: username,
-      text: input.value,
-      time: Date.now(),
-      room: currentRoom
-    });
-    input.value = "";
-  };
-
-  input.onkeydown = e => e.key === "Enter" && chat.querySelector("#send").click();
-  chat.querySelector("#close").onclick = () => chat.remove();
 })();
