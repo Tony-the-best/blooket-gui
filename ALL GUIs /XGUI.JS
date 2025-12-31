@@ -82,7 +82,6 @@ function footer() {
     });
 };
 
-
 console.log("%c X-GUI LOADED! ENJOY! %c\n Created by Tony-the-best on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem");
 console.log("%c gui.js", "color: #0bc2cf; font-size: 1rem");
 console.log("%c Star the GitHub repo! %c https://github.com/Tony-the-best/blooket-gui", "color: #ffd000; font-size: 1rem", "color: #8000ff; font-size: 1rem");
