@@ -1066,7 +1066,7 @@ window.addEventListener("beforeunload", () => {
                         },
                     },{
                         name: "Learn Auto Answer",
-                        description: "As questions are answered, the system will remember the responses and automatically answer the correct answer if the same question is asked again.",
+                        description: "Toggles Learn Auto Answer on. This version works in the modes that auto answer doesnt work in, but can only learn answers if you've seen them before.",
                         type: "toggle",
                         enabled: false,
                         data: null,
@@ -1233,7 +1233,7 @@ window.addEventListener("beforeunload", () => {
                         },
                     },{
                         name: "Learn Highlight Answer",
-                        description: "As questions are answered, the system will remember the responses and automatically highlight the correct answer if the same question is asked again.",
+                        description: "Toggles Learn Highlight Answer on. This version works in the modes that highlight answers doesnt work in, but can only learn answers if you've seen them before.",
                         type: "toggle",
                         enabled: false,
                         data: null,
@@ -1402,7 +1402,7 @@ window.addEventListener("beforeunload", () => {
                         },
                     },{
                         name: "Learn Subtle Highlight Answers",
-                        description: "As questions are answered, the system will remember the responses and automatically subtly highlight the correct answer if the same question is asked again.",
+                        description: "Toggles auto answer on",
                         type: "toggle",
                         enabled: false,
                         data: null,
@@ -2177,6 +2177,112 @@ window.addEventListener("beforeunload", () => {
                 window.open(url, "_blank", "width=500,height=500,resizable=yes,scrollbars=yes,status=yes");
             }
         }, {
+                                   name: "Open Chat (Global)",
+description: "Opens The X-GUI Chat, Not Ingame",
+run: function () {
+    window.open(
+        "https://hack.chat/?xgui",
+        "_blank",
+        "width=500,height=500,resizable=yes,scrollbars=yes,status=yes"
+    );
+}
+
+        }, {
+
+
+
+        name: "Open Chat (Ingame)",
+description: "Opens X-GUI Ingame Chat",
+run: function () {
+
+    // Prevent duplicates
+    if (document.getElementById("xgui-gameid-modal")) return;
+
+    // Overlay
+    const overlay = document.createElement("div");
+    overlay.id = "xgui-gameid-modal";
+    Object.assign(overlay.style, {
+        position: "fixed",
+        inset: "0",
+        background: "rgba(0,0,0,0.6)",
+        backdropFilter: "blur(6px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: "999999"
+    });
+
+    // Modal
+    const modal = document.createElement("div");
+    Object.assign(modal.style, {
+        width: "320px",
+        padding: "20px",
+        borderRadius: "14px",
+        background: "linear-gradient(135deg,#0f1220,#141833)",
+        boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
+        fontFamily: "system-ui, sans-serif",
+        color: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        gap: "14px"
+    });
+
+    modal.innerHTML = `
+        <div style="font-size:16px;font-weight:600;">Enter Game ID</div>
+        <input id="xgui-gameid-input" placeholder="Game ID"
+            style="
+                padding:10px 12px;
+                border-radius:10px;
+                border:none;
+                outline:none;
+                background:#0b0e1a;
+                color:white;
+                font-size:14px;
+            ">
+        <button id="xgui-gameid-submit"
+            style="
+                padding:10px;
+                border-radius:10px;
+                border:none;
+                cursor:pointer;
+                font-weight:600;
+                background:linear-gradient(135deg,#6c7cff,#8a5cff);
+                color:white;
+            ">
+            Open Chat
+        </button>
+    `;
+
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+
+    const input = modal.querySelector("#xgui-gameid-input");
+    const button = modal.querySelector("#xgui-gameid-submit");
+
+    input.focus();
+
+    function submit() {
+        const gameId = input.value.trim();
+        if (!gameId) return;
+
+        window.open(
+            `https://hack.chat/?xgui(${gameId})`,
+            "_blank",
+            "width=500,height=500,resizable=yes,scrollbars=yes,status=yes"
+        );
+
+        overlay.remove();
+    }
+
+    button.onclick = submit;
+    input.addEventListener("keydown", e => e.key === "Enter" && submit());
+
+    // Click outside to close
+    overlay.addEventListener("click", e => {
+        if (e.target === overlay) overlay.remove();
+    });
+}
+}, {
                name: "Crash Game",
             description: "Crashes the host's game",
             run: function() {
@@ -9464,7 +9570,7 @@ setBtn.onclick = () => {
 
         codingCredits.append(createCredit("GUI Design + Creation", "05Konz+XullysFN"));
         codingCredits.append(createCredit("Anti-Suspend", "CryptoDude3+XullysFN"));
-        codingCredits.append(createCredit("Blooket Cheats", 'gliz <i class="fas fa-long-arrow-alt-right"></i> Minesraft2 <i class="fas fa-long-arrow-alt-right"></i> 05Konz <i class="fas fa-long-arrow-alt-right"></i> XullysFN <i class="fas fa-long-arrow-alt-right"></i> redhorse26'));
+        codingCredits.append(createCredit("Blooket Cheats", 'gliz <i class="fas fa-long-arrow-alt-right"></i> Minesraft2 <i class="fas fa-long-arrow-alt-right"></i> 05Konz <i class="fas fa-long-arrow-alt-right"></i> XullysFN'));
 
         const creditLinks = document.createElement("ul");
         creditLinks.className = classes.creditLinks;
