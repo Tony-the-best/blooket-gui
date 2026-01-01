@@ -105,7 +105,7 @@ console.log("%c Star the GitHub repo! %c https://github.com/Tony-the-best/blooke
     const timeProcessed = 1747005941679;
     let latestProcess = -1;
     const cheat = (async () => {
-        const versionName = "6.64x";
+        const versionName = "6.65x";
         const gui = document.createElement("div");
         Object.assign(gui.style, {
             top: window.innerHeight / 2 - 250 + "px",
@@ -1075,16 +1075,16 @@ window.addEventListener("beforeunload", () => {
                                 this.enabled = true;
     (() => {
     console.log("🧠 Learn Auto Answer v23 (UNBLOCKED)\n");
-    
+
 
     // 1. AUTOMATICALLY SKIP FEEDBACK
     function autoContinue() {
         const feedbackContainer = document.querySelector('[class*="feedbackContainer"]');
         const feedbackText = document.querySelector('[class*="feedbackText"]');
-        
+
         // Check if feedback is actually visible/present
         // We don't check body.textContent anymore because it lingers
-        const isFeedback = feedbackContainer || 
+        const isFeedback = feedbackContainer ||
                            (feedbackText && feedbackText.offsetParent !== null); // visible check
 
         if (isFeedback) {
@@ -1093,7 +1093,7 @@ window.addEventListener("beforeunload", () => {
             } else {
                 document.body.click();
             }
-            
+
             const event = new KeyboardEvent('keydown', {
                 key: 'Enter',
                 code: 'Enter',
@@ -1108,7 +1108,7 @@ window.addEventListener("beforeunload", () => {
     // 2. LEARN FROM VISIBLE ANSWERS
     function learn() {
         const wrappers = document.querySelectorAll('[class*="questionWrapper"]');
-        
+
         wrappers.forEach(wrapper => {
             const questionTextEl = wrapper.querySelector('[class*="questionText"]');
             if (!questionTextEl) return;
@@ -1116,8 +1116,8 @@ window.addEventListener("beforeunload", () => {
             const question = questionTextEl.textContent.trim();
 
             // --- CHECK 1: Multiple Choice ---
-            const correctBtn = Array.from(wrapper.querySelectorAll('[class*="answerButton"]')).find(btn => 
-                btn.innerHTML.includes('fa-check') || 
+            const correctBtn = Array.from(wrapper.querySelectorAll('[class*="answerButton"]')).find(btn =>
+                btn.innerHTML.includes('fa-check') ||
                 (btn.style.backgroundColor && btn.style.backgroundColor.includes('rgb(139, 220, 111)')) ||
                 (btn.querySelector('[class*="answerFront"]') && btn.querySelector('[class*="answerFront"]').style.backgroundColor.includes('rgb(139, 220, 111)'))
             );
@@ -1135,7 +1135,7 @@ window.addEventListener("beforeunload", () => {
 
             // --- CHECK 2: Typing Questions ---
             const rawTypingEls = Array.from(wrapper.querySelectorAll('[class*="typingFeedbackAnswer"]'));
-            
+
             // Filter carefully using getAttribute to avoid SVG crash
             const realTypingAnswers = rawTypingEls.filter(el => {
                 const cls = el.getAttribute('class') || "";
@@ -1144,7 +1144,7 @@ window.addEventListener("beforeunload", () => {
 
             if (realTypingAnswers.length > 0) {
                 const answer = realTypingAnswers[0].textContent.trim();
-                
+
                 if (!answerDatabase[question]) {
                     answerDatabase[question] = [answer];
                     console.log(`✓ Learned (Typing): "${question}" → "${answer}"`);
@@ -1161,9 +1161,9 @@ window.addEventListener("beforeunload", () => {
         // The active question is usually the last one, but verify it's not sliding out
         let activeWrapper = wrappers[wrappers.length - 1];
         if (activeWrapper.className.includes('slideOut') && wrappers.length > 1) {
-            // If the last one is sliding out, maybe we shouldn't act yet, 
-            // OR if there's another one, that's the slideIn? 
-            // Usually Blooket appends the NEW wrapper last. 
+            // If the last one is sliding out, maybe we shouldn't act yet,
+            // OR if there's another one, that's the slideIn?
+            // Usually Blooket appends the NEW wrapper last.
             // We'll stick to last for now, but remove the blocker.
         }
 
@@ -1192,14 +1192,14 @@ window.addEventListener("beforeunload", () => {
             // --- Typing Handling ---
             const input = activeWrapper.querySelector('input[class*="typingAnswerInput"]');
             if (input && !input.disabled) {
-                
+
                 // 1. Fill the box if it's wrong/empty
                 if (input.value !== knownAnswer) {
                     console.log(`🎯 Typing: "${knownAnswer}"`);
-                    
+
                     const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
                     nativeInputValueSetter.call(input, knownAnswer);
-                    
+
                     input.dispatchEvent(new Event('input', { bubbles: true }));
                     input.dispatchEvent(new Event('change', { bubbles: true }));
                 }
@@ -1247,8 +1247,8 @@ window.addEventListener("beforeunload", () => {
     function autoContinue() {
         const feedbackContainer = document.querySelector('[class*="feedbackContainer"]');
         const feedbackText = document.querySelector('[class*="feedbackText"]');
-        
-        const isFeedback = feedbackContainer || 
+
+        const isFeedback = feedbackContainer ||
                            (feedbackText && feedbackText.offsetParent !== null);
 
         if (isFeedback) {
@@ -1257,7 +1257,7 @@ window.addEventListener("beforeunload", () => {
             } else {
                 document.body.click();
             }
-            
+
             const event = new KeyboardEvent('keydown', {
                 key: 'Enter',
                 code: 'Enter',
@@ -1272,7 +1272,7 @@ window.addEventListener("beforeunload", () => {
     // 2. LEARN ANSWERS (Same robust logic as before)
     function learn() {
         const wrappers = document.querySelectorAll('[class*="questionWrapper"]');
-        
+
         wrappers.forEach(wrapper => {
             const questionTextEl = wrapper.querySelector('[class*="questionText"]');
             if (!questionTextEl) return;
@@ -1280,8 +1280,8 @@ window.addEventListener("beforeunload", () => {
             const question = questionTextEl.textContent.trim();
 
             // MC Check
-            const correctBtn = Array.from(wrapper.querySelectorAll('[class*="answerButton"]')).find(btn => 
-                btn.innerHTML.includes('fa-check') || 
+            const correctBtn = Array.from(wrapper.querySelectorAll('[class*="answerButton"]')).find(btn =>
+                btn.innerHTML.includes('fa-check') ||
                 (btn.style.backgroundColor && btn.style.backgroundColor.includes('rgb(139, 220, 111)')) ||
                 (btn.querySelector('[class*="answerFront"]') && btn.querySelector('[class*="answerFront"]').style.backgroundColor.includes('rgb(139, 220, 111)'))
             );
@@ -1321,7 +1321,7 @@ window.addEventListener("beforeunload", () => {
 
         // Active question is last wrapper
         const activeWrapper = wrappers[wrappers.length - 1];
-        
+
         // Don't highlight during feedback/slideOut
         if (activeWrapper.className.includes('slideOut')) return;
 
@@ -1343,7 +1343,7 @@ window.addEventListener("beforeunload", () => {
                     const text = textEl.textContent.trim();
                     const front = btn.querySelector('[class*="answerFront"]');
                     const back = btn.querySelector('[class*="answerBack"]');
-                    
+
                     // Define Colors
                     const correctColor = '#00ff00'; // Lime Green
                     const wrongColor = '#ff0000';   // Red
@@ -1371,7 +1371,7 @@ window.addEventListener("beforeunload", () => {
             if (input) {
                 // 1. Change Placeholder
                 input.setAttribute('placeholder', `ANSWER: ${knownAnswer}`);
-                
+
                 // 2. Change Subheader Text (Usually says "not case sensitive")
                 const subHeader = activeWrapper.querySelector('[class*="typingAnswerSubheader"]');
                 if (subHeader) {
@@ -1417,7 +1417,7 @@ window.addEventListener("beforeunload", () => {
         const feedbackContainer = document.querySelector('[class*="feedbackContainer"]');
         const feedbackText = document.querySelector('[class*="feedbackText"]');
 
-        const isFeedback = feedbackContainer || 
+        const isFeedback = feedbackContainer ||
                            (feedbackText && feedbackText.offsetParent !== null);
 
         if (isFeedback) {
@@ -1447,8 +1447,8 @@ window.addEventListener("beforeunload", () => {
 
             const question = questionTextEl.textContent.trim();
 
-            const correctBtn = Array.from(wrapper.querySelectorAll('[class*="answerButton"]')).find(btn => 
-                btn.innerHTML.includes('fa-check') || 
+            const correctBtn = Array.from(wrapper.querySelectorAll('[class*="answerButton"]')).find(btn =>
+                btn.innerHTML.includes('fa-check') ||
                 (btn.style.backgroundColor && btn.style.backgroundColor.includes('rgb(139, 220, 111)')) ||
                 (btn.querySelector('[class*="answerFront"]') && btn.querySelector('[class*="answerFront"]').style.backgroundColor.includes('rgb(139, 220, 111)'))
             );
@@ -1507,11 +1507,11 @@ window.addEventListener("beforeunload", () => {
                     if (back) {
                         if (text === knownAnswer) {
 
-                            back.style.display = 'none'; 
+                            back.style.display = 'none';
 
                         } else {
 
-                            back.style.display = ''; 
+                            back.style.display = '';
                         }
                     }
                 });
@@ -2195,92 +2195,37 @@ run: function () {
 description: "Opens X-GUI Ingame Chat",
 run: function () {
 
-    // Prevent duplicates
-    if (document.getElementById("xgui-gameid-modal")) return;
-
-    // Overlay
-    const overlay = document.createElement("div");
-    overlay.id = "xgui-gameid-modal";
-    Object.assign(overlay.style, {
-        position: "fixed",
-        inset: "0",
-        background: "rgba(0,0,0,0.6)",
-        backdropFilter: "blur(6px)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        zIndex: "999999"
-    });
-
-    // Modal
-    const modal = document.createElement("div");
-    Object.assign(modal.style, {
-        width: "320px",
-        padding: "20px",
-        borderRadius: "14px",
-        background: "linear-gradient(135deg,#0f1220,#141833)",
-        boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
-        fontFamily: "system-ui, sans-serif",
-        color: "#fff",
-        display: "flex",
-        flexDirection: "column",
-        gap: "14px"
-    });
-
-    modal.innerHTML = `
-        <div style="font-size:16px;font-weight:600;">Enter Game ID</div>
-        <input id="xgui-gameid-input" placeholder="Game ID"
-            style="
-                padding:10px 12px;
-                border-radius:10px;
-                border:none;
-                outline:none;
-                background:#0b0e1a;
-                color:white;
-                font-size:14px;
-            ">
-        <button id="xgui-gameid-submit"
-            style="
-                padding:10px;
-                border-radius:10px;
-                border:none;
-                cursor:pointer;
-                font-weight:600;
-                background:linear-gradient(135deg,#6c7cff,#8a5cff);
-                color:white;
-            ">
-            Open Chat
-        </button>
-    `;
-
-    overlay.appendChild(modal);
-    document.body.appendChild(overlay);
-
-    const input = modal.querySelector("#xgui-gameid-input");
-    const button = modal.querySelector("#xgui-gameid-submit");
-
-    input.focus();
-
-    function submit() {
-        const gameId = input.value.trim();
-        if (!gameId) return;
-
-        window.open(
-            `https://hack.chat/?xgui(${gameId})`,
-            "_blank",
-            "width=500,height=500,resizable=yes,scrollbars=yes,status=yes"
-        );
-
-        overlay.remove();
+(function () {
+    function getGameCode() {
+        const appDiv = document.querySelector('#app>div>div');
+        if (appDiv) {
+            const reactComponent = Object.values(appDiv)[1]?.children[0]?._owner;
+            return reactComponent?.stateNode?.props?.client?.hostId || null;
+        }
+        return null;
     }
 
-    button.onclick = submit;
-    input.addEventListener("keydown", e => e.key === "Enter" && submit());
+    function getGameCodeFromURL() {
+        const parts = window.location.pathname.split('/').filter(Boolean);
+        return parts.length >= 3 ? parts[0] : null;
+    }
 
-    // Click outside to close
-    overlay.addEventListener("click", e => {
-        if (e.target === overlay) overlay.remove();
-    });
+    let gameCode = getGameCode();
+
+    if (!gameCode) {
+        gameCode = getGameCodeFromURL();
+    }
+
+    const url = gameCode
+        ? "https://hack.chat/?xgui" + gameCode
+        : "https://hack.chat/?xgui";
+
+    window.open(
+        url,
+        "_blank",
+        "width=500,height=500,resizable=yes,scrollbars=yes,status=yes"
+   );
+})();
 }
 }, {
                name: "Crash Game",
@@ -2296,7 +2241,7 @@ run: function () {
                 })
             }
         }, {
-           
+
 
 
 
@@ -4905,7 +4850,7 @@ name: "Set Next Fish",
                             },
                         ],
                         run: function (weight) {
-                            
+
 (() => {
 
     let iframe = document.createElement('iframe');
@@ -4959,7 +4904,7 @@ name: "Set Next Fish",
                         },
                     }
                 ]
-            
+
             },
             pirate: {
                 img: "https://media.blooket.com/image/upload/v1695317816/Media/logos/PiratesVoyageLogoSmall.png",
@@ -5177,19 +5122,19 @@ name: "Set Next Fish",
 
             towers.forEach(tower => {
 
-                tower.cd = 0; 
-                tower.fullCd = 1; 
+                tower.cd = 0;
+                tower.fullCd = 1;
 
                 if (tower.stats) {
-                    tower.stats.dmg = 1e+10;      
+                    tower.stats.dmg = 1e+10;
 
-                    tower.stats.range = 1e+10;       
+                    tower.stats.range = 1e+10;
 
-                    tower.stats.fireRate = 1e+10;      
+                    tower.stats.fireRate = 1e+10;
 
-                    tower.stats.ghostDetect = true; 
+                    tower.stats.ghostDetect = true;
 
-                    tower.stats.maxTargets = 1e+10;  
+                    tower.stats.maxTargets = 1e+10;
 
                     if (tower.stats.numProjectiles) {
                         tower.stats.numProjectiles = 100;
@@ -5219,7 +5164,7 @@ name: "Set Next Fish",
                         name: "Kill Enemies",
                         description: "Kills all the enemies",
                         run: function () {
-(() => { 
+(() => {
     let iframe = document.createElement('iframe');
     document.body.append(iframe);
     window.alert = iframe.contentWindow.alert.bind(window);
@@ -5288,7 +5233,7 @@ name: "Set Next Fish",
                             },
                         ],
                         run: function (coins) {
-                            
+
 (() => {
 
     let iframe = document.createElement('iframe');
@@ -5507,7 +5452,7 @@ name: "Set Next Fish",
     window._processedEnemies = window._processedEnemies || new Set();
 
     if (window.Phaser.GameObjects?.Group?.prototype && !window._groupHooked) {
-        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate || 
+        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate ||
                               window.Phaser.GameObjects.Group.prototype.update;
 
         if (originalUpdate) {
@@ -5585,7 +5530,7 @@ name: "Set Next Fish",
     window._processedSpeeds = window._processedSpeeds || new Set();
 
     if (window.Phaser.GameObjects?.Group?.prototype && !window._groupHookedSpeed) {
-        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate || 
+        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate ||
                               window.Phaser.GameObjects.Group.prototype.update;
 
         if (originalUpdate) {
@@ -5663,7 +5608,7 @@ name: "Set Next Fish",
     window._processedInstantKill = window._processedInstantKill || new Set();
 
     if (window.Phaser.GameObjects?.Group?.prototype && !window._groupHookedInstantKill) {
-        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate || 
+        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate ||
                               window.Phaser.GameObjects.Group.prototype.update;
 
         if (originalUpdate) {
@@ -5794,7 +5739,7 @@ name: "Set Next Fish",
                     if (!window._sprites) window._sprites = new Set();
                     window._sprites.add(this);
 
-                    if (this.texture?.key?.includes('player') || 
+                    if (this.texture?.key?.includes('player') ||
                         this.texture?.key?.includes('blook') ||
                         this.name?.includes('player')) {
 
@@ -5912,7 +5857,7 @@ name: "Set Next Fish",
         console.log("⏳ Collecting groups first...");
 
         if (window.Phaser.GameObjects?.Group?.prototype) {
-            const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate || 
+            const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate ||
                                   window.Phaser.GameObjects.Group.prototype.update;
 
             if (originalUpdate && !window._groupHookedKill) {
@@ -6069,7 +6014,7 @@ name: "Set Next Fish",
     console.log("✓ Phaser", window.Phaser.VERSION);
 
     if (window.Phaser.GameObjects?.Group?.prototype && !window._groupHooked) {
-        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate || 
+        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate ||
                               window.Phaser.GameObjects.Group.prototype.update;
 
         if (originalUpdate) {
@@ -6122,9 +6067,9 @@ name: "Set Next Fish",
                         run: function () {
 (() => {
 
-    const SIZE_MULTIPLIER = 5; 
+    const SIZE_MULTIPLIER = 5;
 
-    const CHECK_INTERVAL = 3000; 
+    const CHECK_INTERVAL = 3000;
 
     if (window._autoOpAbilitiesRunning) {
         alert("❌ Script is already running!");
@@ -6146,7 +6091,7 @@ name: "Set Next Fish",
     window._originalWidths = window._originalWidths || {};
 
     if (window.Phaser.GameObjects?.Group?.prototype && !window._groupHooked) {
-        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate || 
+        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate ||
                               window.Phaser.GameObjects.Group.prototype.update;
 
         if (originalUpdate) {
@@ -6275,7 +6220,7 @@ name: "Set Next Fish",
     console.log("💎 Set XP\n");
 
     if (window.Phaser?.GameObjects?.Group?.prototype && !window._xpSceneHook) {
-        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate || 
+        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate ||
                               window.Phaser.GameObjects.Group.prototype.update;
 
         if (originalUpdate) {
@@ -6335,7 +6280,7 @@ name: "Set Next Fish",
             }
         }
 
-    }, 200); 
+    }, 200);
 
     setTimeout(() => {
         if (window._scene?.gameManager) return;
@@ -6356,7 +6301,7 @@ name: "Set Next Fish",
     console.log("❤️ Reset Health\n");
 
     if (window.Phaser?.GameObjects?.Group?.prototype && !window._healthHook) {
-        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate || 
+        const originalUpdate = window.Phaser.GameObjects.Group.prototype.preUpdate ||
                               window.Phaser.GameObjects.Group.prototype.update;
 
         if (originalUpdate) {
@@ -6718,9 +6663,9 @@ name: "Set Next Fish",
 
     const comp = searchDOM();
 
-    if (!comp) { 
-        alert("❌ Component not found!"); 
-        return; 
+    if (!comp) {
+        alert("❌ Component not found!");
+        return;
     }
 
     if (!comp.towers || comp.towers.length === 0) {
@@ -6791,16 +6736,16 @@ name: "Set Next Fish",
 
     const comp = searchDOM();
 
-    if (!comp) { 
-        alert("❌ Component not found! Make sure you are in-game."); 
-        return; 
+    if (!comp) {
+        alert("❌ Component not found! Make sure you are in-game.");
+        return;
     }
 
     if (comp.enemies) {
         const count = comp.enemies.length;
-        comp.enemies = []; 
+        comp.enemies = [];
 
-        comp.futureEnemies = []; 
+        comp.futureEnemies = [];
 
         if (comp.state && comp.state.enemies) {
             comp.setState({ enemies: [], futureEnemies: [] });
@@ -6854,9 +6799,9 @@ name: "Set Next Fish",
 
     const comp = searchDOM();
 
-    if (!comp) { 
-        alert("❌ Component not found! Make sure you are in-game."); 
-        return; 
+    if (!comp) {
+        alert("❌ Component not found! Make sure you are in-game.");
+        return;
     }
 
     if (comp.tiles && comp.tiles.length > 0) {
@@ -7115,53 +7060,7 @@ name: "Set Next Fish",
             })
         }, {
 
-            name: "Spam Attack Player",
-            description: "Attacks the player to make the game unplayable",
-            inputs: [{
-                name: "Player",
-                type: "options",
-                options() {
-                    let {
-                        stateNode: e
-                    } = Object.values(function e(t = document.querySelector("body>div")) {
-                            return Object.values(t)[1]?.children?.[0]?._owner.stateNode ? t : e(t.querySelector(":scope>div"))
-                        }
-                        ())[1].children[0]._owner;
-                    return new Promise(t => e.props.liveGameController._liveApp ? e.props.liveGameController.getDatabaseVal("c", e => e && t(Object.keys(e))) : t([]))
-                }
-            }],
-            type: "toggle",
-            enabled: false,
-            data: null,
-            run: function(name) {
-                if (this.enabled) {
-                    this.enabled = false;
-                    clearInterval(this.data);
-                    this.data = null;
-                } else {
-                    this.enabled = true;
 
-                    function reactHandler() {
-                        return Object.values(document.querySelector('body div[class*="_body"]'))[1].children[0]._owner;
-                    }
-
-                    var action = name + ":inspect";
-
-                    function spamAction() {
-                        var handler = reactHandler();
-                        if (handler && handler.stateNode && handler.stateNode.props && handler.stateNode.props.liveGameController) {
-                            handler.stateNode.props.liveGameController.setVal({
-                                id: handler.stateNode.props.client.hostId,
-                                path: "c/" + handler.stateNode.props.client.name + "/tat",
-                                val: action
-                            });
-                        }
-                    }
-
-                    this.data = setInterval(spamAction, 50);
-                }
-            }
-        }, {
                         name: "Stock Food",
                         description: "Stocks all food to 99 (Not usable in the shop)",
                         run: function () {
@@ -7173,7 +7072,7 @@ name: "Set Next Fish",
                         },
                     },
                 ],
-            },             
+            },
             solocafe: {
                 img: "https://media.blooket.com/image/upload/v1663212881/Media/logos/Cafe_Logo_Resized.png",
                 name: "Café (Solo)",
@@ -7211,7 +7110,7 @@ name: "Set Next Fish",
                 while (hook) {
                     if (index === 4) {
                         levelHook = hook;
-                        break; 
+                        break;
                     }
                     hook = hook.next;
                     index++;
@@ -7224,7 +7123,7 @@ name: "Set Next Fish",
                         const newLevels = { ...val };
                         Object.keys(newLevels).forEach(key => {
                             if (typeof newLevels[key] === 'number') {
-                                newLevels[key] = 5; 
+                                newLevels[key] = 5;
 
                             }
                         });
@@ -7267,12 +7166,12 @@ name: "Set Next Fish",
 
     const iframe = document.createElement('iframe');
     document.body.appendChild(iframe);
-    const prompt = iframe.contentWindow.prompt; 
+    const prompt = iframe.contentWindow.prompt;
 
     const amountStr = prompt("💸 ENTER DESIRED CASH AMOUNT:", "1000000");
     document.body.removeChild(iframe);
 
-    if (!amountStr) return; 
+    if (!amountStr) return;
 
     const newAmount = cafeCash;
 
@@ -7303,7 +7202,7 @@ name: "Set Next Fish",
 
                     if (typeof val === 'number' && hook.queue && hook.queue.dispatch) {
 
-                         if (depth > 5) { 
+                         if (depth > 5) {
 
                              if (!result) result = [];
                              result.push(hook.queue.dispatch);
@@ -7398,9 +7297,9 @@ name: "Set Next Fish",
         if (node.memoizedState) {
             let hook = node.memoizedState;
             let index = 0;
-            let hook4 = null; 
+            let hook4 = null;
 
-            let hook5 = null; 
+            let hook5 = null;
 
             while (hook) {
                 if (index === 4) hook4 = hook;
@@ -7453,7 +7352,7 @@ name: "Set Next Fish",
         console.log("%c[makeCustomersOP] Restarting loop...", "color: orange");
     }
 
-    const OP_VALUE = 99999999999999; 
+    const OP_VALUE = 99999999999999;
 
     function scanAndModify() {
         const root = document.querySelector('#app') || document.body;
@@ -7730,10 +7629,10 @@ name: "Set Next Fish",
 
         if (chosenBlook) {
 
-            const maxSlots = 10; 
+            const maxSlots = 10;
             const currentLen = targetObj.factories.length;
 
-            const newBlook = { ...chosenBlook, level: 4, bonus: 1 }; 
+            const newBlook = { ...chosenBlook, level: 4, bonus: 1 };
 
             if (currentLen < maxSlots) {
                 targetObj.factories.push(newBlook);
@@ -7874,9 +7773,9 @@ name: "Set Next Fish",
         let count = 0;
         foundFactories.forEach(factory => {
 
-            factory.cash = [1e9, 1e9, 1e9, 1e9, 1e9]; 
+            factory.cash = [1e9, 1e9, 1e9, 1e9, 1e9];
 
-            factory.time = [0.01, 0.01, 0.01, 0.01, 0.01]; 
+            factory.time = [0.01, 0.01, 0.01, 0.01, 0.01];
 
             count++;
         });
@@ -7902,7 +7801,7 @@ name: "Set Next Fish",
     console.log("🛡️ HUNTING GLITCH STRINGS IN MEMORY...");
 
     const glitchNames = [
-        "Lunch Break", "Ad Spam", "Error 37", "Night Time", "#LOL", 
+        "Lunch Break", "Ad Spam", "Error 37", "Night Time", "#LOL",
         "Jokester", "Slow Mo", "Dance Party", "Vortex", "Reverse", "Flip", "Micro"
     ];
 
@@ -7913,7 +7812,7 @@ name: "Set Next Fish",
         console.log(`%c🔥 FOUND GLITCH: "${obj[key]}" in key "${key}"`, "color: red; font-weight: bold;");
         console.log("   Object:", obj);
 
-        obj[key] = ""; 
+        obj[key] = "";
 
         if (Array.isArray(obj.ads)) obj.ads = [];
         if (Array.isArray(obj.hazards)) obj.hazards = [];
@@ -8034,7 +7933,7 @@ name: "Set Next Fish",
         };
 
         const arr = targetObj.factories;
-        arr.length = 0; 
+        arr.length = 0;
 
         for (let i = 0; i < 10; i++) {
 
@@ -8975,6 +8874,7 @@ changelogPage.appendChild(title);
 
 // Versions array (30 versions, highest to lowest)
 const versions = [
+  ["Version 6.65x", "ADDED CLIENT SIDED BLOOK EDITOR", "null"],
   ["Version 6.64x", "FIXED MOST GAMEMODES", "null"],
   ["Version 6.63x", "ADDED BLOOK EDITOR AND UPDATED MOBILE MODE", "null"],
   ["Version 6.62x", "ADDED ACCOUNT GENERATOR", "null"],
@@ -9541,6 +9441,276 @@ setBtn.onclick = () => {
 };
 //Written by Lil Skittle
 
+        // ================= CLIENT PAGE =================
+const clientPage = document.createElement("div");
+clientPage.className = classes.favoritesPage || "favoritesPage";
+
+Object.assign(clientPage.style, {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "30px",
+  padding: "40px 20px",
+  overflowY: "auto"
+});
+
+// ===== STYLE =====
+const clientStyle = document.createElement("style");
+clientStyle.textContent = `
+.clientCard {
+  background: var(--background2);
+  border-radius: 22px;
+  padding: 36px 34px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.clientLaunchBtn {
+  padding: 18px 46px;
+  border-radius: 18px;
+  font-size: 1.15em;
+  font-weight: 900;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg,#8f6bff,#5b4bdb);
+  box-shadow: 0 10px 30px rgba(120,100,255,.45);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.clientLaunchBtn:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.12);
+  box-shadow: 0 18px 45px rgba(120,100,255,.6);
+}
+
+.clientLaunchBtn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(120,100,255,.4);
+}
+`;
+document.head.appendChild(clientStyle);
+
+// ===== TITLE =====
+const clienttitle = document.createElement("div");
+clienttitle.innerHTML = `
+  <div style="
+    font-size:2.4em;
+    font-weight:900;
+    text-align:center;
+    color:#fff;
+    text-shadow:0 0 14px var(--highlight),0 0 28px var(--highlight2);
+  ">🧩 Client Sided Blook Menu</div>
+  <div style="opacity:.65;font-weight:600;text-align:center;margin-top:6px">
+    Customize your Blook to your style!
+  </div>
+`;
+
+// ===== CARD =====
+const card = document.createElement("div");
+card.className = "clientCard";
+
+// ===== LAUNCH BUTTON =====
+const launchBtn = document.createElement("button");
+launchBtn.className = "clientLaunchBtn";
+launchBtn.textContent = "Open Blook Customizer";
+
+launchBtn.onclick = () => {
+  if (document.getElementById("xgui-blook-customizer")) return;
+
+  // ===== DRAGGABLE CUSTOMIZER GUI =====
+  const gui = document.createElement("div");
+  gui.id = "xgui-blook-customizer";
+
+  Object.assign(gui.style, {
+    position: "fixed",
+    top: "120px",
+    left: "120px",
+    zIndex: "99999",
+    width: "250px",
+    padding: "12px",
+    background: "linear-gradient(180deg,#140f1f,#0b0812)",
+    color: "#eee",
+    borderRadius: "14px",
+    border: "1px solid #2a1f3d",
+    fontFamily: "Inter, system-ui, sans-serif",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    boxShadow: "0 12px 40px rgba(120,80,255,.25)",
+    userSelect: "none"
+  });
+
+  // ===== HEADER =====
+  const header = document.createElement("div");
+  Object.assign(header.style, {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: "28px",
+    padding: "0 4px",
+    fontWeight: "700",
+    fontSize: "13px",
+    color: "#cdbbff",
+    cursor: "grab"
+  });
+  header.textContent = "Blook Customizer";
+
+  const close = document.createElement("button");
+  close.textContent = "✕";
+  Object.assign(close.style, {
+    background: "none",
+    border: "none",
+    color: "#7f6ab8",
+    fontSize: "16px",
+    cursor: "pointer"
+  });
+  close.onclick = () => gui.remove();
+
+  header.appendChild(close);
+  gui.appendChild(header);
+
+  // ===== DRAG =====
+  let drag = false, dx = 0, dy = 0;
+  header.onmousedown = e => {
+    drag = true;
+    dx = e.clientX - gui.offsetLeft;
+    dy = e.clientY - gui.offsetTop;
+    header.style.cursor = "grabbing";
+  };
+  document.onmousemove = e => {
+    if (!drag) return;
+    gui.style.left = e.clientX - dx + "px";
+    gui.style.top = e.clientY - dy + "px";
+  };
+  document.onmouseup = () => {
+    drag = false;
+    header.style.cursor = "grab";
+  };
+
+  // ===== STACK =====
+  const stack = () => {
+    const d = document.createElement("div");
+    Object.assign(d.style, {
+      display: "flex",
+      flexDirection: "column",
+      gap: "6px"
+    });
+    return d;
+  };
+
+  // ===== INPUT =====
+  const input = ph => {
+    const i = document.createElement("input");
+    i.placeholder = ph;
+    Object.assign(i.style, {
+      width: "100%",
+      height: "36px",
+      padding: "0 12px",
+      background: "#0f0b18",
+      color: "#eee",
+      border: "1px solid #2e2450",
+      borderRadius: "10px",
+      fontSize: "12.5px",
+      boxSizing: "border-box",
+      outline: "none"
+    });
+    i.onfocus = () => i.style.borderColor = "#8b5cf6";
+    i.onblur  = () => i.style.borderColor = "#2e2450";
+    return i;
+  };
+
+  // ===== BUTTON =====
+  const btn = (t, bg) => {
+    const b = document.createElement("button");
+    b.textContent = t;
+    Object.assign(b.style, {
+      height: "38px",
+      borderRadius: "10px",
+      border: "none",
+      cursor: "pointer",
+      fontWeight: "700",
+      color: "#fff",
+      background: bg
+    });
+    b.onmouseenter = () => b.style.filter = "brightness(1.12)";
+    b.onmouseleave = () => b.style.filter = "none";
+    return b;
+  };
+
+  const custom = stack();
+  const imgIn = input("Blook Image URL");
+  const bgIn = input("Background URL");
+  const nameIn = input("Blook Name");
+  const rareIn = input("Rarity Name");
+  const colIn = input("Rarity Color");
+  custom.append(imgIn, bgIn, nameIn, rareIn, colIn);
+
+  const apply = btn("Apply Custom", "linear-gradient(135deg,#7c3aed,#5b21b6)");
+
+  const seedStack = stack();
+  const seedIn = input("Seed");
+  const load = btn("Load Seed", "linear-gradient(135deg,#22c55e,#16a34a)");
+  const get = btn("Get Seed", "#1a1626");
+  seedStack.append(seedIn, load, get);
+
+  gui.append(custom, apply, seedStack);
+  document.body.appendChild(gui);
+
+  // ===== LOGIC (UNCHANGED) =====
+  const updateBlook = (img, bg, name, rare, col) => {
+    const b = document.querySelector('img[class*="blook"]');
+    const g = document.querySelector('img[class*="_rightBackground"]');
+    const n = document.querySelector('div[style*="white-space: nowrap"]');
+    const r = document.querySelector('div[class*="Rarity"]');
+
+    if (b && img) b.src = img;
+    if (g && bg) g.src = bg;
+    if (r) {
+      if (rare) r.textContent = rare;
+      if (col) r.style.color = col;
+    }
+    if (n && name) {
+      n.textContent = name;
+      let s = 39;
+      n.style.fontSize = s + "px";
+      while (n.scrollWidth > n.parentElement.clientWidth && s > 1) {
+        n.style.fontSize = --s + "px";
+      }
+    }
+  };
+
+  apply.onclick = () =>
+    updateBlook(imgIn.value, bgIn.value, nameIn.value, rareIn.value, colIn.value);
+
+  get.onclick = () => {
+    const b = document.querySelector('img[class*="blook"]');
+    const g = document.querySelector('img[class*="_rightBackground"]');
+    const n = document.querySelector('div[style*="white-space: nowrap"]');
+    const r = document.querySelector('div[class*="Rarity"]');
+    seedIn.value = btoa(unescape(encodeURIComponent(JSON.stringify({
+      img: b?.src, bg: g?.src, name: n?.textContent,
+      rare: r?.textContent, col: r?.style.color
+    }))));
+  };
+
+  load.onclick = () => {
+    try {
+      const d = JSON.parse(decodeURIComponent(escape(atob(seedIn.value))));
+      updateBlook(d.img, d.bg, d.name, d.rare, d.col);
+    } catch { alert("Invalid Seed"); }
+  };
+};
+
+// ===== BUILD =====
+card.append(launchBtn);
+clientPage.append(clienttitle, card);
+
+
 
 
 
@@ -9634,38 +9804,33 @@ pingDisplay.id = "xguiPingDisplay";
 pingDisplay.style.cssText = `
     margin-top: 40px;
     text-align: center;
-    font-size: 1.4em; /* bigger text */
+    font-size: 1.4em;
     font-weight: 700;
     color: var(--highlight);
     font-family: Nunito, sans-serif;
     width: 100%;
 `;
 
-// Initial text
 pingDisplay.innerText = "Server Ping: Calculating...";
-
-// Assuming `creditsPage` is already defined, append to it
 creditsPage.appendChild(pingDisplay);
 
-// Function to ping a server
 function updatePing() {
-    const serverURL = "https://www.blooket.com"; // Correct URL to avoid the 301 redirect
     const start = performance.now();
+    const img = new Image();
 
-    fetch(serverURL, { method: "HEAD", cache: "no-cache" })
-        .then(() => {
-            const latency = Math.round(performance.now() - start);
-            pingDisplay.innerText = `Server Ping: ${latency} ms`;
-        })
-        .catch(() => {
-            pingDisplay.innerText = "Server Ping: Offline";
-        });
+    img.onload = () => {
+        const latency = Math.round(performance.now() - start);
+        pingDisplay.innerText = `Server Ping: ${latency} ms`;
+    };
+
+    img.onerror = () => {
+        pingDisplay.innerText = "Server Ping: Offline";
+    };
+
+    img.src = "https://ac.blooket.com/dashclassic/favicon.ico?cb=" + Date.now();
 }
 
-// Initial ping
 updatePing();
-
-// Update every 5 seconds
 setInterval(updatePing, 5000);
 
 
@@ -10425,6 +10590,24 @@ function createSidebarPath(name, iconKey, page) {
 
 </svg>
 `,
+      client: `
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24"
+     width="1em" height="1em"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+  <!-- wrench head -->
+  <path d="M14.5 3a4.5 4.5 0 00-3.8 6.8l-7.3 7.3a2 2 0 102.8 2.8l7.3-7.3A4.5 4.5 0 0019.5 7l-3 3-4-4 3-3z"/>
+
+</svg>
+`,
+
+
+
       editor: `
 <svg xmlns="http://www.w3.org/2000/svg"
      viewBox="0 0 24 24"
@@ -10574,6 +10757,7 @@ createSidebarPath("Logs", "terminal", logsPage);
 createSidebarPath("Settings", "cog", settingsPage);
 createSidebarPath("Alt Manager", "alt", altPage);
 createSidebarPath("Blook Editor", "editor", blookPage);
+createSidebarPath("Client Blooks", "client", clientPage);
 createSidebarPath("Changelog", "changelog", changelogPage);
 createSidebarPath("Info/Credits", "code", creditsPage);
 
