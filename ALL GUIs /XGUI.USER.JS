@@ -2137,6 +2137,56 @@ window.addEventListener("beforeunload", () => {
                 window.open(url, "_blank", "width=500,height=500,resizable=yes,scrollbars=yes,status=yes");
             }
         }, {
+                                   name: "Open Chat (Global)",
+description: "Opens The X-GUI Chat, Not Ingame",
+run: function () {
+    window.open(
+        "https://hack.chat/?xgui",
+        "_blank",
+        "width=500,height=500,resizable=yes,scrollbars=yes,status=yes"
+    );
+}
+
+        }, {
+
+
+
+        name: "Open Chat (Ingame)",
+description: "Opens X-GUI Ingame Chat",
+run: function () {
+
+(function () {
+    function getGameCode() {
+        const appDiv = document.querySelector('#app>div>div');
+        if (appDiv) {
+            const reactComponent = Object.values(appDiv)[1]?.children[0]?._owner;
+            return reactComponent?.stateNode?.props?.client?.hostId || null;
+        }
+        return null;
+    }
+
+    function getGameCodeFromURL() {
+        const parts = window.location.pathname.split('/').filter(Boolean);
+        return parts.length >= 3 ? parts[0] : null;
+    }
+
+    let gameCode = getGameCode();
+
+    if (!gameCode) {
+        gameCode = getGameCodeFromURL();
+    }
+
+    const url = gameCode
+        ? "https://hack.chat/?xgui" + gameCode
+        : "https://hack.chat/?xgui";
+
+    window.open(
+        url,
+        "_blank",
+        "width=500,height=500,resizable=yes,scrollbars=yes,status=yes"
+    );
+}
+}, {
                name: "Crash Game",
             description: "Crashes the host's game",
             run: function() {
