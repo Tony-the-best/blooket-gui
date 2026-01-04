@@ -1,28 +1,4 @@
-// ==UserScript==
-// @name         Anti-Ban
-// @namespace    https://github.com/Tony-the-best/blooket-gui
-// @version      1.2
-// @description  Prevents you from being banned in Blooket.
-// @author       @Tony-the-best
-// @match        *://dashboard.blooket.com/*
-// @match        *://play.blooket.com/*
-// @match        *://racing.blooket.com/*
-// @match        *://cryptohack.blooket.com/*
-// @match        *://towerdefense2.blooket.com/*
-// @match        *://factory.blooket.com/*
-// @match        *://fishingfrenzy.blooket.com/*
-// @match        *://monsterbrawl.blooket.com/*
-// @match        *://cafe.blooket.com/*
-// @match        *://blookrush.blooket.com/*
-// @match        *://classic.blooket.com/*
-// @match        *://towerdefense.blooket.com/*
-// @match        *://battleroyale.blooket.com/*
-// @match        *://piratesvoyage.blooket.com/*
-// @match        *://deceptivedinos.blooket.com/*
-// @match        *://goldquest.blooket.com/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=blooket.com
-// @grant        none
-// ==/UserScript==
+
 
 (function() {
     'use strict';
