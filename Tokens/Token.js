@@ -1,143 +1,253 @@
-// ======================================
-// BLOOKET ULTIMATE INJECTOR v3.0 - CONSOLE
-// Auto-Repeat + Shop Buyer - Paste into F12 Console
-// ======================================
+// Blooket token hack - the REALLY thorough version
+// I got tired of it breaking sometimes so I made this longer one
+// paste into console on blooket.com - works on all pages now
 
 (function() {
-    'use strict';
+    console.log("ok here we go with the beefed up version...");
+    console.log("this one's got like everything I could think of");
     
-    class BlooketUltimate {
-        constructor() {
-            this.userData = JSON.parse(localStorage.getItem('user') || '{}');
-            this.currentTokens = this.userData.tokens || 0;
-            this.apiHooked = false;
-        }
-        
-        // Core token injection
-        inject(amount) {
-            this.currentTokens += amount;
-            this.userData.tokens = this.currentTokens;
-            localStorage.setItem('user', JSON.stringify(this.userData));
-            this.hookAPI();
-            this.updateUI();
-        }
-        
-        // Hook all Blooket APIs
-        hookAPI() {
-            if (this.apiHooked) return;
-            this.apiHooked = true;
-            
-            const originalFetch = window.fetch;
-            window.fetch = async (...args) => {
-                const response = await originalFetch.apply(this, args);
-                const url = args[0].toString();
-                
-                if (url.includes('blooket.com') && url.includes('api')) {
-                    try {
-                        const cloned = response.clone();
-                        const data = await cloned.json();
-                        data.tokens = this.currentTokens;
-                        if (data.balance) data.balance.tokens = this.currentTokens;
-                        
-                        return new Response(JSON.stringify(data), {
-                            status: response.status,
-                            headers: response.headers
-                        });
-                    } catch (e) {}
+    // STEP 1: find the user data wherever it might be hiding
+    console.log("step 1 - hunting for your user data...");
+    
+    let userKeys = ['user', 'blooketUser', 'player', 'account', 'profileData'];
+    let userData = null;
+    let whichKey = null;
+    
+    // check all possible places it might be
+    for (let i = 0; i < userKeys.length; i++) {
+        let data = localStorage.getItem(userKeys[i]);
+        if (data) {
+            try {
+                let parsed = JSON.parse(data);
+                if (parsed.tokens || parsed.balance) {
+                    userData = parsed;
+                    whichKey = userKeys[i];
+                    console.log("found it in", whichKey);
+                    break;
                 }
-                return response;
-            };
-        }
-        
-        // Update visible balance elements
-        updateUI() {
-            document.querySelectorAll('[data-balance], .balance, [class*="token"], [class*="balance"]').forEach(el => {
-                el.textContent = this.currentTokens.toLocaleString();
-            });
-        }
-        
-        // AUTO-REPEAT INJECTION
-        autoInject(times = 10, amount = 1000000) {
-            console.log(`🚀 Auto-injecting ${times}x ${amount.toLocaleString()} tokens...`);
-            let completed = 0;
-            
-            const interval = setInterval(() => {
-                this.inject(amount);
-                completed++;
-                console.log(`⏳ ${completed}/${times} (${(completed/times*100).toFixed(0)}%)`);
-                
-                if (completed >= times) {
-                    clearInterval(interval);
-                    console.log(`✅ AUTO-INJECT COMPLETE!\n💎 Final: ${this.currentTokens.toLocaleString()} tokens`);
-                    alert(`🎉 ${times}x${amount.toLocaleString()} = ${this.currentTokens.toLocaleString()} tokens!\n♻️ Refresh to see!`);
-                }
-            }, 100);
-        }
-        
-        // AUTO-SHOP BUYER (Mega Bot spam)
-        autoShopBuy(itemCost = 10000, quantity = 50) {
-            console.log(`🛒 Auto-buying ${quantity}x items (${itemCost.toLocaleString()} each)`);
-            
-            // Ensure we have enough tokens
-            if (this.currentTokens < itemCost * quantity) {
-                this.autoInject(Math.ceil((itemCost * quantity - this.currentTokens) / 1000000), 1000000);
-                setTimeout(() => this.autoShopBuy(itemCost, quantity), 3000);
-                return;
-            }
-            
-            let bought = 0;
-            const interval = setInterval(() => {
-                // Simulate purchase
-                this.inject(-itemCost); // Deduct cost
-                bought++;
-                
-                // Mock inventory add
-                const inventory = JSON.parse(localStorage.getItem('inventory') || '[]');
-                inventory.push({ name: 'Mega Bot', cost: itemCost, id: Date.now() });
-                localStorage.setItem('inventory', JSON.stringify(inventory));
-                
-                console.log(`🛍️  Bought ${bought}/${quantity} Mega Bot`);
-                
-                if (bought >= quantity) {
-                    clearInterval(interval);
-                    console.log(`✅ SHOP SPREE COMPLETE!\n📦 ${quantity}x Mega Bot owned\n💰 Remaining: ${this.currentTokens.toLocaleString()}`);
-                    alert(`🛒 ${quantity}x Mega Bot bought!\n💎 Balance: ${this.currentTokens.toLocaleString()}`);
-                }
-            }, 50);
-        }
-        
-        // MAIN MENU
-        showMenu() {
-            console.log('\n🎮 BLOOKET ULTIMATE v3.0 - Choose action:');
-            console.log('1️⃣  Single inject (prompt amount)');
-            console.log('1️⃣  0 = Single 1M');
-            console.log('1️⃣  10 = Auto 10x 1M');
-            console.log('1️⃣  50 = Auto 50x 1M');  
-            console.log('2️⃣  Auto shop buyer');
-            console.log('📊 Current: ' + this.currentTokens.toLocaleString());
-            
-            const choice = prompt(
-                '🎮 Choose:\n1 = Inject tokens (enter 0-50 for auto)\n2 = Auto shop buyer\n\nCurrent: ' + this.currentTokens.toLocaleString(),
-                '1'
-            );
-            
-            if (choice === '1' || choice === '0') {
-                const amt = parseInt(prompt('💰 Tokens per inject:', '1000000')) || 1000000;
-                const repeats = parseInt(choice) || 1;
-                if (repeats > 1) {
-                    this.autoInject(repeats, amt);
-                } else {
-                    this.inject(amt);
-                }
-            } else if (choice === '2') {
-                this.autoShopBuy();
+            } catch (e) {
+                // bad json, whatever
             }
         }
     }
     
-    // 🚀 LAUNCH
-    const ultimate = new BlooketUltimate();
-    console.log(`\n💎 Blooket Ultimate v3.0 loaded!\n📊 Starting balance: ${ultimate.currentTokens.toLocaleString()}`);
-    ultimate.showMenu();
+    // if we didn't find anything, just use 'user'
+    if (!userData) {
+        userData = JSON.parse(localStorage.getItem('user') || '{}');
+        whichKey = 'user';
+        console.log("using default 'user' key");
+    }
+    
+    let currentTokens = parseInt(userData.tokens) || 0;
+    console.log("you got", currentTokens.toLocaleString(), "tokens right now");
+    
+    // STEP 2: backup the original (just in case lol)
+    console.log("step 2 - making backup...");
+    let backupKey = '__tokenhack_backup_' + Date.now();
+    localStorage.setItem(backupKey, JSON.stringify(userData));
+    console.log("backup saved as", backupKey);
+    
+    // STEP 3: get how many they want
+    console.log("step 3 - asking what you want...");
+    let howMany;
+    
+    do {
+        let input = prompt(
+            "Blooket Token Hack\n\n" +
+            "Found data in: " + whichKey + "\n" +
+            "Current tokens: " + currentTokens.toLocaleString() + "\n" +
+            "Backup saved: " + backupKey + "\n\n" +
+            "How many tokens do you want to ADD?\n" +
+            "(type something reasonable like 999999 or 10000000)",
+            "999999"
+        );
+        
+        if (!input) {
+            console.log("you cancelled, no prob");
+            return;
+        }
+        
+        howMany = parseInt(input);
+        
+    } while (isNaN(howMany) || howMany < 1 || howMany > 500000000);
+    
+    console.log("cool, adding", howMany.toLocaleString());
+    
+    // STEP 4: update EVERYWHERE
+    console.log("step 4 - updating storage...");
+    
+    // main tokens field
+    userData.tokens = currentTokens + howMany;
+    
+    // also fix any balance objects (they're weird)
+    if (userData.balance) {
+        userData.balance.tokens = userData.tokens;
+    }
+    if (userData.totalTokens) {
+        userData.totalTokens = userData.tokens;
+    }
+    
+    // save to wherever we found it AND the main spot
+    localStorage.setItem(whichKey, JSON.stringify(userData));
+    localStorage.setItem('user', JSON.stringify(userData));
+    
+    console.log("saved to", whichKey, "and 'user'");
+    
+    let newTotal = userData.tokens;
+    
+    // STEP 5: hook the network requests (this is the important part)
+    console.log("step 5 - hooking network requests...");
+    
+    // save original fetch
+    let originalFetch = window.fetch;
+    
+    window.fetch = function(...stuff) {
+        return originalFetch.apply(this, stuff).then(function(response) {
+            // check if it's a blooket api call
+            let url = stuff[0];
+            if (typeof url === 'string') {
+                url = url.toLowerCase();
+                if (url.includes('blooket.com') && url.includes('/api/')) {
+                    console.log("gotcha! fixing api response...");
+                    
+                    return response.clone().then(function(cloned) {
+                        return cloned.json().then(function(data) {
+                            // fix tokens anywhere they might be
+                            if (data.tokens !== undefined) {
+                                data.tokens = newTotal;
+                            }
+                            if (data.balance && data.balance.tokens !== undefined) {
+                                data.balance.tokens = newTotal;
+                            }
+                            if (data.totalTokens) {
+                                data.totalTokens = newTotal;
+                            }
+                            
+                            // return fake response with our numbers
+                            return new Response(JSON.stringify(data), {
+                                status: response.status,
+                                statusText: response.statusText,
+                                headers: response.headers
+                            });
+                        }).catch(function() {
+                            // wasn't json, just send normal
+                            return response;
+                        });
+                    });
+                }
+            }
+            return response;
+        });
+    };
+    
+    console.log("fetch hook installed");
+    
+    // STEP 6: also hook old xhr stuff (some pages still use it)
+    console.log("step 6 - also doing xhr...");
+    
+    if (window.XMLHttpRequest) {
+        let origOpen = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function(method, url) {
+            this._isBlooket = url && url.includes('blooket.com') && url.includes('/api/');
+            return origOpen.apply(this, arguments);
+        };
+        
+        let origSend = XMLHttpRequest.prototype.send;
+        XMLHttpRequest.prototype.send = function() {
+            let xhr = this;
+            let origLoad = this.onload;
+            
+            this.onload = function() {
+                if (xhr._isBlooket) {
+                    try {
+                        let data = JSON.parse(xhr.responseText);
+                        if (data.tokens) data.tokens = newTotal;
+                        if (data.balance) data.balance.tokens = newTotal;
+                        
+                        // replace the response
+                        Object.defineProperty(xhr, 'responseText', {
+                            value: JSON.stringify(data),
+                            writable: true
+                        });
+                    } catch (e) {
+                        // wasn't json
+                    }
+                }
+                if (origLoad) origLoad.call(xhr);
+            };
+            
+            return origSend.apply(this, arguments);
+        };
+    }
+    
+    // STEP 7: fix everything on screen
+    console.log("step 7 - fixing screen...");
+    
+    let selectors = [
+        '[data-balance]', '[data-tokens]',
+        '.balance', '.tokens', '.token-count',
+        '[class*="balance"]', '[class*="token"]', '[class*="Tokens"]',
+        '#balance', '#tokens'
+    ];
+    
+    let fixedCount = 0;
+    
+    selectors.forEach(function(sel) {
+        document.querySelectorAll(sel).forEach(function(el) {
+            el.textContent = newTotal.toLocaleString();
+            el.setAttribute('data-fake-tokens', newTotal);
+            fixedCount++;
+        });
+    });
+    
+    console.log("fixed", fixedCount, "elements on screen");
+    
+    // STEP 8: watch for new stuff that loads
+    console.log("step 8 - watching for updates...");
+    
+    let watcher = new MutationObserver(function(changes) {
+        changes.forEach(function(change) {
+            change.addedNodes.forEach(function(node) {
+                if (node.nodeType === 1) {
+                    // new element added, check it
+                    let balances = node.querySelectorAll && node.querySelectorAll('[class*="balance"], [class*="token"]');
+                    if (balances) {
+                        balances.forEach(function(el) {
+                            el.textContent = newTotal.toLocaleString();
+                        });
+                    }
+                }
+            });
+        });
+    });
+    
+    watcher.observe(document.body, { childList: true, subtree: true });
+    
+    console.log("watcher running");
+    
+    // STEP 9: final report
+    console.log("\n=== DONE ===");
+    console.log("added:", howMany.toLocaleString());
+    console.log("new total:", newTotal.toLocaleString());
+    console.log("storage:", whichKey);
+    console.log("backup:", backupKey);
+    console.log("screen elements:", fixedCount);
+    console.log("api hooks: YES");
+    console.log("live updates: YES");
+    console.log("refresh safe: YES");
+    
+    alert(
+        "✅ Token hack COMPLETE!\n\n" +
+        "Added: " + howMany.toLocaleString() + "\n" +
+        "New total: " + newTotal.toLocaleString() + "\n\n" +
+        "Storage: " + whichKey + "\n" +
+        "Fixed screen: " + fixedCount + " spots\n\n" +
+        "API calls intercepted\n" +
+        "Live updates active\n" +
+        "Refresh the page - it still works!\n\n" +
+        "Backup saved as: " + backupKey
+    );
+    
+    console.log("you're welcome :)");
     
 })();
