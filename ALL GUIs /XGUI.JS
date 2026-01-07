@@ -2,10 +2,6 @@
 
 
 
-
-
-
-
 /*!
 * sweetalert2 v11.26.17
 * Released under the MIT License.
@@ -39,7 +35,7 @@
 
 /* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
-console.log("%c X-GUI LOADED! ENJOY! %c\n Created by Tony-the-best on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem");
+console.log("%c X-GUI CLIENT LOADED! ENJOY! %c\n Created by Tony-the-best on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem");
 console.log("%c gui.js", "color: #0bc2cf; font-size: 1rem");
 console.log("%c Star the GitHub repo! %c https://github.com/Tony-the-best/blooket-gui", "color: #ffd000; font-size: 1rem", "color: #8000ff; font-size: 1rem");
 
@@ -61,7 +57,7 @@ console.log("%c Star the GitHub repo! %c https://github.com/Tony-the-best/blooke
     const timeProcessed = 1747005941679;
     let latestProcess = -1;
     const cheat = (async () => {
-        const versionName = "6.68x";
+        const versionName = "6.69x";
         const gui = document.createElement("div");
         Object.assign(gui.style, {
             top: window.innerHeight / 2 - 250 + "px",
@@ -1832,7 +1828,7 @@ button,
                         },
                     },
                     {
-name: "Free Plus!",
+                      name: "Free Folder!",
                             description: "Gives you plus perks like folders, does not unlock plus gamemodes! (ONLY WORKS ON THE ~MY SETS~ PAGE!)",
                             run: function () {
 
@@ -1857,11 +1853,12 @@ name: "Free Plus!",
         copying: false
     });
 
-    console.log("Plus unlocked!");
+    console.log("Folders unlocked!");
 
                         },
-                    },
-                    {
+                    },{
+
+
                         name: "Simulate Unlock",
                         description: "Simulates unlocking a certain blook",
                         inputs: [{
@@ -3680,14 +3677,15 @@ name: "Free Plus!",
                 ],
             },
 
-        custom_modules: {
-            img: "https://ac.blooket.com/marketassets/blooks/astronaut.svg",
-            name: "Custom Modules",
-            cheats: (() => {
-        // Return empty array if CSP is detected (it prevents modules from loading which causes the menu to break)
-        if (detectCSP()) {
-            return [];
-        }
+custom_modules: {
+    img: (() => {
+        const img = new Image();
+        img.src = "https://media.blooket.com/image/upload/c_limit,f_auto,h_250,fl_lossy,q_auto:low/v1767747712/mxquoykv3onnjgmw6zgl.png";
+        return img.src;
+    })(),
+    name: "Custom Modules",
+    cheats: (() => {
+        if (detectCSP()) return [];
 
         const customModules = CookieHelper.getCookie('custom_modules_list') || [];
         return customModules.map((module, index) => {
@@ -3721,7 +3719,8 @@ name: "Free Plus!",
             }
         });
     })()
-},
+}, // enhanced by skittle
+
 
             gold: {
                 img: new Date().getMonth() == 9 ? "https://media.blooket.com/image/upload/v1663212881/Media/logos/Candy_Quest_Logo.png" : "https://media.blooket.com/image/upload/v1663212881/Media/logos/Gold_Quest_Logo_Resized.png",
@@ -10951,6 +10950,7 @@ name: "Free Plus!",
 
         // Versions array (30 versions, highest to lowest)
         const versions = [
+            ["Version 6.69x", "ADDED CSP DETECTOR FOR CUSTOM MODULES, FIXED CUSTOM MODULES BUG, FIXED STORAGE ISSUE ADDED IMAGE FIX AND ADDED FREE PLUS!.", "null"],
             ["Version 6.68x", "ADDED SMOOTH ANIMATIONS FOR X-GUI, ADDED CUSTOM MODULES, AND NOW YOU CAN DRAG THE TOP AREA.", "null"],
             ["Version 6.67x", "ADDED SWAL ALERTS! TOGGLE, ADDED UNSUPPORTED GAMEMODE WARNINGS, AND MOVED SETTINGS MENU.", "null"],
             ["Version 6.66x", "ADDED SWAL ALERTS!", "null"],
