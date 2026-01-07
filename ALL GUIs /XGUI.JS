@@ -18,7 +18,7 @@
 /**
  * @license AGPL-3.0
  * Blooket Cheats
- * Copyright (C) 2023-present 05Konz/Xullys/redhorse26/landsedge
+ * Copyright (C) 2023-present 05Konz/Xullys/redhorse26/landsedge/Tony-the-best
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
@@ -39,9 +39,9 @@
 
 /* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
-console.log("%c X-GUI CLIENT LOADED! ENJOY! %c\n Created by Xullys on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem");
+console.log("%c X-GUI LOADED! ENJOY! %c\n Created by Tony-the-best on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem");
 console.log("%c gui.js", "color: #0bc2cf; font-size: 1rem");
-console.log("%c Star the GitHub repo! %c https://github.com/xgui-client/X-GUI-BLOOKET-CLIENT", "color: #ffd000; font-size: 1rem", "color: #8000ff; font-size: 1rem");
+console.log("%c Star the GitHub repo! %c https://github.com/Tony-the-best/blooket-gui", "color: #ffd000; font-size: 1rem", "color: #8000ff; font-size: 1rem");
 
 (() => {
     let iframe = document.querySelector("iframe");
