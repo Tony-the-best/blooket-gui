@@ -366,7 +366,7 @@ button,
 
         const version = document.createElement("span");
         version.className = classes.version;
-        version.innerText = "SHx xullys - X-GUI " + versionName;
+        version.innerText = "Tony-the-best - X-GUI " + versionName;
         guiTopBar.append(version);
 
         const style = document.createElement("style");
